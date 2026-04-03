@@ -30,7 +30,7 @@ cd "${PROJECT_ROOT}"
 # node -p always runs as CJS regardless of the project's "type": "module"
 PACKAGE_VERSION="$(node -p "require('./package.json').version")"
 TAG="v${PACKAGE_VERSION}"
-MAIN_FILE="dist/index.js"
+MAIN_FILE="dist/src/index.js"
 
 echo ""
 echo -e "${BLUE}╔════════════════════════════════════════════╗${NC}"
