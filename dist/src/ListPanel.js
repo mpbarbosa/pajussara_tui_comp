@@ -11,7 +11,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput } from 'ink';
-import { formatStepIcon, statusColor, formatDuration } from '../helpers';
+import { formatStepIcon, statusColor, formatDuration } from '../helpers/index.js';
 // ── Component ─────────────────────────────────────────────────────────────────
 /**
  * Scrollable, keyboard-navigable list panel for Ink TUI applications.
