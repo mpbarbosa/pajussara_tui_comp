@@ -25,6 +25,31 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+    },
+    "package-lock.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T19:56:28.895Z"
+    },
+    "package.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T19:56:28.895Z"
+    },
+    "tsconfig.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T19:56:28.895Z"
+    },
+    "scripts/colors.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T19:56:28.895Z"
+    },
+    "scripts/deploy.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T19:56:28.895Z"
     }
   }
 }
