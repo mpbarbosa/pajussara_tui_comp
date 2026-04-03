@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-03-07
 
 ### Added
+
 - `ListPanel` — scrollable, keyboard-navigable list panel for Ink TUI applications
   - Keyboard selection via ↑/↓ or k/j
   - Mouse click selection support
