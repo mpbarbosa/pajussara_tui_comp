@@ -9,6 +9,8 @@ jest.mock('../helpers', () => ({
 }));
 
 describe('ListPanel component', () => {
+  beforeEach(() => { jest.clearAllMocks(); });
+
   const baseItems: Record<string, ListItem> = {
     a: { id: 'a', name: 'Step A', status: 'done', duration: 5 },
     b: { id: 'b', name: 'Step B', status: 'running', duration: null },
