@@ -17,8 +17,17 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     expect(typeof api.StepsPanel).toBe('function');
   });
 
+  it('should export StreamViewer and wrapText', () => {
+    expect(typeof api.StreamViewer).toBe('function');
+    expect(typeof api.wrapText).toBe('function');
+    // Type exports (StreamState, StreamHistoryEntry, StreamViewerProps) are
+    // compile-time only; no runtime assertion needed.
+  });
+
   it('should not export unexpected symbols', () => {
     const exportedKeys = Object.keys(api);
-    expect(exportedKeys.sort()).toEqual(['ListPanel', 'StepsPanel'].sort());
+    expect(exportedKeys.sort()).toEqual(
+      ['ListPanel', 'StepsPanel', 'StreamViewer', 'wrapText'].sort()
+    );
   });
 });

@@ -50,6 +50,64 @@ A scrollable, keyboard-navigable list panel for Ink TUI applications.
 
 ---
 
+### StreamViewer
+
+A live AI token stream panel for Ink TUI applications.
+
+**Exported as:** `StreamViewer` (primary)
+
+#### Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `streamChunks` | `StreamState` | ✓ | — | Live and historical AI stream state |
+| `width` | `number` | ✓ | — | Render width in terminal columns |
+| `height` | `number` | | `12` | Render height in terminal rows (including border) |
+| `isFocused` | `boolean` | | `false` | Whether this panel has keyboard focus |
+
+#### Acceptance criteria
+
+- **AC-01** Renders `"Waiting for AI response…"` in the footer when no tokens
+  have been received (`tokenCount === 0`).
+- **AC-02** Displays `streamChunks.liveText` in the scrollable body area.
+- **AC-03** Shows `stepId` and `persona` in the header; falls back to `"—"` when
+  either field is `null`.
+- **AC-04** Shows token rate and count in the footer when `tokenCount > 0`.
+- **AC-05** When `isFocused` is `true`, appends `[/] nav history` to the footer.
+- **AC-06** Keyboard input is inactive when `isFocused` is `false`.
+- **AC-07** `[` navigates backward through `streamChunks.history`; `]` navigates
+  forward and returns to the live view when past the last entry.
+- **AC-08** Automatically resets to the live view when new live chunks arrive
+  (`streamChunks.liveText` changes).
+- **AC-09** Long body text is wrapped at `width − 2` characters; only the last
+  `height − 3` wrapped lines are visible (bottom-anchored scroll).
+- **AC-10** Border colour is `cyan` when focused, `gray` otherwise.
+
+### StreamState (data shape)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `liveText` | `string` | ✓ | Current in-progress token stream text |
+| `stepId` | `string \| null` | ✓ | ID of the active step |
+| `stepName` | `string \| null` | ✓ | Display name of the active step |
+| `persona` | `string \| null` | ✓ | AI persona name |
+| `tokenCount` | `number` | ✓ | Total tokens received so far |
+| `tokensPerSec` | `number` | ✓ | Current token throughput |
+| `history` | `StreamHistoryEntry[]` | ✓ | Completed step responses |
+
+### StreamHistoryEntry (data shape)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `stepId` | `string \| null` | ✓ | Step identifier |
+| `stepName` | `string \| null` | ✓ | Step display name |
+| `persona` | `string \| null` | ✓ | AI persona used |
+| `fullText` | `string` | ✓ | Complete AI response text |
+| `tokenCount` | `number` | ✓ | Total tokens in this response |
+| `tokensPerSec` | `number` | ✓ | Average token throughput |
+
+---
+
 ## Helpers
 
 ### formatStepIcon
