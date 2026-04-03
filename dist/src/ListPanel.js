@@ -18,7 +18,7 @@ import { formatStepIcon, statusColor, formatDuration } from '../helpers/index.js
  *
  * @param props - {@link ListPanelProps}
  */
-export function ListPanel({ items, currentItemId, width, height = 20, selectedItemId = null, onSelectItem, isFocused = false, title = 'STEPS', emptyText = 'Waiting for steps…', }) {
+export function ListPanel({ items = {}, currentItemId, width, height = 20, selectedItemId = null, onSelectItem, isFocused = false, title = 'STEPS', emptyText = 'Waiting for steps…', }) {
     const entries = Object.values(items);
     // Internal selection index for keyboard navigation
     const [selIdx, setSelIdx] = useState(() => {

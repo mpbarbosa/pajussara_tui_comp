@@ -183,31 +183,26 @@ export function StreamViewer({
         : 'Waiting for AI response…';
 
   // ── Render ─────────────────────────────────────────────────────────────────
-  return (
-    <Box flexDirection="column" width={width} borderStyle="single" borderColor={isFocused ? 'cyan' : 'gray'}>
-      {/* Header */}
-      <Box paddingX={1}>
-        <Text bold color={isLive ? 'cyan' : 'yellow'} wrap="truncate">
-          {headerText}
-        </Text>
-      </Box>
-
-      {/* Body lines */}
-      {visibleLines.map((line, i) => (
-        <Box key={i} paddingX={1}>
-          <Text wrap="truncate" dimColor={!line}>
-            {line || ' '}
-          </Text>
-        </Box>
-      ))}
-
-      {/* Footer */}
-      <Box paddingX={1}>
-        <Text color="gray" wrap="truncate">
-          {footerText}
-        </Text>
-      </Box>
-    </Box>
+  return React.createElement(
+    Box,
+    { flexDirection: 'column', width, borderStyle: 'single', borderColor: isFocused ? 'cyan' : 'gray' },
+    React.createElement(
+      Box,
+      { paddingX: 1 },
+      React.createElement(Text, { bold: true, color: isLive ? 'cyan' : 'yellow', wrap: 'truncate' }, headerText)
+    ),
+    ...visibleLines.map((line, i) =>
+      React.createElement(
+        Box,
+        { key: i, paddingX: 1 },
+        React.createElement(Text, { wrap: 'truncate', dimColor: !line }, line || ' ')
+      )
+    ),
+    React.createElement(
+      Box,
+      { paddingX: 1 },
+      React.createElement(Text, { color: 'gray', wrap: 'truncate' }, footerText)
+    )
   );
 }
 

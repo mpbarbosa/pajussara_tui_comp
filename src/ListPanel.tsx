@@ -54,7 +54,7 @@ export interface ListPanelProps {
  * @param props - {@link ListPanelProps}
  */
 export function ListPanel({
-  items,
+  items = {},
   currentItemId,
   width,
   height = 20,
