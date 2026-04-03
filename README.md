@@ -25,10 +25,10 @@ A scrollable, keyboard-navigable list panel for [Ink](https://github.com/vadimde
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `items` | `Record<string, ListItem>` | — | Map of item ID → item data |
-| `currentItemId` | `string \| null` | — | ID of the active/running item |
+| `currentItemId` | `string | null` | — | ID of the active/running item |
 | `width` | `number` | — | Panel width in terminal columns |
 | `height` | `number` | `20` | Panel height in terminal rows |
-| `selectedItemId` | `string \| null` | `null` | Externally-controlled selected item ID |
+| `selectedItemId` | `string | null` | `null` | Externally-controlled selected item ID |
 | `onSelectItem` | `(id: string) => void` | — | Fired when the user moves the selection |
 | `isFocused` | `boolean` | `false` | Whether this panel holds keyboard focus |
 | `title` | `string` | `'STEPS'` | Header label at the top of the panel |
