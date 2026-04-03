@@ -12,7 +12,7 @@
  * - Pure display logic only; all state lives in the parent (streamChunks prop)
  * - This component is the impure boundary (keyboard input)
  *
- * @version 1.0.0
+ * @version 1.1.6
  * @since 2026-03-10
  */
 import React from 'react';
