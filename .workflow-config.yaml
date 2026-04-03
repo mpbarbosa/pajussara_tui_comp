@@ -6,8 +6,10 @@ project:
   name: "pajussara_tui_comp"
   type: "typescript-library"
   kind: "typescript_library"   # Ink TUI component library (React/TypeScript)
-  version: "1.1.0"             # keep in sync with package.json
+  version: "1.1.1"             # keep in sync with package.json
   description: "Ink TUI Component Library in TypeScript"
+  target_users: "Developers building Ink-based TUIs in TypeScript"
+  design_system: "None — terminal UI only (Ink Box/Text primitives)"
 
 tech_stack:
   primary_language: "typescript"
@@ -104,7 +106,7 @@ workflow:
       enabled: true
       steps: [step_00, step_0b, step_01, step_02, step_02_5, step_03, step_04,
               step_05, step_06, step_07, step_08, step_09, step_10, step_13,
-              step_19, step_20, step_11, step_16, step_17, step_0f, step_12]
+              step_19, step_20, step_15, step_11, step_16, step_17, step_0f, step_12]
 
   steps:
 
@@ -288,6 +290,69 @@ workflow:
       dependencies: ["10"]
       ai_persona: "async_performance_engineer"
 
+    - id: "15"
+      name: "TUI UX Review"
+      file: "step_15_ux_analysis.js"
+      description: "TUI component UX review: keyboard navigation, focus management, visual hierarchy in terminal layouts"
+      phase: "quality"
+      enabled: true
+      can_parallelize: true
+      dependencies: ["10"]
+      ai_persona: "ux_analyst"
+      custom_prompt:
+        task: >
+          Review the ListPanel Ink TUI component for terminal-native UX quality.
+          Focus on keyboard navigation patterns, focus management, visual hierarchy
+          in the terminal, and developer experience of the component API.
+          Do NOT apply web/mobile heuristics (no WCAG pixel ratios, no touch targets,
+          no responsive breakpoints, no gesture support).
+        project_context:
+          source_files:
+            - "src/ListPanel.tsx"         # main component implementation
+            - "helpers/index.ts"          # formatStepIcon, statusColor, formatDuration
+            - "docs/usability-heuristics.md"  # Nielsen heuristics mapped to TUI features
+          component: "ListPanel"
+          props:
+            - "items: Record<string, ListItem> — map of id → item data"
+            - "currentItemId: string | null — active/running item (auto-scrolled into view)"
+            - "selectedItemId: string | null — externally-controlled cursor position"
+            - "onSelectItem: (id: string) => void — fires on ↑/↓/k/j keypress"
+            - "isFocused: boolean — enables useInput keyboard handler"
+            - "width / height: number — panel dimensions in terminal columns/rows"
+            - "title: string — header label (default: 'STEPS')"
+            - "emptyText: string — shown when items is empty"
+          status_values: "pending (○ gray) | running (● cyan) | done (✔ green) | error (✘ red)"
+          keyboard_shortcuts: "↑/k = up, ↓/j = down"
+        analysis_phase:
+          - "Keyboard Navigation: Are ↑/↓/k/j handled correctly? Does isFocused guard prevent key capture when unfocused?"
+          - "Focus Management: Does the border color change (white=focused, gray=unfocused) give sufficient affordance? Is the selected item cursor (>) visible?"
+          - "Scroll UX: Does the scroll window follow currentItemId reliably? Is the viewport height calculation (height - 2) sensible?"
+          - "Status Clarity: Are status icons (○ ● ✔ ✘) and colors (gray/cyan/green/red) unambiguous in a terminal?"
+          - "Empty State: Is emptyText shown clearly when items is empty?"
+          - "Duration Display: Is formatDuration output (e.g. '4.5s', '1m 4s') readable and correctly placed?"
+          - "Component API: Are prop names intention-revealing? Is the ListItem interface minimal and clear?"
+          - "Developer Experience: Is the onSelectItem callback contract obvious? Are defaults sensible?"
+        required_actions:
+          keyboard_ux:
+            - "Verify isFocused=false fully suppresses keyboard events (useInput { isActive: isFocused })"
+            - "Check that rapid ↑/↓ keystrokes don't cause cursor to jump past list boundaries"
+            - "Confirm selectedItemId clamps to valid range when items change"
+            - "Evaluate whether k/j vim-style shortcuts are documented in README"
+          focus_and_visual:
+            - "Assess border color distinction (white vs gray) — is it obvious enough in typical terminal themes?"
+            - "Verify the '>' cursor indicator is visible on all status/color combinations"
+            - "Check that selected item highlight (cyan) doesn't clash with 'running' status color (also cyan)"
+            - "Confirm title prop renders with sufficient visual weight to identify the panel"
+          scroll_and_layout:
+            - "Verify scroll window stays centered around currentItemId when list is long"
+            - "Test that height prop respects the -2 row budget for title and borders"
+            - "Confirm item name truncation prevents overflow beyond panel width"
+          api_quality:
+            - "Check that ListItem.id matches the key in the items Record (consistency)"
+            - "Verify onSelectItem is not called when isFocused=false"
+            - "Assess whether emptyText default ('Waiting for steps…') is generic enough"
+            - "Confirm StepsPanel deprecated alias is documented with @deprecated JSDoc"
+
     # -------------------------------------------------------------------------
     # FINALIZATION
     # -------------------------------------------------------------------------
@@ -345,15 +410,6 @@ workflow:
     # DISABLED — not applicable for this project
     # -------------------------------------------------------------------------
 
-    - id: "15"
-      name: "UX Analysis"
-      file: "step_15_ux_analysis.js"
-      description: "Web UI/UX analysis (web projects only)"
-      phase: "finalization"
-      enabled: false
-      dependencies: []
-      reason: "No web/HTML layer — terminal UI only (Ink/React)"
-
     - id: "14"
       name: "Prompt Engineering Review"
       file: "step_14_prompt_engineer.js"
@@ -392,8 +448,8 @@ workflow:
       description: "Test review, generation, and execution"
       steps: ["06", "07", "08"]
     quality:
-      description: "TypeScript quality, async/event handling, dependency audit"
-      steps: ["09", "10", "19", "20"]
+      description: "TypeScript quality, async/event handling, dependency audit, TUI UX review"
+      steps: ["09", "10", "19", "20", "15"]
     finalization:
       description: "Versioning, summary, artifact commit, git — ALWAYS RUNS LAST"
       steps: ["11", "16", "17", "0f", "12"]

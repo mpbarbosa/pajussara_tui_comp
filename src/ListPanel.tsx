@@ -6,7 +6,7 @@
  * The currently-active item is highlighted. Supports keyboard selection
  * (↑/↓ or k/j) and mouse click to select an item.
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @since 2026-03-07
  */
 
