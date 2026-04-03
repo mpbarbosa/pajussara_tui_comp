@@ -3,8 +3,8 @@
  * @module pajussara_tui_comp
  */
 
-export { ListPanel, ListPanel as StepsPanel } from './ListPanel';
-export type { ListItem, ListPanelProps } from './ListPanel';
+export { ListPanel, ListPanel as StepsPanel } from './ListPanel.js';
+export type { ListItem, ListPanelProps } from './ListPanel.js';
 
-export { StreamViewer, wrapText } from './StreamViewer';
-export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './StreamViewer';
+export { StreamViewer, wrapText } from './StreamViewer.js';
+export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './StreamViewer.js';

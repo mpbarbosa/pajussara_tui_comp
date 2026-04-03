@@ -12,7 +12,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput, Key } from 'ink';
-import { formatStepIcon, statusColor, formatDuration } from '../helpers';
+import { formatStepIcon, statusColor, formatDuration } from '../helpers/index.js';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
