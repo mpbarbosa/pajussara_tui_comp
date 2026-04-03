@@ -145,3 +145,7 @@ Formats milliseconds as a human-readable string. Pure function.
 | RI-012 | step_13 | MD007 list indentation violation in CHANGELOG.md | CHANGELOG.md | Low | done |
 | RI-013 | step_13 | MD029 ordered list item prefixes in CONTRIBUTING.md | CONTRIBUTING.md | Low | done |
 | RI-014 | step_13 | MD013 line-length violations across multiple docs | README.md, docs/* | Low | done |
+| RI-015 | step_05 | demo/ directory undocumented in ARCHITECTURE.md | docs/ARCHITECTURE.md | Medium | done |
+| RI-016 | step_09 | package-lock.json out of sync with ink@^6.8.0 | package-lock.json | Medium | done |
+| RI-017 | step_19 | @version 1.0.0 in StreamViewer.tsx outdated | src/StreamViewer.tsx | Low | done |
+| RI-018 | step_06 | Mocks not reset between tests in ListPanel.test.tsx | test/ListPanel.test.tsx | Low | done |
