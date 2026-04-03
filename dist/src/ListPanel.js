@@ -6,7 +6,7 @@
  * The currently-active item is highlighted. Supports keyboard selection
  * (↑/↓ or k/j) and mouse click to select an item.
  *
- * @version 1.1.2
+ * @version 1.1.4
  * @since 2026-03-07
  */
 import React, { useState, useEffect } from 'react';
