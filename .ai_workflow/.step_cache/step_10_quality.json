@@ -50,6 +50,11 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-04-03T19:56:28.895Z"
+    },
+    "src/StreamViewer.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T21:44:47.222Z"
     }
   }
 }
