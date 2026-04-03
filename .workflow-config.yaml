@@ -467,6 +467,15 @@ change_detection:
         - "chore: update ink dependency"
 
 # ============================================================================
+# DEPLOYMENT CONFIGURATION
+# ============================================================================
+
+deploy:
+  enabled: true
+  script: "scripts/deploy.sh"
+  description: "Build TypeScript, commit artifacts, tag release, push, and generate jsDelivr CDN URLs"
+
+# ============================================================================
 # CHANGE PATTERNS
 # ============================================================================
 
