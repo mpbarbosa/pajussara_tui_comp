@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "partitionIndex": 1,
+  "totalPartitions": 2,
+  "filesHash": "86e87fa3",
+  "partitionLabels": [
+    "helpers, src, .eslintrc.json, jest.config.json",
+    "package-lock.json, package.json, tsconfig.json"
+  ],
+  "updatedAt": "2026-04-03T15:50:58.531Z"
+}

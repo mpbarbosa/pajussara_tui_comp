@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "fileScores": {
+    "helpers/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+    },
+    "src/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+    },
+    "src/ListPanel.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+    },
+    ".eslintrc.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+    },
+    "jest.config.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+    }
+  }
+}
