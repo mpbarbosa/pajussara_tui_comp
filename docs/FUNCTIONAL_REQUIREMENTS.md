@@ -81,3 +81,9 @@ Formats milliseconds as a human-readable string. Pure function.
 | RI-006 | step_0b | docs/ARCHITECTURE.md missing | docs/ARCHITECTURE.md | Medium | done |
 | RI-007 | step_05 | docs/FUNCTIONAL_REQUIREMENTS.md missing | docs/FUNCTIONAL_REQUIREMENTS.md | Medium | done |
 | RI-008 | step_13 | CHANGELOG.md markdown-lint violations | CHANGELOG.md | Low | done |
+| RI-009 | step_06 | Type-only runtime test is a no-op in index.test.ts | test/index.test.ts | Medium | done |
+| RI-010 | step_06 | DRY violations in ListPanel.test.tsx inflate test code | test/ListPanel.test.tsx | Low | done |
+| RI-011 | step_13 | MD056 table column mismatch in README.md | README.md | Medium | done |
+| RI-012 | step_13 | MD007 list indentation violation in CHANGELOG.md | CHANGELOG.md | Low | done |
+| RI-013 | step_13 | MD029 ordered list item prefixes in CONTRIBUTING.md | CONTRIBUTING.md | Low | done |
+| RI-014 | step_13 | MD013 line-length violations across multiple docs | README.md, docs/* | Low | done |
