@@ -17,6 +17,7 @@ pajussara_tui_comp/
 ├── dist/             # Compiled output (tracked for jsDelivr CDN delivery)
 │   └── src/          # Mirrors src/ structure after tsc compilation
 ├── docs/             # Project documentation
+├── demo/             # Runnable usage examples (e.g. listpanel-cities.tsx)
 ├── scripts/          # Shell scripts (deploy.sh, colors.sh)
 └── .github/          # GitHub Actions workflows and Copilot skills
 ```
