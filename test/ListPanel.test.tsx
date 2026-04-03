@@ -15,10 +15,18 @@ describe('ListPanel component', () => {
     c: { id: 'c', name: 'Step C', status: 'pending' },
   };
 
-  it('renders with default props and items', () => {
-    const { lastFrame } = render(
-      <ListPanel items={baseItems} currentItemId="b" width={40} />
+  const renderPanel = (overrides: Partial<ListPanelProps> = {}) =>
+    render(
+      <ListPanel
+        items={baseItems}
+        currentItemId="b"
+        width={40}
+        {...overrides}
+      />
     );
+
+  it('renders with default props and items', () => {
+    const { lastFrame } = renderPanel();
     const output = lastFrame();
     expect(output).toContain('STEPS');
     expect(output).toContain('[done]');
@@ -32,36 +40,24 @@ describe('ListPanel component', () => {
   });
 
   it('renders empty state when items is empty', () => {
-    const { lastFrame } = render(
-      <ListPanel items={{}} currentItemId={null} width={30} />
-    );
+    const { lastFrame } = renderPanel({ items: {}, currentItemId: null, width: 30 });
     expect(lastFrame()).toContain('Waiting for steps…');
   });
 
   it('renders with custom title and emptyText', () => {
-    const { lastFrame } = render(
-      <ListPanel
-        items={{}}
-        currentItemId={null}
-        width={30}
-        title="MY PANEL"
-        emptyText="No items!"
-      />
-    );
+    const { lastFrame } = renderPanel({
+      items: {},
+      currentItemId: null,
+      width: 30,
+      title: 'MY PANEL',
+      emptyText: 'No items!',
+    });
     expect(lastFrame()).toContain('MY PANEL');
     expect(lastFrame()).toContain('No items!');
   });
 
   it('highlights the current item and selected item', () => {
-    const { lastFrame } = render(
-      <ListPanel
-        items={baseItems}
-        currentItemId="a"
-        width={40}
-        isFocused={true}
-        selectedItemId="b"
-      />
-    );
+    const { lastFrame } = renderPanel({ currentItemId: 'a', isFocused: true, selectedItemId: 'b' });
     const output = lastFrame();
     expect(output).toContain('Step A');
     expect(output).toContain('Step B');
@@ -71,15 +67,7 @@ describe('ListPanel component', () => {
 
   it('handles keyboard navigation (down/up arrow and j/k)', () => {
     const onSelectItem = jest.fn();
-    const { stdin, lastFrame } = render(
-      <ListPanel
-        items={baseItems}
-        currentItemId="a"
-        width={40}
-        isFocused={true}
-        onSelectItem={onSelectItem}
-      />
-    );
+    const { stdin, lastFrame } = renderPanel({ currentItemId: 'a', isFocused: true, onSelectItem });
     // Initial selection is first item
     expect(lastFrame()).toMatch(/>.*Step A/);
 
@@ -113,17 +101,15 @@ describe('ListPanel component', () => {
   });
 
   it('does not crash if items is empty and keys are pressed', () => {
-    const { stdin } = render(
-      <ListPanel items={{}} currentItemId={null} width={30} isFocused={true} />
-    );
-    act(() => {
-      stdin.write('j');
-      stdin.write('k');
-      stdin.write('\x1B[A');
-      stdin.write('\x1B[B');
-    });
-    // No error thrown
-    expect(true).toBe(true);
+    const { stdin } = renderPanel({ items: {}, currentItemId: null, isFocused: true });
+    expect(() => {
+      act(() => {
+        stdin.write('j');
+        stdin.write('k');
+        stdin.write('\x1B[A');
+        stdin.write('\x1B[B');
+      });
+    }).not.toThrow();
   });
 
   it('truncates long item names and pads short ones', () => {
@@ -131,9 +117,7 @@ describe('ListPanel component', () => {
       a: { id: 'a', name: 'A'.repeat(50), status: 'done', duration: 1 },
       b: { id: 'b', name: 'Short', status: 'pending' },
     };
-    const { lastFrame } = render(
-      <ListPanel items={items} currentItemId="a" width={20} />
-    );
+    const { lastFrame } = renderPanel({ items, currentItemId: 'a', width: 20 });
     const output = lastFrame();
     expect(output).toMatch(/A{1,}…/); // truncated
     expect(output).toMatch(/Short\s+/); // padded
@@ -144,9 +128,7 @@ describe('ListPanel component', () => {
     for (let i = 0; i < 30; i++) {
       items[`id${i}`] = { id: `id${i}`, name: `Step ${i}`, status: 'pending' };
     }
-    const { lastFrame } = render(
-      <ListPanel items={items} currentItemId="id25" width={40} height={10} />
-    );
+    const { lastFrame } = renderPanel({ items, currentItemId: 'id25', width: 40, height: 10 });
     const output = lastFrame();
     // Only 8 visible (height - 2)
     let count = 0;
@@ -158,15 +140,7 @@ describe('ListPanel component', () => {
   });
 
   it('syncs selection index with selectedItemId prop changes', () => {
-    const { rerender, lastFrame } = render(
-      <ListPanel
-        items={baseItems}
-        currentItemId="a"
-        width={40}
-        isFocused={true}
-        selectedItemId="b"
-      />
-    );
+    const { rerender, lastFrame } = renderPanel({ currentItemId: 'a', isFocused: true, selectedItemId: 'b' });
     expect(lastFrame()).toMatch(/>.*Step B/);
     rerender(
       <ListPanel

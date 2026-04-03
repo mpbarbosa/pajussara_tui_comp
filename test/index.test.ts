@@ -8,11 +8,13 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
   });
 
   it('should export ListItem and ListPanelProps types', () => {
-    // Type-only test: compile-time only, so we do a runtime check for presence in type exports
-    // This is a no-op at runtime, but ensures the named exports exist
+    // TypeScript compilation validates that these named type exports exist;
+    // the assignments below fail at compile time if the types are removed.
     type _ListItem = api.ListItem;
     type _ListPanelProps = api.ListPanelProps;
-    expect(true).toBe(true); // Dummy assertion for type-only test
+    // Runtime: assert the module is an object with the expected function exports
+    expect(typeof api.ListPanel).toBe('function');
+    expect(typeof api.StepsPanel).toBe('function');
   });
 
   it('should not export unexpected symbols', () => {
