@@ -9,7 +9,7 @@
     "src/index.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-04-03T15:50:58.530Z"
+      "lastAnalyzed": "2026-04-04T15:12:27.088Z"
     },
     "src/ListPanel.tsx": {
       "score": 100,
@@ -60,6 +60,21 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-04-03T22:06:43.802Z"
+    },
+    "src/types.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-04T15:12:27.088Z"
+    },
+    "src/status_badge.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-04T15:12:27.088Z"
+    },
+    "demo/listpanel-cities2.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-04T15:12:27.088Z"
     }
   }
 }
