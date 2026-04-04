@@ -4,4 +4,5 @@
  */
 export { ListPanel, ListPanel as StepsPanel } from './ListPanel.js';
 export { StreamViewer, wrapText } from './StreamViewer.js';
+export { StatusBadge } from './status_badge.js';
 //# sourceMappingURL=index.js.map

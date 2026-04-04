@@ -6,4 +6,7 @@ export { ListPanel, ListPanel as StepsPanel } from './ListPanel.js';
 export type { ListItem, ListPanelProps } from './ListPanel.js';
 export { StreamViewer, wrapText } from './StreamViewer.js';
 export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './StreamViewer.js';
+export { StatusBadge } from './status_badge.js';
+export type { StatusBadgeProps } from './status_badge.js';
+export type { PanelStatus } from './types.js';
 //# sourceMappingURL=index.d.ts.map
