@@ -1,0 +1,137 @@
+# Step 22 Report
+
+**Step:** Accessibility Review
+**Status:** ✅
+**Timestamp:** 4/4/2026, 12:10:59 PM
+
+---
+
+## Summary
+
+## Accessibility Review
+
+### Heuristic Pre-scan
+| Indicator | Count |
+| --- | --- |
+| Images missing alt attribute (WCAG 1.1.1) | 0 |
+| Keyboard accessibility risks (onclick/tabindex=-1) | 0 |
+| Interactive elements missing ARIA labels (WCAG 4.1.2) | 0 |
+| Animations without reduced-motion guard (WCAG 2.3.3) | 0 |
+| **Total heuristic signals** | **0** |
+
+### AI Analysis
+
+**Web Accessibility Review: pajussara_tui_comp**
+
+---
+
+## Perceivable
+
+### 1. Image Alt Text (1.1.1)
+- **All files**: No `<img>` elements or image rendering detected.  
+  **Status**: No issues detected.
+
+### 2. Colour Contrast (1.4.3, 1.4.11)
+- **All files**: Uses Ink’s color props (e.g., `color="white"`, `color="green"`, `color="yellow"`). Actual contrast depends on terminal theme, but no custom color codes or inline styles found.
+  - **Severity**: Minor (cannot guarantee 4.5:1 contrast in all terminals).
+  - **Remediation**: Document in README that color contrast depends on user’s terminal theme; recommend high-contrast themes for accessibility.
+
+### 3. Semantic Structure (1.3.1, 1.3.2)
+- **All files**: Uses Ink’s `<Box>` and `<Text>`, which map to semantic groupings in TUI, but not to HTML landmarks or headings.
+  - **Severity**: Minor
+  - **Remediation**: For web/HTML output, use semantic elements (`<main>`, `<nav>`, `<h1>`, etc.). For TUI, document keyboard navigation and structure.
+
+---
+
+## Operable
+
+### 4. Keyboard Accessibility (2.1.1, 2.4.3, 2.4.7)
+- **src/ListPanel.tsx**:  
+  - Keyboard navigation (↑/↓, j/k) is supported and focus is managed via `isFocused` prop.
+  - No explicit focus indicator (e.g., visible highlight for selected/focused item).
+    - **Severity**: Major  
+    - **Remediation**: Ensure the selected item is visually distinct (e.g., prefix with `>` or use bold/inverse color). Example:
+      ```tsx
+      <Text inverse={isFocused && item.id === selectedItemId}>...</Text>
+      ```
+- **src/StreamViewer.tsx**:  
+  - History navigation via `[` and `]` keys; focus managed via `isFocused`.
+  - No explicit focus indicator for the panel itself.
+    - **Severity**: Minor  
+    - **Remediation**: Add a visible border or color change when `isFocused` is true.
+
+### 5. Touch Target Size (2.5.5)
+- **All files**: TUI/CLI only; no mouse/touch interaction.  
+  **Status**: No issues detected.
+
+---
+
+## Understandable
+
+### 6. Status Announcements (4.1.3, 3.3.1)
+- **src/status_badge.tsx**:  
+  - Status changes (loading, done, error) are visually indicated but not announced via ARIA live regions (not possible in TUI).
+    - **Severity**: Minor  
+    - **Remediation**: For web/HTML, wrap status in `<div aria-live="polite">`. For TUI, consider printing status changes as separate lines for screen reader compatibility.
+
+---
+
+## Robust
+
+### 7. ARIA Attributes & Roles (4.1.2)
+- **All files**: No ARIA attributes or roles present (not supported in Ink TUI).
+  - **Severity**: Minor  
+  - **Remediation**: If ported to web, add appropriate roles (e.g., `role="listbox"`, `aria-selected`, `aria-label`).
+
+---
+
+## File-by-File Summary
+
+### demo/listpanel-cities.tsx
+- **No issues detected** (TUI, keyboard navigation present, no images).
+
+### demo/listpanel-cities2.tsx
+- **No issues detected** (TUI, keyboard navigation present, no images).
+
+### src/ListPanel.tsx
+- **Major**: No explicit visible focus indicator for selected/focused item (2.4.7).
+- **Minor**: No ARIA roles/attributes (4.1.2).
+
+### src/StreamViewer.tsx
+- **Minor**: No visible focus indicator for panel (2.4.7).
+- **Minor**: No ARIA roles/attributes (4.1.2).
+
+### src/status_badge.tsx
+- **Minor**: Status changes not announced for screen readers (4.1.3).
+
+### test/*.test.tsx
+- **No issues detected** (test files, not user-facing).
+
+---
+
+## Summary Table
+
+| Principle    | File(s)                | WCAG | Severity | Issue/Remediation |
+|--------------|------------------------|------|----------|-------------------|
+| Perceivable  | All                    | 1.4.3, 1.4.11 | Minor | Terminal color contrast not guaranteed; document in README |
+| Operable     | src/ListPanel.tsx      | 2.4.7 | Major    | Add visible focus indicator for selected item |
+| Operable     | src/StreamViewer.tsx   | 2.4.7 | Minor    | Add visible focus indicator for panel |
+| Robust       | src/ListPanel.tsx, src/StreamViewer.tsx | 4.1.2 | Minor | Add ARIA roles/attributes if ported to web |
+| Understandable | src/status_badge.tsx | 4.1.3 | Minor    | Announce status changes for screen readers (web only) |
+
+---
+
+**Note:**  
+- No image, alt text, or touch target issues found.
+- No reduced-motion issues (no CSS animations detected).
+- For TUI, some web-specific ARIA/landmark requirements are not applicable but should be considered if ported to web.
+
+Let me know if you want concrete code examples for any specific remediation.
+
+## Details
+
+No details available
+
+---
+
+Generated by AI Workflow Automation
