@@ -27,7 +27,15 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
   it('should not export unexpected symbols', () => {
     const exportedKeys = Object.keys(api);
     expect(exportedKeys.sort()).toEqual(
-      ['ListPanel', 'StepsPanel', 'StreamViewer', 'wrapText'].sort()
+      [
+        'ListPanel',
+        'StepsPanel',
+        'StreamViewer',
+        'wrapText',
+        'StatusBadge',
+        'Chronometer',
+        'StatusChronometer',
+      ].sort()
     );
   });
 });

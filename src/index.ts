@@ -12,3 +12,9 @@ export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './Strea
 export { StatusBadge } from './status_badge.js';
 export type { StatusBadgeProps } from './status_badge.js';
 export type { PanelStatus } from './types.js';
+
+export { Chronometer } from './Chronometer.js';
+export type { ChronometerProps, ChronometerStatus } from './Chronometer.js';
+
+export { StatusChronometer } from './status_chronometer.js';
+export type { StatusChronometerProps } from './status_chronometer.js';

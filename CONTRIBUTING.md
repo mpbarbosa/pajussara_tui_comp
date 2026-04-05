@@ -38,6 +38,55 @@ Thank you for your interest in contributing!
 - Components accept `isFocused?: boolean` and pass `{ isActive: isFocused }`
   to `useInput`.
 
+## JSDoc conventions
+
+Every source file must open with a header block in this exact shape:
+
+```ts
+/**
+ * @fileoverview <one-line description>
+ * @module components/<ComponentName>   // or "helpers", "types"
+ *
+ * <longer description paragraph(s)>
+ *
+ * @version x.y.z
+ * @since YYYY-MM-DD
+ */
+```
+
+`@module` naming:
+- Components → `components/<ComponentName>` (PascalCase filename, e.g. `components/ListPanel`)
+- Helpers entry point → `helpers`
+- Shared types → `types`
+
+Logical blocks inside a file are separated with Unicode box-drawing dividers:
+
+```ts
+// ── Types ─────────────────────────────────────────────────────────────────────
+// ── Component ─────────────────────────────────────────────────────────────────
+```
+
+Props and data interfaces go **above** the component function and use `interface`:
+
+```ts
+export interface ListPanelProps { ... }
+export interface ListItem { ... }
+```
+
+Cross-references use the `{@link}` inline tag:
+
+```ts
+/** Props for {@link StatusBadge}. */
+```
+
+Deprecated symbols must keep the old name as a re-export with a `@deprecated` tag
+— only when an export has actually been renamed:
+
+```ts
+/** @deprecated Use {@link ListPanel} instead */
+export { ListPanel as OldName };
+```
+
 ## Commit style
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/):

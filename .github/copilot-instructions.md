@@ -8,8 +8,8 @@
 
 - `src/` — component source files (`.tsx`)
 - `helpers/` — shared display utilities (`formatStepIcon`, `statusColor`, `formatDuration`) imported by components as `'../helpers'`
-- No build or test scripts are configured yet (`package.json` scripts are placeholders)
-- Module system: `"type": "commonjs"` in `package.json`
+- Build/test scripts are configured in `package.json`: `build` (tsc), `test` (jest), `lint` (eslint), `typecheck` (tsc --noEmit)
+- Module system: `"type": "module"` in `package.json` (ESM)
 
 ## Key Conventions
 

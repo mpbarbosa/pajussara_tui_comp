@@ -1,0 +1,127 @@
+/**
+ * @fileoverview Chronometer component — elapsed-time display with start/stop/reset controls
+ * @module components/Chronometer
+ *
+ * Renders a bordered panel showing a running elapsed time. Keyboard controls
+ * (space to start/stop, r to reset) are active only when the component is focused.
+ * Time display is delegated to the shared `formatDuration` helper.
+ *
+ * @version 1.0.0
+ * @since 2026-04-05
+ */
+
+import React, { useState, useEffect } from 'react';
+import { Box, Text, useInput, Key } from 'ink';
+import { formatDuration } from '../helpers/index.js';
+
+// ── Types ─────────────────────────────────────────────────────────────────────
+
+/** Running state of a {@link Chronometer}. */
+export type ChronometerStatus = 'idle' | 'running' | 'stopped';
+
+/** Props for {@link Chronometer}. */
+export interface ChronometerProps {
+  /** Panel width in terminal columns. */
+  width: number;
+  /** Whether this component holds keyboard focus (default: false). */
+  isFocused?: boolean;
+  /** Header label at the top of the panel (default: 'CHRONOMETER'). */
+  title?: string;
+  /** Initial elapsed milliseconds when the component mounts (default: 0). */
+  initialElapsedMs?: number;
+  /** Whether to render the surrounding border (default: true). */
+  showBorder?: boolean;
+  /** Callback fired on every tick (~100 ms) with the current elapsed ms. */
+  onTick?: (elapsedMs: number) => void;
+  /** Callback fired when the chronometer transitions to 'stopped'. */
+  onStop?: (elapsedMs: number) => void;
+  /** Callback fired when the chronometer resets. */
+  onReset?: () => void;
+}
+
+// ── Component ─────────────────────────────────────────────────────────────────
+
+/**
+ * Elapsed-time display with start, stop, and reset keyboard controls.
+ *
+ * @param props - {@link ChronometerProps}
+ */
+export function Chronometer({
+  width,
+  isFocused = false,
+  title = 'CHRONOMETER',
+  initialElapsedMs = 0,
+  showBorder = true,
+  onTick,
+  onStop,
+  onReset,
+}: ChronometerProps): React.ReactElement {
+  const [elapsedMs, setElapsedMs] = useState<number>(initialElapsedMs);
+  const [status, setStatus] = useState<ChronometerStatus>('idle');
+
+  // Tick interval — only active while running
+  useEffect(() => {
+    if (status !== 'running') return;
+
+    const id = setInterval(() => {
+      setElapsedMs((prev) => {
+        const next = prev + 100;
+        onTick?.(next);
+        return next;
+      });
+    }, 100);
+
+    return (): void => clearInterval(id);
+  }, [status]);
+
+  useInput(
+    (_input: string, key: Key) => {
+      if (key.return) return; // ignore Enter
+
+      if (_input === ' ') {
+        if (status === 'running') {
+          setStatus('stopped');
+          onStop?.(elapsedMs);
+        } else {
+          // idle or stopped → running
+          setStatus('running');
+        }
+      } else if (_input === 'r') {
+        setElapsedMs(0);
+        setStatus('idle');
+        onReset?.();
+      }
+    },
+    { isActive: isFocused }
+  );
+
+  const timeColor: string =
+    status === 'running' ? 'cyan' : status === 'stopped' ? 'green' : 'gray';
+
+  const borderProps = showBorder
+    ? ({ borderStyle: 'single', borderColor: isFocused ? 'white' : 'gray' } as const)
+    : {};
+
+  return React.createElement(
+    Box,
+    {
+      flexDirection: 'column',
+      ...borderProps,
+      width,
+      paddingX: 1,
+    },
+    React.createElement(Text, { bold: true, color: 'white', dimColor: !isFocused }, title),
+    React.createElement(
+      Text,
+      { color: timeColor, bold: status === 'running' },
+      formatDuration(elapsedMs)
+    ),
+    React.createElement(
+      Text,
+      { color: 'gray', dimColor: true },
+      '[space] start/stop  [r] reset'
+    )
+  );
+}
+
+export default Chronometer;

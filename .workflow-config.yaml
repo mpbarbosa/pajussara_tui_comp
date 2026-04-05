@@ -6,8 +6,8 @@ project:
   name: "pajussara_tui_comp"
   type: "typescript-library"
   kind: "typescript_library"   # Ink TUI component library (React/TypeScript)
-  version: "1.1.7"             # keep in sync with package.json
-  description: "Ink TUI Component Library in TypeScript"
+  version: "1.1.8"             # keep in sync with package.json
+  description: "Ink TUI Component Library in TypeScript — React.createElement (no JSX); strict conventions: JSDoc @fileoverview headers, section dividers, interface-over-type, named+default exports"
   target_users: "Developers building Ink-based TUIs in TypeScript"
   design_system: "None — terminal UI only (Ink Box/Text primitives)"
 
