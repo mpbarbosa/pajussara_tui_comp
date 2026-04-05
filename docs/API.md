@@ -1,88 +1,263 @@
 # API Reference
 
-This document provides an overview of the public API for the `pajussara_tui_comp` TypeScript project. It covers all exported functions, classes, and modules, including their signatures, parameters, return values, and usage examples.
+Complete reference for all public exports of `pajussara_tui_comp`.
 
 ---
 
 ## Table of Contents
-- [Modules](#modules)
-- [Classes](#classes)
-- [Functions](#functions)
+
+- [Components](#components)
+  - [ListPanel](#listpanel)
+  - [StreamViewer](#streamviewer)
+  - [StatusBadge](#statusbadge)
+  - [Chronometer](#chronometer)
+  - [StatusChronometer](#statuschronometer)
+- [Types](#types)
+  - [ListItem](#listitem)
+  - [StreamState](#streamstate)
+  - [StreamHistoryEntry](#streamhistoryentry)
+  - [PanelStatus](#panelstatus)
+- [Helpers](#helpers)
+- [Deprecated Aliases](#deprecated-aliases)
 
 ---
 
-## Modules
+## Components
 
-> _List and describe each main module. Add more as needed._
+### `ListPanel`
 
-### `src/index.ts`
-- **Purpose**: Main entry point; exports all public APIs.
+Scrollable, keyboard-navigable list panel. Displays items with status icons, labels, and elapsed durations.
 
-### `src/components/`
-- **Purpose**: Contains reusable TUI components.
+```ts
+import { ListPanel } from 'pajussara_tui_comp';
+```
 
----
+#### Props — `ListPanelProps`
 
-## Classes
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `items` | `Record<string, ListItem>` | ✓ | — | Map of item ID → item data |
+| `currentItemId` | `string \| null` | ✓ | — | ID of the currently active (running) item |
+| `width` | `number` | ✓ | — | Panel width in terminal columns |
+| `height` | `number` | | `20` | Panel height in terminal rows |
+| `title` | `string` | | `'STEPS'` | Header label at the top of the panel |
+| `emptyText` | `string` | | `'Waiting for steps…'` | Text shown when `items` is empty |
+| `isFocused` | `boolean` | | `false` | Whether this panel holds keyboard focus |
+| `selectedItemId` | `string \| null` | | `null` | ID of the currently selected (highlighted) item |
+| `onSelectItem` | `(id: string) => void` | | — | Callback fired when user moves the selection |
 
-> _Document each public class. Add more as needed._
+#### Keyboard controls (when `isFocused` is `true`)
 
-### `TuiApp`
-- **Description**: Main application class for initializing and running the TUI.
-- **Constructor**:
-  ```typescript
-  constructor(config: TuiConfig)
-  ```
-- **Methods**:
-  - `start(): void` — Starts the TUI application.
-  - `stop(): void` — Stops the application and cleans up resources.
+| Key | Action |
+|-----|--------|
+| `↑` / `k` | Move selection up |
+| `↓` / `j` | Move selection down |
+| `Enter` | Fire `onSelectItem` with the selected ID |
 
-#### Example
-```typescript
-import { TuiApp } from 'pajussara_tui_comp';
-const app = new TuiApp({ /* config */ });
-app.start();
+#### Usage
+
+```ts
+import React from 'react';
+import { render } from 'ink';
+import { ListPanel } from 'pajussara_tui_comp';
+
+render(
+  React.createElement(ListPanel, {
+    items: {
+      a: { id: 'a', name: 'Build', status: 'done', duration: 3200 },
+      b: { id: 'b', name: 'Test',  status: 'running', duration: null },
+    },
+    currentItemId: 'b',
+    width: 40,
+    isFocused: true,
+  })
+);
 ```
 
 ---
 
-## Functions
+### `StreamViewer`
 
-> _Document each exported function. Add more as needed._
+Live AI token-stream panel with scrollable output, token-rate footer, and history navigation (`[` / `]`).
 
-### `renderComponent`
-- **Signature**:
-  ```typescript
-  function renderComponent(component: TuiComponent, target: HTMLElement): void
-  ```
-- **Description**: Renders a TUI component into the specified target element.
-- **Parameters**:
-  - `component`: The TUI component to render
-  - `target`: The DOM element to render into
-- **Returns**: `void`
-
-#### Example
-```typescript
-import { renderComponent, Button } from 'pajussara_tui_comp';
-renderComponent(new Button({ label: 'Click Me' }), document.getElementById('root'));
+```ts
+import { StreamViewer } from 'pajussara_tui_comp';
 ```
+
+#### Props — `StreamViewerProps`
+
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `streamState` | `StreamState` | ✓ | — | Current stream data (see [`StreamState`](#streamstate)) |
+| `width` | `number` | ✓ | — | Panel width in terminal columns |
+| `height` | `number` | ✓ | — | Panel height in terminal rows |
+| `isFocused` | `boolean` | | `false` | Whether this panel holds keyboard focus |
+
+#### Utility export
+
+```ts
+import { wrapText } from 'pajussara_tui_comp';
+// wrapText(text: string, width: number): string[]
+```
+
+---
+
+### `StatusBadge`
+
+Animated spinner / completion / error indicator. Cycles through spinner frames while `status` is `'loading'` or `'streaming'`.
+
+```ts
+import { StatusBadge } from 'pajussara_tui_comp';
+```
+
+#### Props — `StatusBadgeProps`
+
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `status` | [`PanelStatus`](#panelstatus) | ✓ | — | Current badge state |
+| `errorMessage` | `string` | | — | Custom message shown when `status === 'error'` |
+
+---
+
+### `Chronometer`
+
+Elapsed-time display with start/stop/reset keyboard controls. Time is formatted via `formatDuration`.
+
+```ts
+import { Chronometer } from 'pajussara_tui_comp';
+```
+
+#### Props — `ChronometerProps`
+
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `width` | `number` | ✓ | — | Panel width in terminal columns |
+| `isFocused` | `boolean` | | `false` | Whether this component holds keyboard focus |
+| `title` | `string` | | `'CHRONOMETER'` | Header label |
+| `initialElapsedMs` | `number` | | `0` | Initial elapsed milliseconds on mount |
+| `onTick` | `(elapsedMs: number) => void` | | — | Fired every ~100 ms while running |
+| `onStop` | `(elapsedMs: number) => void` | | — | Fired when the timer stops |
+| `onReset` | `() => void` | | — | Fired when the timer resets |
+
+#### Keyboard controls (when `isFocused` is `true`)
+
+| Key | Action |
+|-----|--------|
+| `Space` | Start / stop the timer |
+| `r` | Reset the timer to zero |
+
+---
+
+### `StatusChronometer`
+
+Composite component — renders a [`StatusBadge`](#statusbadge) and a [`Chronometer`](#chronometer) side-by-side in a single row.
+
+```ts
+import { StatusChronometer } from 'pajussara_tui_comp';
+```
+
+#### Props — `StatusChronometerProps`
+
+Merges all [`ChronometerProps`](#props-3) with the badge-specific props from [`StatusBadgeProps`](#props-2):
+
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `status` | [`PanelStatus`](#panelstatus) | ✓ | — | Passed to `StatusBadge` |
+| `errorMessage` | `string` | | — | Passed to `StatusBadge` |
+| `width` | `number` | ✓ | — | `Chronometer` panel width |
+| `isFocused` | `boolean` | | `false` | Forwarded to `Chronometer` |
+| `title` | `string` | | `'CHRONOMETER'` | `Chronometer` header label |
+| `initialElapsedMs` | `number` | | `0` | `Chronometer` initial elapsed ms |
+| `onTick` | `(elapsedMs: number) => void` | | — | `Chronometer` tick callback |
+| `onStop` | `(elapsedMs: number) => void` | | — | `Chronometer` stop callback |
+| `onReset` | `() => void` | | — | `Chronometer` reset callback |
 
 ---
 
 ## Types
 
-### `TuiConfig`
-- **Description**: Configuration object for `TuiApp`.
-- **Fields**:
-  - `theme`: string — Theme name
-  - `debug`: boolean — Enable debug mode
+### `ListItem`
+
+Shape of each entry in the `ListPanel.items` map.
+
+```ts
+interface ListItem {
+  id: string;
+  name: string;
+  status: string;          // 'pending' | 'running' | 'done' | 'error'
+  duration?: number | null; // elapsed milliseconds; shown when status is 'done'
+}
+```
+
+### `StreamState`
+
+Snapshot of the current token stream passed to `StreamViewer`.
+
+```ts
+interface StreamState {
+  stepId: string | null;
+  stepName: string | null;
+  persona: string | null;
+  chunks: string[];
+  tokenCount: number;
+  startTime: number | null;
+  history: StreamHistoryEntry[];
+}
+```
+
+### `StreamHistoryEntry`
+
+A completed stream entry stored in `StreamState.history`.
+
+```ts
+interface StreamHistoryEntry {
+  stepId: string | null;
+  stepName: string | null;
+  persona: string | null;
+  fullText: string;
+  tokenCount: number;
+}
+```
+
+### `PanelStatus`
+
+Status values used by `StatusBadge` and `StatusChronometer`.
+
+```ts
+type PanelStatus = 'idle' | 'loading' | 'streaming' | 'done' | 'error';
+```
 
 ---
 
-## Notes
-- All APIs are subject to semantic versioning.
-- For advanced usage and custom components, see the guides in `docs/guides/`.
+## Helpers
+
+Low-level display utilities. Re-exported for advanced use.
+
+```ts
+import { formatStepIcon, statusColor, formatDuration } from 'pajussara_tui_comp';
+```
+
+| Function | Signature | Description |
+|----------|-----------|-------------|
+| `formatStepIcon` | `(status: string) => string` | Maps a status to a terminal icon (`✔ ● ✘ ○ ·`) |
+| `statusColor` | `(status: string) => string` | Maps a status to an Ink colour name |
+| `formatDuration` | `(ms: number) => string` | Formats milliseconds as a readable string (e.g. `"1m 4s"`, `"4.5s"`) |
+
+**Status → icon/colour mapping:**
+
+| `status` | Icon | Colour |
+|----------|------|--------|
+| `'done'` | `✔` | green |
+| `'running'` | `●` | cyan |
+| `'error'` | `✘` | red |
+| `'pending'` | `○` | gray |
+| *(other)* | `·` | white |
 
 ---
 
-_Last updated: 2026-04-03_
+## Deprecated Aliases
+
+| Alias | Resolves to | Since |
+|-------|-------------|-------|
+| `StepsPanel` | [`ListPanel`](#listpanel) | v1.0.x |
+

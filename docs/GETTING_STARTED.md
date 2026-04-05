@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to **pajussara_tui_comp**! This guide will help you install, configure, and run your first TUI application using this library.
+Welcome to **pajussara_tui_comp**! This guide will help you install and render your first TUI component.
 
 ---
 
@@ -10,49 +10,57 @@ Welcome to **pajussara_tui_comp**! This guide will help you install, configure, 
 npm install pajussara_tui_comp
 ```
 
----
+**Peer dependencies** (install separately if not already present):
 
-## Basic Usage
-
-1. **Import the library:**
-   ```typescript
-   import { TuiApp, Button } from 'pajussara_tui_comp';
-   ```
-2. **Create an app instance:**
-   ```typescript
-   const app = new TuiApp({ theme: 'default', debug: false });
-   ```
-3. **Add components and start:**
-   ```typescript
-   app.addComponent(new Button({ label: 'Hello' }));
-   app.start();
-   ```
-
----
-
-## Configuration
-
-- **theme**: Set the color theme (e.g., 'default', 'dark')
-- **debug**: Enable debug logging (true/false)
-
----
-
-## Example
-
-```typescript
-import { TuiApp, Button } from 'pajussara_tui_comp';
-const app = new TuiApp({ theme: 'dark', debug: true });
-app.addComponent(new Button({ label: 'Welcome!' }));
-app.start();
+```bash
+npm install ink react
 ```
 
 ---
 
-## Next Steps
-- Explore the [API Reference](./API.md)
-- Read the guides in `docs/guides/`
-- See example projects in `examples/`
+## Basic Usage
+
+All components are pure React function components rendered with [Ink](https://github.com/vadimdemedes/ink).
+Use `React.createElement` directly (no JSX required).
+
+### Minimal `ListPanel` example
+
+```typescript
+import React from 'react';
+import { render } from 'ink';
+import { ListPanel } from 'pajussara_tui_comp';
+
+const items = {
+  task1: { id: 'task1', name: 'Fetch data',   status: 'done',    duration: 1200 },
+  task2: { id: 'task2', name: 'Process items', status: 'running', duration: null },
+  task3: { id: 'task3', name: 'Write output',  status: 'pending', duration: null },
+};
+
+render(
+  React.createElement(ListPanel, {
+    items,
+    currentItemId: 'task2',
+    width: 40,
+    isFocused: true,
+  })
+);
+```
 
 ---
 
-_Last updated: 2026-04-03_
+## Peer dependency versions
+
+| Package | Minimum |
+|---------|---------|
+| `ink`   | `5.0.0` |
+| `react` | `19.0.0` |
+
+---
+
+## Next Steps
+
+- [API Reference](./API.md) — full props, types, and exports
+- [ARCHITECTURE.md](./ARCHITECTURE.md) — module structure and build pipeline
+- [FUNCTIONAL_REQUIREMENTS.md](./FUNCTIONAL_REQUIREMENTS.md) — acceptance criteria per component
+- [`demo/`](../demo/) — runnable examples
+

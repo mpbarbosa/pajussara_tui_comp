@@ -8,33 +8,60 @@ programming model via Ink's `Box`/`Text` primitives.
 
 ```
 pajussara_tui_comp/
-├── src/              # Component source files (.tsx)
-│   ├── index.ts      # Public API barrel — re-exports all components and types
-│   └── ListPanel.tsx # Scrollable, keyboard-navigable list panel component
-├── helpers/          # Shared display utilities imported by components
-│   └── index.ts      # formatStepIcon · statusColor · formatDuration
-├── test/             # Jest test suite
-├── dist/             # Compiled output (tracked for jsDelivr CDN delivery)
-│   └── src/          # Mirrors src/ structure after tsc compilation
-├── docs/             # Project documentation
-├── demo/             # Runnable usage examples (e.g. listpanel-cities.tsx)
-├── scripts/          # Shell scripts (deploy.sh, colors.sh)
-└── .github/          # GitHub Actions workflows and Copilot skills
+├── src/                        # Component source files (.tsx / .ts)
+│   ├── index.ts                # Public API barrel — re-exports all components and types
+│   ├── types.ts                # Shared type definitions (PanelStatus)
+│   ├── ListPanel.tsx           # Scrollable, keyboard-navigable list panel
+│   ├── StreamViewer.tsx        # Live AI token stream panel with history navigation
+│   ├── Chronometer.tsx         # Elapsed-time display with start/stop/reset controls
+│   ├── status_badge.tsx        # Animated spinner / completion / error indicator
+│   └── status_chronometer.tsx  # StatusBadge + Chronometer side-by-side composite
+├── helpers/                    # Shared display utilities imported by components
+│   └── index.ts                # formatStepIcon · statusColor · formatDuration
+├── test/                       # Jest test suite
+├── dist/                       # Compiled output (tracked for jsDelivr CDN delivery)
+│   └── src/                    # Mirrors src/ structure after tsc compilation
+├── docs/                       # Project documentation
+├── demo/                       # Runnable usage examples (e.g. listpanel-cities.tsx)
+├── scripts/                    # Shell scripts (deploy.sh, colors.sh)
+└── .github/                    # GitHub Actions workflows and Copilot skills
 ```
 
 ## Module boundaries
 
 ```
 src/ListPanel.tsx
-      │
       └── import ← helpers/index.ts   (formatStepIcon, statusColor, formatDuration)
-      │
-      └── import ← ink                (Box, Text, useInput, useApp)
-      │
-      └── import ← react              (React.createElement, useState, useEffect)
+      └── import ← ink                (Box, Text, useInput)
+      └── import ← react              (React, useState, useEffect)
+
+src/StreamViewer.tsx
+      └── import ← ink                (Box, Text, useInput)
+      └── import ← react              (React, useState, useEffect, useRef)
+
+src/Chronometer.tsx
+      └── import ← helpers/index.ts   (formatDuration)
+      └── import ← ink                (Box, Text, useInput)
+      └── import ← react              (React, useState, useEffect)
+
+src/status_badge.tsx
+      └── import ← src/types.ts       (PanelStatus)
+      └── import ← ink                (Box, Text)
+      └── import ← react              (React, useState, useEffect)
+
+src/status_chronometer.tsx
+      └── import ← src/status_badge.tsx   (StatusBadge, StatusBadgeProps)
+      └── import ← src/Chronometer.tsx    (Chronometer, ChronometerProps)
+      └── import ← ink                    (Box)
+      └── import ← react                  (React)
 
 src/index.ts
       └── re-exports ← src/ListPanel.tsx
+      └── re-exports ← src/StreamViewer.tsx
+      └── re-exports ← src/Chronometer.tsx
+      └── re-exports ← src/status_badge.tsx
+      └── re-exports ← src/status_chronometer.tsx
+      └── re-exports ← src/types.ts
 ```
 
 ## Rendering model
