@@ -1,5 +1,6 @@
-import React from 'react';
-import { render, act } from 'ink-testing-library';
+import React, { act } from 'react';
+import { render } from 'ink-testing-library';
+import { jest } from '@jest/globals';
 import { ListPanel, StepsPanel, type ListItem, type ListPanelProps } from '../src/ListPanel';
 
 jest.mock('../helpers', () => ({
@@ -131,7 +132,7 @@ describe('ListPanel component', () => {
       items[`id${i}`] = { id: `id${i}`, name: `Step ${i}`, status: 'pending' };
     }
     const { lastFrame } = renderPanel({ items, currentItemId: 'id25', width: 40, height: 10 });
-    const output = lastFrame();
+    const output = lastFrame() ?? '';
     // Only 8 visible (height - 2)
     let count = 0;
     for (let i = 0; i < 30; i++) {

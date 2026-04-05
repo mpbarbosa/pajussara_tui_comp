@@ -1,16 +1,21 @@
 /**
- * StatusBadge — animated spinner / completion / error indicator.
- * @module ui/status_badge
+ * @fileoverview StatusBadge component — animated spinner / completion / error indicator
+ * @module components/StatusBadge
  *
  * Used by async and streaming panels to show:
  *   ⠋ Loading…   (idle / loading)
  *   ⠋ Streaming… (streaming)
  *   ✓ Done       (done)
  *   ✗ <message>  (error)
+ *
+ * @version 1.0.0
+ * @since 2026-04-05
  */
 import React, { useState, useEffect } from 'react';
 import { Box, Text } from 'ink';
+// ── Constants ──────────────────────────────────────────────────────────────────
 const SPINNER_FRAMES = ['⠋', '⠙', '⠸', '⠴', '⠦', '⠇'];
+// ── Component ─────────────────────────────────────────────────────────────────
 export function StatusBadge({ status, errorMessage }) {
     const [frame, setFrame] = useState(0);
     useEffect(() => {
@@ -20,22 +25,14 @@ export function StatusBadge({ status, errorMessage }) {
         return () => clearInterval(t);
     }, [status]);
     if (status === 'done') {
-        return (React.createElement(Box, null,
-            React.createElement(Text, { bold: true, color: "green" }, "\u2713 "),
-            React.createElement(Text, null, "Done")));
+        return React.createElement(Box, null, React.createElement(Text, { bold: true, color: 'green' }, '✓ '), React.createElement(Text, null, 'Done'));
     }
     if (status === 'error') {
-        return (React.createElement(Box, null,
-            React.createElement(Text, { bold: true, color: "red" }, "\u2717 "),
-            React.createElement(Text, { color: "red" }, errorMessage ?? 'An error occurred.')));
+        return React.createElement(Box, null, React.createElement(Text, { bold: true, color: 'red' }, '✗ '), React.createElement(Text, { color: 'red' }, errorMessage ?? 'An error occurred.'));
     }
     if (status === 'loading' || status === 'streaming') {
         const label = status === 'streaming' ? 'Streaming…' : 'Loading…';
-        return (React.createElement(Box, null,
-            React.createElement(Text, { color: "yellow" },
-                SPINNER_FRAMES[frame],
-                " "),
-            React.createElement(Text, { dimColor: true }, label)));
+        return React.createElement(Box, null, React.createElement(Text, { color: 'yellow' }, SPINNER_FRAMES[frame] + ' '), React.createElement(Text, { dimColor: true }, label));
     }
     // 'idle' — render nothing
     return React.createElement(React.Fragment, null);

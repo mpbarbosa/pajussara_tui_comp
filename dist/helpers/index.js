@@ -1,6 +1,12 @@
 /**
  * @fileoverview Shared display helpers for TUI components
  * @module helpers
+ *
+ * Provides `formatStepIcon`, `statusColor`, and `formatDuration` used by
+ * all components. Never duplicate this logic inline in component files.
+ *
+ * @version 1.0.0
+ * @since 2026-03-07
  */
 /** Maps a status string to a terminal icon character. */
 export function formatStepIcon(status) {

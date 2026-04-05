@@ -1,6 +1,11 @@
 /**
- * Shared UI types for pajussara_tui_comp panel components.
+ * @fileoverview Shared UI types for pajussara_tui_comp panel components
  * @module types
+ *
+ * Central type definitions shared across panel components.
+ *
+ * @version 1.0.0
+ * @since 2026-04-05
  */
 export {};
 //# sourceMappingURL=types.js.map

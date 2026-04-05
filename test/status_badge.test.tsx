@@ -1,5 +1,6 @@
-import React from 'react';
-import { render, act } from 'ink-testing-library';
+import React, { act } from 'react';
+import { render } from 'ink-testing-library';
+import { jest } from '@jest/globals';
 import StatusBadge from '../src/status_badge';
 
 describe('StatusBadge', () => {
@@ -23,7 +24,7 @@ describe('StatusBadge', () => {
 		});
 		expect(lastFrame()).toContain('⠙');
 		act(() => {
-			jest.advanceTimersByTime(500);
+			jest.advanceTimersByTime(400);
 		});
 		expect(lastFrame()).toMatch(/⠇/);
 		jest.useRealTimers();
@@ -44,7 +45,7 @@ describe('StatusBadge', () => {
 		});
 		expect(lastFrame()).toContain('⠙');
 		act(() => {
-			jest.advanceTimersByTime(500);
+			jest.advanceTimersByTime(400);
 		});
 		expect(lastFrame()).toMatch(/⠇/);
 		jest.useRealTimers();
