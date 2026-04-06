@@ -8,7 +8,7 @@
  *   ✓ Done       (done)
  *   ✗ <message>  (error)
  *
- * @version 1.0.0
+ * @version 1.1.8
  * @since 2026-04-05
  */
 

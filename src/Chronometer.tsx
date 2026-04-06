@@ -6,7 +6,7 @@
  * (space to start/stop, r to reset) are active only when the component is focused.
  * Time display is delegated to the shared `formatDuration` helper.
  *
- * @version 1.0.0
+ * @version 1.1.8
  * @since 2026-04-05
  */
 
