@@ -1,18 +1,35 @@
 import React, { act } from 'react';
 import { render } from 'ink-testing-library';
-import { CitiesApp, CITIES, VISIT_MS } from '../demo/listpanel-cities2';
+import { jest } from '@jest/globals';
+import type { CitiesApp as CitiesAppType } from '../demos/listpanel-cities2.js';
 
-// Prevent the module-level render() call from doing anything
-jest.mock('ink', () => {
-  const actual = jest.requireActual<typeof import('ink')>('ink');
-  return { ...actual, render: jest.fn() };
-});
-
-jest.mock('../helpers', () => ({
+// ── ESM mocks (must be set up before dynamic import of demo) ──────────────────
+// The demo imports helpers; mock them so formatDuration returns predictable values.
+jest.unstable_mockModule('../helpers/index.js', () => ({
   formatStepIcon: (status: string) => `[${status}]`,
   statusColor: (status: string) => (status === 'done' ? 'green' : status === 'running' ? 'yellow' : 'gray'),
   formatDuration: (ms: number) => `${ms}ms`,
 }));
+
+// ── Module refs (populated after mocks are registered) ────────────────────────
+let CitiesApp!: typeof CitiesAppType;
+let CITIES!: string[];
+let VISIT_MS!: number;
+
+beforeAll(async () => {
+  const mod = await import('../demos/listpanel-cities2.js');
+  CitiesApp = mod.CitiesApp;
+  CITIES = mod.CITIES;
+  VISIT_MS = mod.VISIT_MS;
+});
+
+// Helper: advance fake timers one step at a time so React can flush effects
+// between each timer fire. Required for cascading setTimeout chains.
+function advanceTimersBySteps(steps: number, stepMs: number): void {
+  for (let i = 0; i < steps; i++) {
+    act(() => { jest.advanceTimersByTime(stepMs + 10); });
+  }
+}
 
 describe('listpanel-cities2 demo', () => {
   beforeEach(() => {
@@ -32,9 +49,7 @@ describe('listpanel-cities2 demo', () => {
 
   it('transitions badge to Done after all cities are visited', () => {
     const { lastFrame } = render(React.createElement(CitiesApp, null));
-    act(() => {
-      jest.advanceTimersByTime(CITIES.length * VISIT_MS + 100);
-    });
+    advanceTimersBySteps(CITIES.length + 1, VISIT_MS);
     const output = lastFrame();
     expect(output).toContain('Done');
     expect(output).toContain('CITIES');
@@ -44,16 +59,12 @@ describe('listpanel-cities2 demo', () => {
     const { lastFrame } = render(React.createElement(CitiesApp, null));
 
     // midway through the tour — still loading
-    act(() => {
-      jest.advanceTimersByTime(Math.floor(CITIES.length / 2) * VISIT_MS);
-    });
+    advanceTimersBySteps(Math.floor(CITIES.length / 2), VISIT_MS);
     expect(lastFrame()).toContain('CITIES');
     expect(lastFrame()).toContain('Loading…');
 
     // finish the tour — now done
-    act(() => {
-      jest.advanceTimersByTime(CITIES.length * VISIT_MS + 100);
-    });
+    advanceTimersBySteps(CITIES.length + 1, VISIT_MS);
     expect(lastFrame()).toContain('CITIES');
     expect(lastFrame()).toContain('Done');
   });

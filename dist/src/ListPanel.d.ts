@@ -6,7 +6,7 @@
  * The currently-active item is highlighted. Supports keyboard selection
  * (↑/↓ or k/j) and mouse click to select an item.
  *
- * @version 1.1.7
+ * @version 1.1.9
  * @since 2026-03-07
  */
 import React from 'react';

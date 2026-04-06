@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { render } from 'ink-testing-library';
-import { StreamViewer, wrapText, type StreamState } from '../src/StreamViewer';
+import StreamViewerDefault, { StreamViewer, wrapText, type StreamState } from '../src/StreamViewer';
 
 /** Build a minimal StreamState object for tests. */
 function makeStreamState(overrides: Partial<StreamState> = {}): StreamState {
@@ -113,10 +113,7 @@ describe('StreamViewer component', () => {
 
   it('exports default as StreamViewer', () => {
     // Verify the named and default export reference the same function.
-    // (require() is unavailable in ESM; we compare via the static import.)
-    import('../src/StreamViewer').then((mod) => {
-      expect(mod.default).toBe(StreamViewer);
-    });
+    expect(StreamViewerDefault).toBe(StreamViewer);
   });
 });
 

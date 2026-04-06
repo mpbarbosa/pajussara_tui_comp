@@ -1,6 +1,6 @@
 {
   "name": "pajussara_tui_comp",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "An Ink TUI Component Library in TypeScript",
   "homepage": "https://github.com/mpbarbosa/pajussara_tui_comp#readme",
   "bugs": {
@@ -26,8 +26,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests",
-    "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests --forceExit",
+    "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch --forceExit",
+    "test:docker": "bash scripts/run-tests-docker.sh",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit"
   },

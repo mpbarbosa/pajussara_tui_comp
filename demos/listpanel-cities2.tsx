@@ -17,6 +17,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { fileURLToPath } from 'url';
 import { render, Box, Text, useApp, useInput } from 'ink';
 import { ListPanel } from '../src/ListPanel.js';
 import type { ListItem } from '../src/ListPanel.js';
@@ -117,5 +118,7 @@ export function CitiesApp(): React.ReactElement {
 }
 
 // ── Entry point ───────────────────────────────────────────────────────────────
-
-render(React.createElement(CitiesApp, null));
+// Guard prevents this render call from firing when the module is imported by tests.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  render(React.createElement(CitiesApp, null));
+}

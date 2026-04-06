@@ -13,7 +13,8 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": ".",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "isolatedModules": true
   },
   "include": ["src/**/*", "helpers/**/*"],
   "exclude": ["node_modules", "dist", "test"]

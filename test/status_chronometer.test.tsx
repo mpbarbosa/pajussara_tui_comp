@@ -1,7 +1,7 @@
 import React, { act } from 'react';
-import { render } from 'ink-testing-library';
+import { render, cleanup as inkCleanup } from 'ink-testing-library';
 import { jest } from '@jest/globals';
-import { StatusChronometer, type StatusChronometerProps } from '../src/status_chronometer';
+import StatusChronometerDefault, { StatusChronometer, type StatusChronometerProps } from '../src/status_chronometer';
 
 jest.mock('../helpers', () => ({
 	formatStepIcon: (status: string) => `[${status}]`,
@@ -16,6 +16,10 @@ describe('StatusChronometer component', () => {
 	});
 
 	afterEach(() => {
+		// Unmount all Ink instances before restoring real timers so that no live
+		// intervals or React effects fire against the real timer clock after the
+		// Jest ESM environment has been torn down.
+		act(() => { inkCleanup(); });
 		jest.clearAllTimers();
 		jest.useRealTimers();
 	});
@@ -168,8 +172,7 @@ describe('StatusChronometer component', () => {
 		expect(props.width).toBe(40);
 	});
 
-	it('default export matches named export', async () => {
-		const mod = await import('../src/status_chronometer');
-		expect(mod.default).toBe(mod.StatusChronometer);
+	it('default export matches named export', () => {
+		expect(StatusChronometerDefault).toBe(StatusChronometer);
 	});
 });

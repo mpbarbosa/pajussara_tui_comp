@@ -1,13 +1,26 @@
 import React, { act } from 'react';
 import { render } from 'ink-testing-library';
 import { jest } from '@jest/globals';
-import { ListPanel, StepsPanel, type ListItem, type ListPanelProps } from '../src/ListPanel';
+import type { ListItem, ListPanelProps } from '../src/ListPanel.js';
 
-jest.mock('../helpers', () => ({
-  formatStepIcon: (status: string) => `[${status}]`,
+// ── ESM mocks (must come before dynamic import of the module under test) ───────
+// Icons use single chars to match the component's label-width formula (width-12).
+jest.unstable_mockModule('../helpers/index.js', () => ({
+  formatStepIcon: (status: string) =>
+    status === 'done' ? '$' : status === 'running' ? '@' : '#',
   statusColor: (status: string) => (status === 'done' ? 'green' : status === 'running' ? 'yellow' : 'gray'),
   formatDuration: (duration: number) => `${duration}s`,
 }));
+
+// ── Module refs (populated after mocks are registered) ────────────────────────
+let ListPanel!: (props: ListPanelProps) => React.ReactElement;
+let StepsPanel!: (props: ListPanelProps) => React.ReactElement;
+
+beforeAll(async () => {
+  const mod = await import('../src/ListPanel.js');
+  ListPanel = mod.ListPanel;
+  StepsPanel = mod.StepsPanel;
+});
 
 describe('ListPanel component', () => {
   beforeEach(() => { jest.clearAllMocks(); });
@@ -20,21 +33,21 @@ describe('ListPanel component', () => {
 
   const renderPanel = (overrides: Partial<ListPanelProps> = {}) =>
     render(
-      <ListPanel
-        items={baseItems}
-        currentItemId="b"
-        width={40}
-        {...overrides}
-      />
+      React.createElement(ListPanel, {
+        items: baseItems,
+        currentItemId: 'b',
+        width: 40,
+        ...overrides,
+      })
     );
 
   it('renders with default props and items', () => {
     const { lastFrame } = renderPanel();
     const output = lastFrame();
     expect(output).toContain('STEPS');
-    expect(output).toContain('[done]');
-    expect(output).toContain('[running]');
-    expect(output).toContain('[pending]');
+    expect(output).toContain('$');   // done mock icon
+    expect(output).toContain('@');   // running mock icon
+    expect(output).toContain('#');   // pending mock icon
     expect(output).toContain('Step A');
     expect(output).toContain('Step B');
     expect(output).toContain('Step C');
@@ -133,10 +146,11 @@ describe('ListPanel component', () => {
     }
     const { lastFrame } = renderPanel({ items, currentItemId: 'id25', width: 40, height: 10 });
     const output = lastFrame() ?? '';
-    // Only 8 visible (height - 2)
+    // Only 8 visible (height - 2); use word-boundary regex to avoid substring false positives
+    // e.g. "Step 1" matching inside "Step 18" or "Step 19"
     let count = 0;
     for (let i = 0; i < 30; i++) {
-      if (output.includes(`Step ${i}`)) count++;
+      if (new RegExp(`Step ${i}(?!\\d)`).test(output)) count++;
     }
     expect(count).toBe(8);
     expect(output).toContain('Step 25');
@@ -145,15 +159,17 @@ describe('ListPanel component', () => {
   it('syncs selection index with selectedItemId prop changes', () => {
     const { rerender, lastFrame } = renderPanel({ currentItemId: 'a', isFocused: true, selectedItemId: 'b' });
     expect(lastFrame()).toMatch(/>.*Step B/);
-    rerender(
-      <ListPanel
-        items={baseItems}
-        currentItemId="a"
-        width={40}
-        isFocused={true}
-        selectedItemId="c"
-      />
-    );
+    act(() => {
+      rerender(
+        React.createElement(ListPanel, {
+          items: baseItems,
+          currentItemId: 'a',
+          width: 40,
+          isFocused: true,
+          selectedItemId: 'c',
+        })
+      );
+    });
     expect(lastFrame()).toMatch(/>.*Step C/);
   });
 
@@ -161,9 +177,8 @@ describe('ListPanel component', () => {
     expect(StepsPanel).toBe(ListPanel);
   });
 
-  it('exports default as ListPanel', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const mod = require('../src/ListPanel');
+  it('exports default as ListPanel', async () => {
+    const mod = await import('../src/ListPanel.js');
     expect(mod.default).toBe(ListPanel);
   });
 });

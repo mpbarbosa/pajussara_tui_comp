@@ -2,6 +2,7 @@
   "preset": "ts-jest/presets/default-esm",
   "extensionsToTreatAsEsm": [".ts", ".tsx"],
   "testEnvironment": "node",
+  "setupFilesAfterEnv": ["<rootDir>/test/setup.ts"],
   "roots": ["<rootDir>/test"],
   "testMatch": ["**/*.test.ts", "**/*.test.tsx"],
   "transform": {

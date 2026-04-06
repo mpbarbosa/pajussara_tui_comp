@@ -1,0 +1,20 @@
+# ── Build artefacts ───────────────────────────────────────────────────────────
+node_modules/
+dist/
+coverage/
+
+# ── Version-control metadata ──────────────────────────────────────────────────
+.git/
+.gitignore
+
+# ── Logs and diagnostics ──────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+.npm/
+
+# ── Editor and OS artefacts ───────────────────────────────────────────────────
+.DS_Store
+*.tsbuildinfo
+
+# ── AI workflow artefacts (not needed for tests) ──────────────────────────────
+.ai_workflow/

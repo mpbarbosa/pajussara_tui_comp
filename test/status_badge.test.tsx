@@ -4,20 +4,32 @@ import { jest } from '@jest/globals';
 import StatusBadge from '../src/status_badge';
 
 describe('StatusBadge', () => {
+	let unmountCurrent: (() => void) | undefined;
+
+	afterEach(() => {
+		unmountCurrent?.();
+		unmountCurrent = undefined;
+	});
+
 	it('renders nothing for idle status', () => {
-		const { lastFrame } = render(<StatusBadge status="idle" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="idle" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toBe('');
 	});
 
 	it('renders loading spinner and label for loading status', () => {
-		const { lastFrame } = render(<StatusBadge status="loading" />);
+		jest.useFakeTimers();
+		const { lastFrame, unmount } = render(<StatusBadge status="loading" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('⠋');
 		expect(lastFrame()).toContain('Loading…');
+		jest.useRealTimers();
 	});
 
 	it('animates spinner frames for loading status', () => {
 		jest.useFakeTimers();
-		const { lastFrame } = render(<StatusBadge status="loading" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="loading" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('⠋');
 		act(() => {
 			jest.advanceTimersByTime(100);
@@ -31,14 +43,18 @@ describe('StatusBadge', () => {
 	});
 
 	it('renders streaming spinner and label for streaming status', () => {
-		const { lastFrame } = render(<StatusBadge status="streaming" />);
+		jest.useFakeTimers();
+		const { lastFrame, unmount } = render(<StatusBadge status="streaming" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('⠋');
 		expect(lastFrame()).toContain('Streaming…');
+		jest.useRealTimers();
 	});
 
 	it('animates spinner frames for streaming status', () => {
 		jest.useFakeTimers();
-		const { lastFrame } = render(<StatusBadge status="streaming" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="streaming" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('⠋');
 		act(() => {
 			jest.advanceTimersByTime(100);
@@ -52,25 +68,29 @@ describe('StatusBadge', () => {
 	});
 
 	it('renders done indicator for done status', () => {
-		const { lastFrame } = render(<StatusBadge status="done" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="done" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('✓');
 		expect(lastFrame()).toContain('Done');
 	});
 
 	it('renders error indicator and default message for error status', () => {
-		const { lastFrame } = render(<StatusBadge status="error" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="error" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('✗');
 		expect(lastFrame()).toContain('An error occurred.');
 	});
 
 	it('renders error indicator and custom message for error status', () => {
-		const { lastFrame } = render(<StatusBadge status="error" errorMessage="Custom error" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="error" errorMessage="Custom error" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('✗');
 		expect(lastFrame()).toContain('Custom error');
 	});
 
 	it('does not crash if errorMessage is empty string', () => {
-		const { lastFrame } = render(<StatusBadge status="error" errorMessage="" />);
+		const { lastFrame, unmount } = render(<StatusBadge status="error" errorMessage="" />);
+		unmountCurrent = unmount;
 		expect(lastFrame()).toContain('✗');
 		expect(lastFrame()).toContain('');
 	});
