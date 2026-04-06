@@ -8,7 +8,7 @@
  *   ✓ Done       (done)
  *   ✗ <message>  (error)
  *
- * @version 1.0.0
+ * @version 1.1.9
  * @since 2026-04-05
  */
 import React, { useState, useEffect } from 'react';

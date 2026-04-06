@@ -6,7 +6,7 @@
  * {@link Chronometer} panel on the right. Keyboard controls (space / r) are
  * forwarded to the Chronometer and are only active when `isFocused` is true.
  *
- * @version 1.0.0
+ * @version 1.1.9
  * @since 2026-04-05
  */
 import React from 'react';
