@@ -17,6 +17,7 @@
 9. [CI/CD integration (GitHub Actions)](#cicd-integration-github-actions)
 10. [Adapting to your project](#adapting-to-your-project)
 11. [Troubleshooting](#troubleshooting)
+    - [`console.error: not configured to support act(...)`](#consoleerror-the-current-testing-environment-is-not-configured-to-support-act)
 
 ---
 
@@ -214,7 +215,7 @@ docker run \
   --name pajussara_tui_comp-test-run \
   -e CI=true \
   pajussara_tui_comp-test \
-  sh -c "npm test"
+  sh -c "npm test -- --runInBand"
 ```
 
 - `--rm` — removes the container automatically after it exits.
@@ -391,7 +392,7 @@ Common packages that need this: `bcrypt`, `sharp`, `canvas`, `node-gyp`-based pa
 ### 4. ESM vs CJS
 
 If your project uses `"type": "module"` in `package.json` (ES Modules):
-- Ensure Jest is invoked with `node --experimental-vm-modules` (Node < 22) or use native ESM support (Node 22+).
+- Ensure Jest is invoked with `node --experimental-vm-modules` (required for `ts-jest` ESM preset regardless of Node version).
 - Use `jest.unstable_mockModule()` instead of `jest.mock()` for mocking ES modules (static imports cannot be intercepted by `jest.mock()` in ESM mode).
 - Use dynamic `import()` in `beforeAll` for any module that depends on an ESM mock.
 
@@ -437,7 +438,13 @@ IMAGE_NAME="your-project-name-test"
 
 ### `Cannot find module 'react'` (or `'ink'`) when tests run inside Docker
 
-**Cause:** The `node:22-alpine` base image (like all official Node.js Docker images) sets `NODE_ENV=production`. When `NODE_ENV=production`, `npm ci` silently skips `devDependencies` — so packages like `react`, `ink`, `jest`, and `ts-jest` are never installed inside the container, even though they appear in `package.json`.
+This error has **two distinct causes**. Check them in order.
+
+---
+
+#### Cause 1 — `NODE_ENV=production` skips devDependencies
+
+The `node:22-alpine` base image (like all official Node.js Docker images) sets `NODE_ENV=production`. When `NODE_ENV=production`, `npm ci` silently skips `devDependencies` — so packages like `react`, `ink`, `jest`, and `ts-jest` are never installed inside the container, even though they appear in `package.json`.
 
 **Fix:** Add `ENV NODE_ENV=test` in `Dockerfile.test` **before** the `npm ci` step:
 
@@ -445,6 +452,50 @@ IMAGE_NAME="your-project-name-test"
 ENV NODE_ENV=test
 RUN npm ci --ignore-scripts
 ```
+
+---
+
+#### Cause 2 — `package-lock.json` references a sibling project's `node_modules` (more common)
+
+npm 7+ resolves peer dependencies aggressively. If another project in a **sibling directory** already has `react` or `ink` installed, npm may record that path in `package-lock.json` instead of installing a fresh copy:
+
+```
+# Example of a broken package-lock.json entry
+"../ai_workflow.js/node_modules/react": { "version": "19.2.4", ... }
+```
+
+`npm ci` follows the lock file exactly. Inside Docker only the current project is present, so those `../` paths do not exist and the module cannot be found — even though the Dockerfile correctly sets `NODE_ENV=test`.
+
+**Diagnosis:** Inspect `package-lock.json`:
+
+```bash
+# Should print a version number, not "undefined" or be absent
+python3 -c "import json; l=json.load(open('package-lock.json')); \
+  print('react:', l['packages'].get('node_modules/react', {}).get('version', 'MISSING')); \
+  sibling=[k for k in l['packages'] if k.startswith('../')]; \
+  print('sibling refs:', len(sibling))"
+```
+
+If `react` is `MISSING` and `sibling refs` is non-zero, the lock file is contaminated.
+
+**Fix:** Regenerate `package-lock.json` in an isolated directory where the sibling projects are not visible:
+
+```bash
+# 1. Create a clean workspace with only package.json
+mkdir -p /tmp/npm-clean && cp package.json /tmp/npm-clean/
+
+# 2. Resolve and write a fresh lock file (no packages are downloaded)
+cd /tmp/npm-clean && NODE_ENV=test npm install --package-lock-only
+
+# 3. Copy the clean lock file back and resync local node_modules
+cp /tmp/npm-clean/package-lock.json /path/to/project/
+cd /path/to/project && npm ci --ignore-scripts
+
+# 4. Commit the updated package-lock.json
+git add package-lock.json && git commit -m "fix: regenerate package-lock.json in isolation"
+```
+
+**Prevention:** Always regenerate `package-lock.json` after adding or removing a dependency by running `npm install` (not just editing `package.json`). If your workspace contains multiple Node.js projects in sibling directories, always run `npm install` from within the target project in an isolated shell, or use the steps above.
 
 ---
 
@@ -490,13 +541,79 @@ beforeAll(async () => {
 
 ---
 
+### `console.error: The current testing environment is not configured to support act(...)`
+
+**Cause:** React 19's concurrent renderer checks the `globalThis.IS_REACT_ACT_ENVIRONMENT` flag at startup to know it is running inside a test harness that supports `act()`. When the flag is absent (e.g. `testEnvironment: "node"` in Jest), React logs this warning every time a fake-timer tick fires a state update — even when the call site correctly wraps the tick in `act()`.
+
+Setting the flag to `true` fixes that specific warning, but it also enables React's stricter act() enforcement. Ink's renderer (`react-reconciler` in synchronous mode) does not integrate with React's `act()` queue, so React then logs a second wave of *"An update to Root inside a test was not wrapped in act(...)"* warnings for every Ink render — even simple, timer-free renders. These are false positives caused by a known Ink / React 19 compatibility gap.
+
+**Fix:** Create a Jest setup file that sets the flag **and** filters out the Ink false-positive warnings, then register it with `setupFilesAfterEnv`:
+
+**Step 1 — create `test/setup.ts`:**
+
+```ts
+// Inform React 19's concurrent renderer that this process supports act().
+(globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = true;
+
+// Ink's renderer (react-reconciler in synchronous mode) does not integrate
+// with React's act() queue. React 19 logs "An update to Root inside a test
+// was not wrapped in act(...)" for every Ink render — a known false positive.
+// Suppress only these act-related noise lines; all other errors still surface.
+const originalConsoleError = console.error.bind(console);
+console.error = (...args: Parameters<typeof console.error>) => {
+  if (
+    typeof args[0] === 'string' &&
+    /not wrapped in act|not configured to support act/.test(args[0])
+  ) {
+    return;
+  }
+  originalConsoleError(...args);
+};
+```
+
+**Step 2 — register the file in `jest.config.json`:**
+
+```json
+{
+  "setupFilesAfterEnv": ["<rootDir>/test/setup.ts"]
+}
+```
+
+`setupFilesAfterEnv` runs **after** the Jest environment is set up but **before** any test file is loaded, so the flag is in place before React is imported.
+
+> **Why not `setupFiles`?** `setupFiles` runs before the test framework is installed — at that point `globalThis` is the correct target but the Jest globals (`jest`, `expect`) are not yet available. `setupFilesAfterEnv` is the right hook for test-environment configuration.
+
+> **Why filter both message patterns?** `"not configured to support act"` fires (from inside `act()`) when `IS_REACT_ACT_ENVIRONMENT` is absent. `"not wrapped in act"` fires (from Ink renders) once the flag is `true`. Both are Ink-related noise — the filter is intentionally narrow enough that act() warnings from other component names still reach the console.
+
+---
+
 ### `ReferenceError: You are trying to import a file after the Jest environment has been torn down`
 
-**Cause:** A component with a timer (`setInterval` / `setTimeout`) was rendered but not explicitly unmounted before the test ended. When `jest.useRealTimers()` fires in `afterEach`, the still-live interval callback runs — and because the Jest VM context is already being torn down, any module access (including ESM imports captured in the closure) throws this error.
+**Cause:** In ESM mode (`"type": "module"` + `--experimental-vm-modules`), React 19's async scheduler leaves pending microtasks on the Promise queue even after a component is explicitly unmounted. When Jest tears down the VM context, those microtasks fire and attempt to access module-scope variables that no longer exist.
 
-This affects Ink components that own an internal interval (e.g., a chronometer tick) when the test omits an explicit `unmount()` call.
+In **Docker specifically**, the problem is compounded: Jest's default parallel-worker mode runs multiple test suites concurrently. Worker A's VM can be torn down while Worker B's queued microtasks — whose async `import()` resolution touches Worker A's module registry — are still in flight. This race is rare on a well-resourced host but reproducible in Docker's resource-constrained environment.
 
-**Fix:** Track the `unmount` function returned by `render()` and call it (inside `act()`) in `afterEach`, _before_ switching back to real timers:
+**Fix — three steps are required when running inside Docker:**
+
+**Step 1 — add `--forceExit` to the Jest command** (tells Jest to call `process.exit()` immediately after all tests finish, before lingering microtasks can run):
+
+```json
+// package.json
+"test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests --forceExit"
+```
+
+**Step 2 — add `--runInBand` to the Docker `docker run` command** (runs all test suites sequentially in one process — eliminates the parallel-worker teardown race):
+
+```bash
+# scripts/run-tests-docker.sh  ← the script already passes this automatically
+docker run --rm -e CI=true pajussara_tui_comp-test npm test -- --runInBand
+```
+
+> ⚠️ `--forceExit` alone is **not** sufficient inside Docker. The parallel workers create a
+> timing window that only `--runInBand` closes. The `run-tests-docker.sh` script always
+> prepends `--runInBand` so you do not need to add it manually.
+
+**Step 3 — use proper `unmount()` cleanup in every test suite that renders Ink components** (this keeps the test output clean and prevents real leaks):
 
 ```ts
 describe('MyComponent', () => {
@@ -524,7 +641,7 @@ describe('MyComponent', () => {
 });
 ```
 
-Wrapping `unmount()` in `act()` ensures React processes all pending state updates before the VM is torn down, preventing the "import after teardown" error.
+All three steps are needed: `--forceExit` stops residual scheduler work from reaching the torn-down VM; `--runInBand` eliminates the Docker parallel-worker race; the cleanup pattern keeps fake timers and component state from leaking between tests.
 
 ---
 
@@ -535,7 +652,7 @@ Wrapping `unmount()` in `act()` ensures React processes all pending state update
 **Fix:**
 - Use `jest.useFakeTimers()` / `jest.useRealTimers()` in `beforeEach` / `afterEach`.
 - Always call `unmount()` in `afterEach` for Ink components (see entry above).
-- Add `--forceExit` to the Jest command if tests do not exit cleanly.
+- Ensure `--forceExit` is in the Jest command and `--runInBand` is passed at the Docker layer (see the teardown entry above — both are required for ESM projects in Docker).
 - Run with `--detectOpenHandles` to identify leaking resources:
   ```bash
   bash scripts/run-tests-docker.sh -- --detectOpenHandles
