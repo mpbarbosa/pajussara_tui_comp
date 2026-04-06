@@ -20,3 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Configurable `title` and `emptyText` props
 - `ListItem` and `ListPanelProps` TypeScript interfaces
 - `StepsPanel` deprecated alias for `ListPanel`
+- `StreamViewer` — live AI token stream panel (added 2026-03-10)
+  - Real-time token display with scrollable body
+  - Header showing `stepId` and `persona`; footer showing token rate and count
+  - History navigation via `[` / `]` keys when focused
+  - Border colour reflects focus state (cyan when focused, gray otherwise)
+- `Chronometer` — elapsed-time display panel with start/stop/reset keyboard controls (added 2026-04-05)
+- `StatusBadge` — animated spinner / completion / error indicator driven by `PanelStatus` (added 2026-04-05)
+- `StatusChronometer` — composite panel combining `StatusBadge` and `Chronometer` side by side (added 2026-04-05)
+- `PanelStatus` shared type (`idle | loading | streaming | done | error`) in `src/types.ts` (added 2026-04-05)
