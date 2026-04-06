@@ -1,7 +1,7 @@
 import React, { act } from 'react';
 import { render } from 'ink-testing-library';
 import { jest } from '@jest/globals';
-import { Chronometer, type ChronometerProps, type ChronometerStatus } from '../src/Chronometer';
+import ChronometerDefault, { Chronometer, type ChronometerProps, type ChronometerStatus } from '../src/Chronometer';
 
 jest.mock('../helpers', () => ({
   formatStepIcon: (status: string) => `[${status}]`,
@@ -10,19 +10,27 @@ jest.mock('../helpers', () => ({
 }));
 
 describe('Chronometer component', () => {
+  let cleanup: (() => void) | null = null;
+
   beforeEach(() => {
     jest.useFakeTimers();
+    cleanup = null;
   });
 
   afterEach(() => {
     jest.clearAllTimers();
+    if (cleanup) {
+      act(() => { cleanup!(); });
+      cleanup = null;
+    }
     jest.useRealTimers();
   });
 
-  const renderChronometer = (overrides: Partial<ChronometerProps> = {}) =>
-    render(
-      React.createElement(Chronometer, { width: 40, ...overrides })
-    );
+  const renderChronometer = (overrides: Partial<ChronometerProps> = {}) => {
+    const result = render(React.createElement(Chronometer, { width: 40, ...overrides }));
+    cleanup = result.unmount;
+    return result;
+  };
 
   // 1. Renders with default props
   it('renders with default props — title and 0.0s elapsed time', () => {
@@ -152,9 +160,8 @@ describe('Chronometer component', () => {
   });
 
   // Extra: default export matches named export
-  it('default export matches named export', async () => {
-    const mod = await import('../src/Chronometer');
-    expect(mod.default).toBe(mod.Chronometer);
+  it('default export matches named export', () => {
+    expect(ChronometerDefault).toBe(Chronometer);
   });
 
   // showBorder prop
