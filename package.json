@@ -29,6 +29,7 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests --forceExit",
     "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch --forceExit",
     "test:docker": "bash scripts/run-tests-docker.sh",
+    "demo:docker": "bash scripts/run-demos-docker.sh",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit"
   },
