@@ -12,7 +12,7 @@
  * Run with:
  *   npx tsx demo/status-chronometer-cities2.tsx
  *
- * @version 1.0.0
+ * @version 1.1.9
  * @since 2026-04-05
  */
 

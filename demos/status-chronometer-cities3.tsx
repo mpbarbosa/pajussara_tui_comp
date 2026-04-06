@@ -13,7 +13,7 @@
  * Run with:
  *   npx tsx demos/status-chronometer-cities3.tsx
  *
- * @version 1.0.0
+ * @version 1.1.9
  * @since 2026-04-06
  */
 
@@ -119,7 +119,7 @@ export function CitiesApp(): React.ReactElement {
       status: tourStatus,
       width: 44,
       isFocused: chronometerFocused,
-      title: undefined,
+      showLabel: false,
       showBorder: false,
     }),
   );

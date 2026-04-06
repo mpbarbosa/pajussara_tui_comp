@@ -1,22 +1,21 @@
 /**
- * @fileoverview Demo — ListPanel with a world-cities tour and StatusChronometer integration
- * @module demo/status-chronometer-cities
+ * @fileoverview Demo — ListPanel with a world-cities tour and StatusChronometer integration (auto-started)
+ * @module demo/status-chronometer-cities5
  *
- * Interactive demo of the ListPanel component with a StatusChronometer that
- * reflects the live state of the city-insertion tour. A "tour" automatically
- * visits each city in sequence every 1.8 s; the badge shows a spinner while
- * the tour is in progress and a green ✓ Done when all cities have been visited.
- * The Chronometer tracks total elapsed time and supports space (pause/resume)
- * and r (reset) when the chronometer row is focused.
- * Navigate the list independently with ↑ / ↓ (or k / j) while the tour runs.
- * Press Tab to toggle focus between the list and the chronometer.
- * Press q to quit.
+ * Variant of the status-chronometer-cities4 demo with the Chronometer
+ * `forceRunning` prop set to `true`, so the chronometer starts running
+ * immediately on mount without requiring the user to press space. All other
+ * behaviour is identical: the tour automatically visits each city every 1.8 s,
+ * the badge shows a spinner while running and a green ✓ Done when all cities
+ * have been visited. The label, border, and hints bar are disabled
+ * (`showLabel: false`, `showBorder: false`, `showHints: false`).
+ * Navigate with ↑ / ↓ (or k / j), Tab to toggle chronometer focus, q to quit.
  *
  * Run with:
- *   npx tsx demo/status-chronometer-cities.tsx
+ *   npx tsx demos/status-chronometer-cities5.tsx
  *
  * @version 1.1.9
- * @since 2026-04-05
+ * @since 2026-04-06
  */
 
 import React, { useState, useEffect } from 'react';
@@ -121,7 +120,10 @@ export function CitiesApp(): React.ReactElement {
       status: tourStatus,
       width: 44,
       isFocused: chronometerFocused,
-      title: 'TOUR TIMER',
+      showLabel: false,
+      showBorder: false,
+      showHints: false,
+      forceRunning: true,
     }),
   );
 }
