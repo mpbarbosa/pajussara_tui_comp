@@ -1,6 +1,9 @@
 /**
  * @fileoverview Public API entry point for pajussara_tui_comp
  * @module pajussara_tui_comp
+ *
+ * @version 1.1.9
+ * @since 2026-03-07
  */
 
 export { ListPanel, ListPanel as StepsPanel } from './ListPanel.js';

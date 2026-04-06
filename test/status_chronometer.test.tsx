@@ -175,4 +175,58 @@ describe('StatusChronometer component', () => {
 	it('default export matches named export', () => {
 		expect(StatusChronometerDefault).toBe(StatusChronometer);
 	});
+
+	// ── syncWithStatus prop ──────────────────────────────────────────────────────
+
+	it('does not auto-start chronometer when syncWithStatus is false (default)', () => {
+		const { lastFrame } = renderComponent({ status: 'loading', syncWithStatus: false });
+		act(() => { jest.advanceTimersByTime(500); });
+		expect(lastFrame()).toContain('0.0s');
+	});
+
+	it('auto-starts chronometer when syncWithStatus is true and status is loading', () => {
+		const { lastFrame } = renderComponent({ status: 'loading', syncWithStatus: true });
+		act(() => { jest.advanceTimersByTime(300); });
+		expect(lastFrame()).toContain('0.3s');
+	});
+
+	it('auto-starts chronometer when syncWithStatus is true and status is streaming', () => {
+		const { lastFrame } = renderComponent({ status: 'streaming', syncWithStatus: true });
+		act(() => { jest.advanceTimersByTime(200); });
+		expect(lastFrame()).toContain('0.2s');
+	});
+
+	it('auto-stops chronometer when status transitions from loading to done', () => {
+		const { lastFrame, rerender } = renderComponent({ status: 'loading', syncWithStatus: true });
+		act(() => { jest.advanceTimersByTime(300); });
+		expect(lastFrame()).toContain('0.3s');
+
+		act(() => {
+			rerender(
+				<StatusChronometer width={40} status="done" syncWithStatus={true} />,
+			);
+		});
+		act(() => { jest.advanceTimersByTime(200); });
+		// Time should be frozen at 0.3s
+		expect(lastFrame()).toContain('0.3s');
+	});
+
+	it('auto-stops chronometer when status transitions from loading to error', () => {
+		const { lastFrame, rerender } = renderComponent({ status: 'loading', syncWithStatus: true });
+		act(() => { jest.advanceTimersByTime(200); });
+
+		act(() => {
+			rerender(
+				<StatusChronometer width={40} status="error" syncWithStatus={true} />,
+			);
+		});
+		act(() => { jest.advanceTimersByTime(200); });
+		expect(lastFrame()).toContain('0.2s');
+	});
+
+	it('does not auto-start when syncWithStatus is omitted even with loading status', () => {
+		const { lastFrame } = renderComponent({ status: 'loading' });
+		act(() => { jest.advanceTimersByTime(400); });
+		expect(lastFrame()).toContain('0.0s');
+	});
 });

@@ -18,9 +18,11 @@ import { formatDuration } from '../helpers/index.js';
  *
  * @param props - {@link ChronometerProps}
  */
-export function Chronometer({ width, isFocused = false, title = 'CHRONOMETER', initialElapsedMs = 0, showBorder = true, onTick, onStop, onReset, }) {
+export function Chronometer({ width, isFocused = false, title = 'CHRONOMETER', initialElapsedMs = 0, showBorder = true, showLabel = true, showHints = true, forceRunning, onTick, onStop, onReset, }) {
     const [elapsedMs, setElapsedMs] = useState(initialElapsedMs);
-    const [status, setStatus] = useState('idle');
+    // Derive initial running state from forceRunning so mount-time forceRunning:true
+    // works correctly even before effects have a chance to fire.
+    const [status, setStatus] = useState(() => forceRunning === true ? 'running' : 'idle');
     // Tick interval — only active while running
     useEffect(() => {
         if (status !== 'running')
@@ -34,6 +36,17 @@ export function Chronometer({ width, isFocused = false, title = 'CHRONOMETER', i
         }, 100);
         return () => clearInterval(id);
     }, [status]);
+    // External running-state override
+    useEffect(() => {
+        if (forceRunning === undefined)
+            return;
+        if (forceRunning) {
+            setStatus('running');
+        }
+        else {
+            setStatus((prev) => (prev === 'running' ? 'stopped' : prev));
+        }
+    }, [forceRunning]);
     useInput((_input, key) => {
         if (key.return)
             return; // ignore Enter
@@ -62,7 +75,11 @@ export function Chronometer({ width, isFocused = false, title = 'CHRONOMETER', i
         ...borderProps,
         width,
         paddingX: 1,
-    }, React.createElement(Text, { bold: true, color: 'white', dimColor: !isFocused }, title), React.createElement(Text, { color: timeColor, bold: status === 'running' }, formatDuration(elapsedMs)), React.createElement(Text, { color: 'gray', dimColor: true }, '[space] start/stop  [r] reset'));
+    }, showLabel
+        ? React.createElement(Text, { bold: true, color: 'white', dimColor: !isFocused }, title)
+        : null, React.createElement(Text, { color: timeColor, bold: status === 'running' }, formatDuration(elapsedMs)), showHints
+        ? React.createElement(Text, { color: 'gray', dimColor: true }, '[space] start/stop  [r] reset')
+        : null);
 }
 export default Chronometer;
 //# sourceMappingURL=Chronometer.js.map

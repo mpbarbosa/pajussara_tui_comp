@@ -186,4 +186,78 @@ describe('Chronometer component', () => {
     expect(lastFrame()).toContain('NO BORDER');
     expect(lastFrame()).toContain('0.0s');
   });
+
+  // showLabel prop
+  it('renders the title label by default (showLabel not specified)', () => {
+    const { lastFrame } = renderChronometer({ title: 'MY LABEL' });
+    expect(lastFrame()).toContain('MY LABEL');
+  });
+
+  it('renders the title label when showLabel is true', () => {
+    const { lastFrame } = renderChronometer({ title: 'MY LABEL', showLabel: true });
+    expect(lastFrame()).toContain('MY LABEL');
+  });
+
+  it('omits the title label when showLabel is false', () => {
+    const { lastFrame } = renderChronometer({ title: 'MY LABEL', showLabel: false });
+    expect(lastFrame()).not.toContain('MY LABEL');
+  });
+
+  it('still renders elapsed time when showLabel is false', () => {
+    const { lastFrame } = renderChronometer({ showLabel: false });
+    expect(lastFrame()).toContain('0.0s');
+  });
+
+  // showHints prop
+  it('renders the hints bar by default (showHints not specified)', () => {
+    const { lastFrame } = renderChronometer();
+    expect(lastFrame()).toContain('[space] start/stop  [r] reset');
+  });
+
+  it('renders the hints bar when showHints is true', () => {
+    const { lastFrame } = renderChronometer({ showHints: true });
+    expect(lastFrame()).toContain('[space] start/stop  [r] reset');
+  });
+
+  it('omits the hints bar when showHints is false', () => {
+    const { lastFrame } = renderChronometer({ showHints: false });
+    expect(lastFrame()).not.toContain('[space] start/stop  [r] reset');
+  });
+
+  it('still renders elapsed time when showHints is false', () => {
+    const { lastFrame } = renderChronometer({ showHints: false });
+    expect(lastFrame()).toContain('0.0s');
+  });
+
+  // forceRunning prop
+  it('auto-starts when forceRunning transitions to true', () => {
+    const { lastFrame, rerender } = renderChronometer({ forceRunning: undefined });
+    expect(lastFrame()).toContain('0.0s');
+
+    act(() => {
+      rerender(React.createElement(Chronometer, { width: 40, forceRunning: true }));
+    });
+    act(() => { jest.advanceTimersByTime(200); });
+    expect(lastFrame()).toContain('0.2s');
+  });
+
+  it('auto-stops when forceRunning transitions to false while running', () => {
+    const { lastFrame, rerender } = renderChronometer({ forceRunning: true });
+    act(() => { jest.advanceTimersByTime(300); });
+    expect(lastFrame()).toContain('0.3s');
+
+    act(() => {
+      rerender(React.createElement(Chronometer, { width: 40, forceRunning: false }));
+    });
+    act(() => { jest.advanceTimersByTime(200); });
+    // Time should stay at 0.3s after stop
+    expect(lastFrame()).toContain('0.3s');
+  });
+
+  it('does not affect state when forceRunning is undefined', () => {
+    const { lastFrame } = renderChronometer({ forceRunning: undefined });
+    act(() => { jest.advanceTimersByTime(300); });
+    // Without forceRunning=true, timer does not run on its own
+    expect(lastFrame()).toContain('0.0s');
+  });
 });

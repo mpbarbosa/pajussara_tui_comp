@@ -5,6 +5,8 @@
  * Renders a horizontal row with a {@link StatusBadge} on the left and a
  * {@link Chronometer} panel on the right. Keyboard controls (space / r) are
  * forwarded to the Chronometer and are only active when `isFocused` is true.
+ * When `syncWithStatus` is true the chronometer starts and stops automatically
+ * in response to the `status` prop changing.
  *
  * @version 1.1.9
  * @since 2026-04-05
@@ -19,6 +21,12 @@ import type { ChronometerProps } from './Chronometer.js';
  * {@link StatusBadgeProps} (`status` and `errorMessage`).
  */
 export interface StatusChronometerProps extends ChronometerProps, Pick<StatusBadgeProps, 'status' | 'errorMessage'> {
+    /**
+     * When `true`, the chronometer automatically starts when `status` is
+     * `'loading'` or `'streaming'`, and stops when `status` becomes `'done'`,
+     * `'error'`, or `'idle'` (default: false).
+     */
+    syncWithStatus?: boolean;
 }
 /**
  * Composed component that places a {@link StatusBadge} and a {@link Chronometer}
@@ -30,6 +38,6 @@ export interface StatusChronometerProps extends ChronometerProps, Pick<StatusBad
  *
  * @param props - {@link StatusChronometerProps}
  */
-export declare function StatusChronometer({ status, errorMessage, ...chronometerProps }: StatusChronometerProps): React.ReactElement;
+export declare function StatusChronometer({ status, errorMessage, syncWithStatus, ...chronometerProps }: StatusChronometerProps): React.ReactElement;
 export default StatusChronometer;
 //# sourceMappingURL=status_chronometer.d.ts.map

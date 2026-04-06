@@ -31,6 +31,16 @@ export interface ChronometerProps {
   initialElapsedMs?: number;
   /** Whether to render the surrounding border (default: true). */
   showBorder?: boolean;
+  /** Whether to render the header label (default: true). */
+  showLabel?: boolean;
+  /** Whether to render the keyboard-hints bar at the bottom (default: true). */
+  showHints?: boolean;
+  /**
+   * External running-state override. When `true` the chronometer starts
+   * automatically; when `false` it stops if currently running. Leave
+   * `undefined` (default) to keep fully manual keyboard control.
+   */
+  forceRunning?: boolean;
   /** Callback fired on every tick (~100 ms) with the current elapsed ms. */
   onTick?: (elapsedMs: number) => void;
   /** Callback fired when the chronometer transitions to 'stopped'. */
@@ -52,12 +62,19 @@ export function Chronometer({
   title = 'CHRONOMETER',
   initialElapsedMs = 0,
   showBorder = true,
+  showLabel = true,
+  showHints = true,
+  forceRunning,
   onTick,
   onStop,
   onReset,
 }: ChronometerProps): React.ReactElement {
   const [elapsedMs, setElapsedMs] = useState<number>(initialElapsedMs);
-  const [status, setStatus] = useState<ChronometerStatus>('idle');
+  // Derive initial running state from forceRunning so mount-time forceRunning:true
+  // works correctly even before effects have a chance to fire.
+  const [status, setStatus] = useState<ChronometerStatus>(() =>
+    forceRunning === true ? 'running' : 'idle'
+  );
 
   // Tick interval — only active while running
   useEffect(() => {
@@ -73,6 +90,16 @@ export function Chronometer({
 
     return (): void => clearInterval(id);
   }, [status]);
+
+  // External running-state override
+  useEffect(() => {
+    if (forceRunning === undefined) return;
+    if (forceRunning) {
+      setStatus('running');
+    } else {
+      setStatus((prev) => (prev === 'running' ? 'stopped' : prev));
+    }
+  }, [forceRunning]);
 
   useInput(
     (_input: string, key: Key) => {
@@ -110,17 +137,21 @@ export function Chronometer({
       width,
       paddingX: 1,
     },
-    React.createElement(Text, { bold: true, color: 'white', dimColor: !isFocused }, title),
+    showLabel
+      ? React.createElement(Text, { bold: true, color: 'white', dimColor: !isFocused }, title)
+      : null,
     React.createElement(
       Text,
       { color: timeColor, bold: status === 'running' },
       formatDuration(elapsedMs)
     ),
-    React.createElement(
-      Text,
-      { color: 'gray', dimColor: true },
-      '[space] start/stop  [r] reset'
-    )
+    showHints
+      ? React.createElement(
+          Text,
+          { color: 'gray', dimColor: true },
+          '[space] start/stop  [r] reset'
+        )
+      : null
   );
 }
 

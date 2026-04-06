@@ -8,6 +8,12 @@
 
 - `src/` — component source files (`.tsx`)
 - `helpers/` — shared display utilities (`formatStepIcon`, `statusColor`, `formatDuration`) imported by components as `'../helpers'`
+- `test/` — Jest test suite (mirrors `src/` structure)
+- `demos/` — runnable usage examples (e.g. `listpanel-cities.tsx`)
+- `docs/` — project documentation (ARCHITECTURE.md, API.md, FUNCTIONAL_REQUIREMENTS.md, etc.)
+- `scripts/` — shell scripts for build, deploy, and test automation
+- `.github/workflows/` — GitHub Actions CI workflows
+- `.github/skills/` — Copilot CLI custom skills (e.g. `js-to-ts`)
 - Build/test scripts are configured in `package.json`: `build` (tsc), `test` (jest), `lint` (eslint), `typecheck` (tsc --noEmit)
 - Module system: `"type": "module"` in `package.json` (ESM)
 

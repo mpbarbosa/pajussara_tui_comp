@@ -24,6 +24,16 @@ export interface ChronometerProps {
     initialElapsedMs?: number;
     /** Whether to render the surrounding border (default: true). */
     showBorder?: boolean;
+    /** Whether to render the header label (default: true). */
+    showLabel?: boolean;
+    /** Whether to render the keyboard-hints bar at the bottom (default: true). */
+    showHints?: boolean;
+    /**
+     * External running-state override. When `true` the chronometer starts
+     * automatically; when `false` it stops if currently running. Leave
+     * `undefined` (default) to keep fully manual keyboard control.
+     */
+    forceRunning?: boolean;
     /** Callback fired on every tick (~100 ms) with the current elapsed ms. */
     onTick?: (elapsedMs: number) => void;
     /** Callback fired when the chronometer transitions to 'stopped'. */
@@ -36,6 +46,6 @@ export interface ChronometerProps {
  *
  * @param props - {@link ChronometerProps}
  */
-export declare function Chronometer({ width, isFocused, title, initialElapsedMs, showBorder, onTick, onStop, onReset, }: ChronometerProps): React.ReactElement;
+export declare function Chronometer({ width, isFocused, title, initialElapsedMs, showBorder, showLabel, showHints, forceRunning, onTick, onStop, onReset, }: ChronometerProps): React.ReactElement;
 export default Chronometer;
 //# sourceMappingURL=Chronometer.d.ts.map
