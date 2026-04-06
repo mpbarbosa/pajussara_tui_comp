@@ -62,5 +62,5 @@ render(
 - [API Reference](./API.md) — full props, types, and exports
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — module structure and build pipeline
 - [FUNCTIONAL_REQUIREMENTS.md](./FUNCTIONAL_REQUIREMENTS.md) — acceptance criteria per component
-- [`demo/`](../demo/) — runnable examples
+- [`demos/`](../demos/) — runnable examples
 
