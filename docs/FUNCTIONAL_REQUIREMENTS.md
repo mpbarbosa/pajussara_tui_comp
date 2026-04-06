@@ -155,3 +155,6 @@ Formats milliseconds as a human-readable string. Pure function.
 | RI-022 | step_02 | @version 1.0.0 outdated in src/Chronometer.tsx | src/Chronometer.tsx | Low | done |
 | RI-023 | step_02 | @version 1.0.0 outdated in src/status_chronometer.tsx | src/status_chronometer.tsx | Low | done |
 | RI-024 | step_02 | CHANGELOG.md missing entries for StreamViewer, Chronometer, StatusBadge, StatusChronometer | CHANGELOG.md | Medium | done |
+| RI-025 | step_02 | GETTING_STARTED.md broken link demo/ → demos/ | docs/GETTING_STARTED.md | Low | done |
+| RI-026 | step_04 | react and ink duplicated in peerDependencies and devDependencies | package.json | Low | done |
+| RI-027 | step_02 | @version 1.0.0 outdated in all demos/*.tsx files | demos/ | Low | done |
