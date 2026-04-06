@@ -149,3 +149,9 @@ Formats milliseconds as a human-readable string. Pure function.
 | RI-016 | step_09 | package-lock.json out of sync with ink@^6.8.0 | package-lock.json | Medium | done |
 | RI-017 | step_19 | @version 1.0.0 in StreamViewer.tsx outdated | src/StreamViewer.tsx | Low | done |
 | RI-018 | step_06 | Mocks not reset between tests in ListPanel.test.tsx | test/ListPanel.test.tsx | Low | done |
+| RI-019 | step_05 | ARCHITECTURE.md references demo/ but directory is demos/ | docs/ARCHITECTURE.md | Medium | done |
+| RI-020 | step_02 | @version 1.0.0 outdated in src/types.ts | src/types.ts | Low | done |
+| RI-021 | step_02 | @version 1.0.0 outdated in src/status_badge.tsx | src/status_badge.tsx | Low | done |
+| RI-022 | step_02 | @version 1.0.0 outdated in src/Chronometer.tsx | src/Chronometer.tsx | Low | done |
+| RI-023 | step_02 | @version 1.0.0 outdated in src/status_chronometer.tsx | src/status_chronometer.tsx | Low | done |
+| RI-024 | step_02 | CHANGELOG.md missing entries for StreamViewer, Chronometer, StatusBadge, StatusChronometer | CHANGELOG.md | Medium | done |
