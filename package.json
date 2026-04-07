@@ -50,5 +50,8 @@
   },
   "overrides": {
     "collect-v8-coverage": "1.0.3"
+  },
+  "dependencies": {
+    "bessa_patterns.ts": "https://github.com/mpbarbosa/bessa_patterns.ts/archive/refs/tags/v0.12.16-alpha.tar.gz"
   }
 }
