@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - 2026-04-07
+
+### Added
+
+- `Chronometer` — `forceRunning` prop: when `true` the chronometer starts automatically on
+  mount; when `false` it stops if currently running; `undefined` (default) keeps fully manual
+  keyboard control.
+- `Chronometer` — `showLabel` prop (default: `true`): controls whether the panel title is
+  rendered, enabling embedding without the "CHRONOMETER" header.
+- `Chronometer` — `showHints` prop (default: `true`): controls whether the keyboard-hints bar
+  is rendered (`[space] start/stop  [r] reset`).
+- `StatusChronometer` — `syncWithStatus` prop (default: `false`): when `true`, `forceRunning`
+  is derived automatically from `status` (`loading`/`streaming` → running; otherwise stopped).
+  When `false` the caller's own `forceRunning` prop is passed through unchanged.
+- Demo `status-chronometer-cities5.tsx` — world-cities tour with `forceRunning: true` so the
+  chronometer starts immediately on mount without any user interaction.
+
+---
+
 ## [1.1.9] - 2026-03-07
 
 ### Added
