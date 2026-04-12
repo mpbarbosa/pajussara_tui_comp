@@ -12,10 +12,12 @@ pajussara_tui_comp/
 │   ├── index.ts                # Public API barrel — re-exports all components and types
 │   ├── types.ts                # Shared type definitions (PanelStatus)
 │   ├── ListPanel.tsx           # Scrollable, keyboard-navigable list panel
+│   ├── DirectoryPanel.tsx      # Filesystem folder browser panel
 │   ├── StreamViewer.tsx        # Live AI token stream panel with history navigation
 │   ├── Chronometer.tsx         # Elapsed-time display with start/stop/reset controls
 │   ├── status_badge.tsx        # Animated spinner / completion / error indicator
-│   └── status_chronometer.tsx  # StatusBadge + Chronometer side-by-side composite
+│   ├── status_chronometer.tsx  # StatusBadge + Chronometer side-by-side composite
+│   └── MermaidPanel.tsx        # Terminal Mermaid diagram renderer (Unicode ASCII art)
 ├── helpers/                    # Shared display utilities imported by components
 │   └── index.ts                # formatStepIcon · statusColor · formatDuration
 ├── test/                       # Jest test suite
@@ -32,6 +34,12 @@ pajussara_tui_comp/
 ```
 src/ListPanel.tsx
       └── import ← helpers/index.ts   (formatStepIcon, statusColor, formatDuration)
+      └── import ← ink                (Box, Text, useInput)
+      └── import ← react              (React, useState, useEffect)
+
+src/DirectoryPanel.tsx
+      └── import ← node:fs/promises   (readdir)
+      └── import ← node:path          (join)
       └── import ← ink                (Box, Text, useInput)
       └── import ← react              (React, useState, useEffect)
 
@@ -55,12 +63,19 @@ src/status_chronometer.tsx
       └── import ← ink                    (Box)
       └── import ← react                  (React)
 
+src/MermaidPanel.tsx
+      └── import ← beautiful-mermaid     (renderMermaidASCII)
+      └── import ← ink                   (Box, Text, useInput)
+      └── import ← react                 (React, useMemo, useState)
+
 src/index.ts
       └── re-exports ← src/ListPanel.tsx
+      └── re-exports ← src/DirectoryPanel.tsx
       └── re-exports ← src/StreamViewer.tsx
       └── re-exports ← src/Chronometer.tsx
       └── re-exports ← src/status_badge.tsx
       └── re-exports ← src/status_chronometer.tsx
+      └── re-exports ← src/MermaidPanel.tsx
       └── re-exports ← src/types.ts
 ```
 

@@ -23,6 +23,25 @@ npm install ink react
 All components are pure React function components rendered with [Ink](https://github.com/vadimdemedes/ink).
 Use `React.createElement` directly (no JSX required).
 
+### Minimal `DirectoryPanel` example
+
+```typescript
+import React from 'react';
+import { render } from 'ink';
+import { DirectoryPanel } from 'pajussara_tui_comp';
+
+render(
+  React.createElement(DirectoryPanel, {
+    directoryPath: process.cwd(),
+    width: 50,
+    isFocused: true,
+    title: 'WORKSPACE',
+  })
+);
+```
+
+---
+
 ### Minimal `ListPanel` example
 
 ```typescript
@@ -63,4 +82,3 @@ render(
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — module structure and build pipeline
 - [FUNCTIONAL_REQUIREMENTS.md](./FUNCTIONAL_REQUIREMENTS.md) — acceptance criteria per component
 - [`demos/`](../demos/) — runnable examples
-

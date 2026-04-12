@@ -6,6 +6,50 @@ Feature catalogue and acceptance criteria for `pajussara_tui_comp`.
 
 ## Components
 
+### DirectoryPanel
+
+A scrollable, keyboard-navigable folder browser for Ink TUI applications.
+
+**Exported as:** `DirectoryPanel` (primary)
+
+#### Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `directoryPath` | `string` | ✓ | — | Filesystem path whose direct child folders should be listed |
+| `width` | `number` | ✓ | — | Render width in terminal columns |
+| `height` | `number` | | `20` | Render height in terminal rows |
+| `selectedDirectoryPath` | `string \| null` | | `null` | Currently selected folder path |
+| `onSelectDirectory` | `(directoryPath: string) => void` | | — | Callback fired when user moves the selection |
+| `isFocused` | `boolean` | | `false` | Whether this panel has keyboard focus |
+| `title` | `string` | | `"FOLDERS"` | Panel header label |
+| `loadingText` | `string` | | `"Loading folders…"` | Text shown while folders are being read |
+| `emptyText` | `string` | | `"No folders found."` | Text shown when no child folders are present |
+
+#### Acceptance criteria
+
+- **AC-01** Reads the direct child entries of `directoryPath` asynchronously and
+  renders only folders.
+- **AC-02** Renders folder names in alphabetical order.
+- **AC-03** Displays `loadingText` while the filesystem read is in progress.
+- **AC-04** Displays `emptyText` when the directory has no child folders.
+- **AC-05** Displays the filesystem error message inline when the read fails.
+- **AC-06** When `isFocused` is `true`, ↑/↓ and k/j move selection and fire
+  `onSelectDirectory` with the selected folder path.
+- **AC-07** Keyboard input is inactive when `isFocused` is `false`.
+- **AC-08** Scroll window follows the selected folder so it is always visible.
+- **AC-09** `selectedDirectoryPath` synchronizes the highlighted row when the
+  prop changes after initial render.
+
+### DirectoryEntry (data shape)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | `string` | ✓ | Folder name relative to `directoryPath` |
+| `path` | `string` | ✓ | Joined path for the folder |
+
+---
+
 ### ListPanel
 
 A scrollable, keyboard-navigable list panel for Ink TUI applications.
@@ -105,6 +149,54 @@ A live AI token stream panel for Ink TUI applications.
 | `fullText` | `string` | ✓ | Complete AI response text |
 | `tokenCount` | `number` | ✓ | Total tokens in this response |
 | `tokensPerSec` | `number` | ✓ | Average token throughput |
+
+---
+
+### MermaidPanel
+
+A terminal Mermaid diagram renderer for Ink TUI applications.
+
+**Exported as:** `MermaidPanel` (primary)
+
+#### Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `diagram` | `string` | ✓ | — | Mermaid diagram syntax (multi-line notation required) |
+| `width` | `number` | ✓ | — | Render width in terminal columns |
+| `height` | `number` | | `20` | Render height in terminal rows (including border) |
+| `title` | `string` | | `"DIAGRAM"` | Panel header label |
+| `isFocused` | `boolean` | | `false` | Whether this panel has keyboard focus |
+
+#### Acceptance criteria
+
+- **AC-01** Renders Mermaid diagram syntax as Unicode ASCII art using
+  `beautiful-mermaid`'s `renderMermaidASCII` function.
+- **AC-02** Supported diagram types: `graph`, `flowchart`, `stateDiagram-v2`,
+  `sequenceDiagram`, `classDiagram`, `erDiagram`, `xychart-beta`.
+- **AC-03** When the diagram is taller than the visible body area
+  (`height − 4` rows), enables vertical scrolling.
+- **AC-04** When `isFocused` is `true` and the diagram is scrollable,
+  ↑/↓ (or k/j) scroll the viewport; a scroll position indicator and
+  `↑/↓ scroll` hint appear in the footer.
+- **AC-05** Keyboard input is inactive when `isFocused` is `false`.
+- **AC-06** Invalid Mermaid syntax is caught; the error message is displayed
+  inline in red and the footer shows `"Invalid diagram syntax"`. No exception
+  is propagated to the parent.
+- **AC-07** Border colour is `cyan` when focused, `gray` otherwise.
+- **AC-08** Rendering is synchronous (`useMemo`); no async calls or effects
+  are involved in diagram conversion.
+
+#### Syntax constraint
+
+`beautiful-mermaid` requires the diagram type header on its own line:
+
+```
+graph TD
+  A --> B
+```
+
+Single-line shorthand (`graph TD; A-->B`) is **not** supported.
 
 ---
 

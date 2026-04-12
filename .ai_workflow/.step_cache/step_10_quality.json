@@ -110,6 +110,31 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-04-06T03:22:28.440Z"
+    },
+    "demos/directory-text-browser.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T14:26:21.171Z"
+    },
+    "demos/directorypanel-github.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T14:26:21.171Z"
+    },
+    "demos/mermaid-demo.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T14:26:21.171Z"
+    },
+    "demos/status-chronometer-cities4.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T14:26:21.171Z"
+    },
+    "demos/status-chronometer-cities5.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T14:26:21.171Z"
     }
   }
 }
