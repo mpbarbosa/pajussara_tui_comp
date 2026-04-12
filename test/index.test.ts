@@ -7,11 +7,26 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     expect(api.ListPanel).toBe(api.StepsPanel);
   });
 
+  it('should export DirectoryPanel', () => {
+    expect(typeof api.DirectoryPanel).toBe('function');
+  });
+
+  it('should export TextListPanel and DirectoryTextBrowser', () => {
+    expect(typeof api.TextListPanel).toBe('function');
+    expect(typeof api.DirectoryTextBrowser).toBe('function');
+  });
+
   it('should export ListItem and ListPanelProps types', () => {
     // TypeScript compilation validates that these named type exports exist;
     // the assignments below fail at compile time if the types are removed.
     type _ListItem = api.ListItem;
     type _ListPanelProps = api.ListPanelProps;
+    type _DirectoryEntry = api.DirectoryEntry;
+    type _DirectoryPanelProps = api.DirectoryPanelProps;
+    type _TextListItem = api.TextListItem;
+    type _TextListPanelProps = api.TextListPanelProps;
+    type _DirectoryTextBrowserPane = api.DirectoryTextBrowserPane;
+    type _DirectoryTextBrowserProps = api.DirectoryTextBrowserProps;
     // Runtime: assert the module is an object with the expected function exports
     expect(typeof api.ListPanel).toBe('function');
     expect(typeof api.StepsPanel).toBe('function');
@@ -28,13 +43,17 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     const exportedKeys = Object.keys(api);
     expect(exportedKeys.sort()).toEqual(
       [
+        'Chronometer',
+        'DirectoryTextBrowser',
+        'DirectoryPanel',
         'ListPanel',
+        'MermaidPanel',
+        'StatusBadge',
+        'StatusChronometer',
         'StepsPanel',
         'StreamViewer',
+        'TextListPanel',
         'wrapText',
-        'StatusBadge',
-        'Chronometer',
-        'StatusChronometer',
       ].sort()
     );
   });

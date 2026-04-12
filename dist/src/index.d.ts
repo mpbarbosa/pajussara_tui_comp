@@ -7,6 +7,12 @@
  */
 export { ListPanel, ListPanel as StepsPanel } from './ListPanel.js';
 export type { ListItem, ListPanelProps } from './ListPanel.js';
+export { DirectoryPanel } from './DirectoryPanel.js';
+export type { DirectoryEntry, DirectoryPanelProps } from './DirectoryPanel.js';
+export { TextListPanel } from './TextListPanel.js';
+export type { TextListItem, TextListPanelProps } from './TextListPanel.js';
+export { DirectoryTextBrowser } from './DirectoryTextBrowser.js';
+export type { DirectoryTextBrowserPane, DirectoryTextBrowserProps, } from './DirectoryTextBrowser.js';
 export { StreamViewer, wrapText } from './StreamViewer.js';
 export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './StreamViewer.js';
 export { StatusBadge } from './status_badge.js';
@@ -16,4 +22,6 @@ export { Chronometer } from './Chronometer.js';
 export type { ChronometerProps, ChronometerStatus } from './Chronometer.js';
 export { StatusChronometer } from './status_chronometer.js';
 export type { StatusChronometerProps } from './status_chronometer.js';
+export { MermaidPanel } from './MermaidPanel.js';
+export type { MermaidPanelProps } from './MermaidPanel.js';
 //# sourceMappingURL=index.d.ts.map

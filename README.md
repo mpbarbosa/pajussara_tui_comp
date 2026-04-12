@@ -1,3 +1,5 @@
+## README
+
 # pajussara_tui_comp
 
 An Ink TUI Component Library in TypeScript.
@@ -16,43 +18,35 @@ npm install pajussara_tui_comp
 
 ## Components
 
-### `ListPanel`
+### `DirectoryPanel`
 
-A scrollable, keyboard-navigable list panel for [Ink](https://github.com/vadimdemedes/ink) TUI applications.
+A scrollable, keyboard-navigable folder browser for
+[Ink](https://github.com/vadimdemedes/ink) TUI applications. It reads the direct
+child folders from a filesystem path and renders them in a `ListPanel`-style
+bordered panel.
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `items` | `Record<string, ListItem>` | — | Map of item ID → item data |
-| `currentItemId` | `string | null` | — | ID of the active/running item |
+| `directoryPath` | `string` | — | Filesystem path whose child folders should be listed |
 | `width` | `number` | — | Panel width in terminal columns |
 | `height` | `number` | `20` | Panel height in terminal rows |
-| `selectedItemId` | `string | null` | `null` | Externally-controlled selected item ID |
-| `onSelectItem` | `(id: string) => void` | — | Fired when the user moves the selection |
+| `selectedDirectoryPath` | `string \| null` | `null` | Externally-controlled selected folder path |
+| `onSelectDirectory` | `(directoryPath: string) => void` | — | Fired when the user moves the selection |
 | `isFocused` | `boolean` | `false` | Whether this panel holds keyboard focus |
-| `title` | `string` | `'STEPS'` | Header label at the top of the panel |
-| `emptyText` | `string` | `'Waiting for steps…'` | Text shown when `items` is empty |
+| `title` | `string` | `'FOLDERS'` | Header label at the top of the panel |
+| `loadingText` | `string` | `'Loading folders…'` | Text shown while reading the directory |
+| `emptyText` | `string` | `'No folders found.'` | Text shown when no child folders are present |
 
-#### `ListItem` interface
+#### `DirectoryEntry` interface
 
 ```ts
-interface ListItem {
-  id: string;
+interface DirectoryEntry {
   name: string;
-  status: string;       // 'pending' | 'running' | 'done' | 'error'
-  duration?: number | null; // elapsed milliseconds (shown when status is 'done')
+  path: string;
 }
 ```
-
-#### Status values
-
-| Status | Icon | Colour |
-|---|---|---|
-| `pending` | `○` | gray |
-| `running` | `●` | cyan |
-| `done` | `✔` | green |
-| `error` | `✘` | red |
 
 #### Keyboard controls
 
@@ -68,280 +62,166 @@ interface ListItem {
 ```ts
 import React from 'react';
 import { render } from 'ink';
-import { ListPanel } from 'pajussara_tui_comp';
-
-const items = {
-  'step-1': { id: 'step-1', name: 'Install dependencies', status: 'done', duration: 3200 },
-  'step-2': { id: 'step-2', name: 'Run tests',            status: 'running' },
-  'step-3': { id: 'step-3', name: 'Build',                status: 'pending' },
-};
+import { DirectoryPanel } from 'pajussara_tui_comp';
 
 render(
-  React.createElement(ListPanel, {
-    items,
-    currentItemId: 'step-2',
+  React.createElement(DirectoryPanel, {
+    directoryPath: process.cwd(),
     width: 60,
     isFocused: true,
-    title: 'PIPELINE',
+    title: 'PROJECT FOLDERS',
+    onSelectDirectory: (directoryPath) => {
+      console.log(`Selected: ${directoryPath}`);
+    },
   })
 );
 ```
 
 ---
 
-### `Chronometer`
+### `DirectoryTextBrowser`
 
-An elapsed-time display panel with start, stop, and reset controls driven by keyboard input.
+A composite browser that places a [`DirectoryPanel`](#directorypanel) on the
+left and a [`TextListPanel`](#textlistpanel) on the right.
+
+Use this when you want a file-system chooser and a coordinated text/details
+panel in one reusable component.
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `width` | `number` | — | Panel width in terminal columns |
-| `isFocused` | `boolean` | `false` | Whether this component holds keyboard focus |
-| `title` | `string` | `'CHRONOMETER'` | Header label at the top of the panel |
-| `initialElapsedMs` | `number` | `0` | Initial elapsed milliseconds on mount |
-| `showBorder` | `boolean` | `true` | Whether to render the surrounding border |
-| `onTick` | `(elapsedMs: number) => void` | — | Fired every ~100 ms while running |
-| `onStop` | `(elapsedMs: number) => void` | — | Fired when the chronometer transitions to `'stopped'` |
-| `onReset` | `() => void` | — | Fired when the chronometer resets |
+| `directoryPath` | `string` | — | Filesystem path whose child folders should be listed |
+| `getTextItems` | `(directoryPath: string \| null) => TextListItem[]` | — | Returns the right-pane rows for the selected directory |
+| `width` | `number` | — | Total width of the two-pane layout |
+| `height` | `number` | `20` | Shared panel height |
+| `directoryPanelWidth` | `number` | `40% of width` | Width of the left pane |
+| `gap` | `number` | `1` | Horizontal spacing between panes |
+| `selectedDirectoryPath` | `string \| null` | `null` | Controlled selected directory path |
+| `onSelectDirectory` | `(directoryPath: string) => void` | — | Fired when the directory selection changes |
+| `currentTextItemId` | `string \| null` | `null` | Active text row ID shown as current |
+| `selectedTextItemId` | `string \| null` | `null` | Controlled selected text row ID |
+| `onSelectTextItem` | `(id: string) => void` | — | Fired when the text selection changes |
+| `focusedPane` | `'directories' \| 'text'` | `'directories'` | Controlled focused pane |
+| `initialFocusedPane` | `'directories' \| 'text'` | `'directories'` | Initial pane for uncontrolled focus |
+| `onFocusPaneChange` | `(pane: 'directories' \| 'text') => void` | — | Fired when focus moves between panes |
+| `directoryTitle` | `string` | `'FOLDERS'` | Left-pane title |
+| `directoryLoadingText` | `string` | `'Loading folders…'` | Left-pane loading text |
+| `directoryEmptyText` | `string` | `'No folders found.'` | Left-pane empty state |
+| `textTitle` | `string` | `'TEXT'` | Right-pane title |
+| `textEmptyText` | `string` | `'No text items for this directory.'` | Right-pane empty state after selection |
+| `
 
-#### Keyboard controls
+---
+
+## API
+
+# API Reference
+
+Complete reference for all public exports of `pajussara_tui_comp`.
+
+---
+
+## Table of Contents
+
+- [Components](#components)
+  - [DirectoryPanel](#directorypanel)
+  - [DirectoryTextBrowser](#directorytextbrowser)
+  - [ListPanel](#listpanel)
+  - [TextListPanel](#textlistpanel)
+  - [StreamViewer](#streamviewer)
+  - [StatusBadge](#statusbadge)
+  - [Chronometer](#chronometer)
+  - [StatusChronometer](#statuschronometer)
+- [Types](#types)
+  - [DirectoryTextBrowserPane](#directorytextbrowserpane)
+  - [DirectoryEntry](#directoryentry)
+  - [ListItem](#listitem)
+  - [TextListItem](#textlistitem)
+  - [StreamState](#streamstate)
+  - [StreamHistoryEntry](#streamhistoryentry)
+  - [PanelStatus](#panelstatus)
+- [Helpers](#helpers)
+- [Deprecated Aliases](#deprecated-aliases)
+
+---
+
+## Components
+
+### `DirectoryPanel`
+
+Scrollable, keyboard-navigable folder browser. Reads the direct child folders of
+`directoryPath` and renders them in a bordered panel.
+
+```ts
+import { DirectoryPanel } from 'pajussara_tui_comp';
+```
+
+#### Props — `DirectoryPanelProps`
+
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `directoryPath` | `string` | ✓ | — | Filesystem path whose child folders should be listed |
+| `width` | `number` | ✓ | — | Panel width in terminal columns |
+| `height` | `number` | | `20` | Panel height in terminal rows |
+| `selectedDirectoryPath` | `string \| null` | | `null` | Currently selected folder path |
+| `onSelectDirectory` | `(directoryPath: string) => void` | | — | Callback fired when user moves the selection |
+| `isFocused` | `boolean` | | `false` | Whether this panel holds keyboard focus |
+| `title` | `string` | | `'FOLDERS'` | Header label at the top of the panel |
+| `loadingText` | `string` | | `'Loading folders…'` | Text shown while the directory is being read |
+| `emptyText` | `string` | | `'No folders found.'` | Text shown when the directory contains no child folders |
+
+#### Keyboard controls (when `isFocused` is `true`)
 
 | Key | Action |
-|---|---|
-| `Space` | Start (from idle/stopped) or stop (from running) |
-| `r` | Reset elapsed time to zero and return to idle |
-
-> Keyboard events are only consumed when `isFocused` is `true`.
+|-----|--------|
+| `↑` / `k` | Move selection up |
+| `↓` / `j` | Move selection down |
 
 #### Usage
 
 ```ts
 import React from 'react';
 import { render } from 'ink';
-import { Chronometer } from 'pajussara_tui_comp';
+import { DirectoryPanel } from 'pajussara_tui_comp';
 
 render(
-  React.createElement(Chronometer, {
-    width: 40,
+  React.createElement(DirectoryPanel, {
+    directoryPath: process.cwd(),
+    width: 48,
     isFocused: true,
-    title: 'ELAPSED',
-    onStop: (ms) => console.log(`Stopped at ${ms}ms`),
+    onSelectDirectory: (directoryPath) => {
+      console.log(`Selected: ${directoryPath}`);
+    },
   })
 );
 ```
 
 ---
 
-### `StatusChronometer`
+### `DirectoryTextBrowser`
 
-A composed panel that places a [`StatusBadge`](#statusbadge) on the left and a
-[`Chronometer`](#chronometer) on the right in a horizontal row.
-
-Use this when you want to show an external async status (loading, streaming, done, error)
-alongside a running elapsed-time display in a single component.
-
-#### Props
-
-Merges all [`ChronometerProps`](#props-2) with the badge-specific subset of
-[`StatusBadgeProps`](#statusbadge):
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `status` | `PanelStatus` | — | Status passed to the `StatusBadge` |
-| `errorMessage` | `string` | — | Custom error text shown when `status === 'error'` |
-| `width` | `number` | — | `Chronometer` panel width in terminal columns |
-| `isFocused` | `boolean` | `false` | Whether the `Chronometer` holds keyboard focus |
-| `title` | `string` | `'CHRONOMETER'` | `Chronometer` header label |
-| `initialElapsedMs` | `number` | `0` | `Chronometer` initial elapsed milliseconds |
-| `showBorder` | `boolean` | `true` | Whether the `Chronometer` renders its surrounding border |
-| `onTick` | `(elapsedMs: number) => void` | — | Fired every ~100 ms while the timer is running |
-| `onStop` | `(elapsedMs: number) => void` | — | Fired when the timer stops |
-| `onReset` | `() => void` | — | Fired when the timer resets |
-
-#### Usage
+Two-pane browser that composes [`DirectoryPanel`](#directorypanel) on the left
+with [`TextListPanel`](#textlistpanel) on the right.
 
 ```ts
-import React from 'react';
-import { render } from 'ink';
-import { StatusChronometer } from 'pajussara_tui_comp';
-
-render(
-  React.createElement(StatusChronometer, {
-    status: 'loading',
-    width: 40,
-    isFocused: true,
-    title: 'ELAPSED',
-    onStop: (ms) => console.log(`Stopped at ${ms}ms`),
-  })
-);
+import { DirectoryTextBrowser } from 'pajussara_tui_comp';
 ```
 
----
+#### Props — `DirectoryTextBrowserProps`
 
-### `StatusBadge`
-
-An animated spinner / completion / error indicator driven by a [`PanelStatus`](#panelstatus) value.
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `status` | `PanelStatus` | — | Current status driving the visual indicator |
-| `errorMessage` | `string` | — | Custom error text shown when `status === 'error'` |
-
-#### `PanelStatus` type
-
-```ts
-type PanelStatus = 'idle' | 'loading' | 'streaming' | 'done' | 'error';
-```
-
-#### Indicator states
-
-| Status | Display |
-|---|---|
-| `idle` | *(blank)* |
-| `loading` | `⠋ Loading…` (animated spinner) |
-| `streaming` | `⠋ Streaming…` (animated spinner) |
-| `done` | `✓ Done` |
-| `error` | `✗ <errorMessage>` |
-
-#### Usage
-
-```ts
-import React from 'react';
-import { render } from 'ink';
-import { StatusBadge } from 'pajussara_tui_comp';
-
-render(
-  React.createElement(StatusBadge, {
-    status: 'loading',
-  })
-);
-```
-
----
-
-### `StreamViewer`
-
-A live AI token stream panel. Displays real-time token output as it arrives, with a header
-(step + persona), a scrollable body, and a token-rate footer. History navigation is available
-via `[` / `]` keys when focused.
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `streamChunks` | `StreamState` | — | Live and historical stream state |
-| `width` | `number` | — | Panel width in terminal columns |
-| `height` | `number` | `12` | Panel height in terminal rows (including border) |
-| `isFocused` | `boolean` | `false` | Whether this panel holds keyboard focus |
-
-#### `StreamState` interface
-
-```ts
-interface StreamState {
-  liveText: string;
-  stepId: string | null;
-  stepName: string | null;
-  persona: string | null;
-  tokenCount: number;
-  tokensPerSec: number;
-  history: StreamHistoryEntry[];
-}
-```
-
-#### `StreamHistoryEntry` interface
-
-```ts
-interface StreamHistoryEntry {
-  stepId: string | null;
-  stepName: string | null;
-  persona: string | null;
-  fullText: string;
-  tokenCount: number;
-  tokensPerSec: number;
-}
-```
-
-#### Keyboard controls
-
-| Key | Action |
-|---|---|
-| `[` | Navigate to the previous history entry |
-| `]` | Navigate to the next history entry (or live view) |
-
-> Keyboard events are only consumed when `isFocused` is `true`.
-
-#### Usage
-
-```ts
-import React, { useState } from 'react';
-import { render } from 'ink';
-import { StreamViewer } from 'pajussara_tui_comp';
-import type { StreamState } from 'pajussara_tui_comp';
-
-const stream: StreamState = {
-  liveText: 'Generating response…',
-  stepId: 'step-1',
-  stepName: 'Plan',
-  persona: 'architect',
-  tokenCount: 42,
-  tokensPerSec: 18.5,
-  history: [],
-};
-
-render(
-  React.createElement(StreamViewer, {
-    streamChunks: stream,
-    width: 80,
-    isFocused: true,
-  })
-);
-```
-
----
-
-## Helpers
-
-Low-level display utilities exported from `pajussara_tui_comp/helpers` (re-exported for advanced use):
-
-| Function | Signature | Description |
-|---|---|---|
-| `formatStepIcon` | `(status: string) => string` | Maps a status string to a terminal icon (`✔ ● ✘ ○`) |
-| `statusColor` | `(status: string) => string` | Maps a status string to an Ink colour name |
-| `formatDuration` | `(ms: number) => string` | Formats milliseconds as a readable string (e.g. `"1m 4s"`, `"4.5s"`) |
-| `wrapText` | `(text: string, maxWidth: number) => string[]` | Wraps a string into lines of at most `maxWidth` characters |
-
----
-
-## Development
-
-### Project layout
-
-| Directory | Purpose |
-|---|---|
-| `src/` | Component source files (`.tsx` / `.ts`) |
-| `helpers/` | Shared display utilities (`formatStepIcon`, `statusColor`, `formatDuration`) |
-| `test/` | Jest test suite — mirrors `src/` structure |
-| `demos/` | Runnable usage examples |
-| `docs/` | Project documentation (ARCHITECTURE.md, API.md, FUNCTIONAL_REQUIREMENTS.md, etc.) |
-| `scripts/` | Shell scripts for build, deploy, and test automation |
-| `dist/` | Compiled output (generated by `tsc`, not committed directly) |
-
-```sh
-npm run build        # compile TypeScript → dist/
-npm run typecheck    # type-check without emitting
-npm run lint         # ESLint on src/
-npm test             # run Jest test suite
-```
-
-### Shell scripts
-
-| Script | Purpose |
-|---|---|
-| `bash scripts/deploy.sh` | Build TypeScript, commit compiled artifacts, create a semver tag, push to GitHub, and verify jsDelivr CDN availability |
-| `bash scripts/run-tests-docker.sh` | Run the full Jest suite in an isolated Docker container (also available as `npm run test:docker`) |
-| `bash scripts/run-tests-docker.sh -- --coverage` | Pass extra Jest arguments (anything after `--`) |
-| `scripts/colors.sh` | Shared ANSI color definitions — **sourced** by the other shell scripts, not invoked directly |
+| Prop | Type | Required | Default | Description |
+|------|------|:--------:|---------|-------------|
+| `directoryPath` | `string` | ✓ | — | Filesystem path whose child folders should be listed |
+| `getTextItems` | `(directoryPath: string \| null) => TextListItem[]` | ✓ | — | Returns the text rows for the currently selected directory |
+| `width` | `number` | ✓ | — | Total layout width in terminal columns |
+| `height` | `number` | | `20` | Shared panel height |
+| `directoryPanelWidth` | `number` | | `40% of width` | Width of the left pane |
+| `gap` | `number` | | `1` | Horizontal spacing between panes |
+| `selectedDirectoryPath` | `string \| null` | | `null` | Controlled selected directory path |
+| `onSelectDirectory` | `(directoryPath: string) => void` | | — | Fired when directory selection changes |
+| `currentTextItemId` | `string \| null` | | `null` | Active text row ID shown as running/current |
+| `selectedTextItemId` | `string \| null` | | `null` | Controlled selected text row ID |
+| `onSelectTextItem` | `(id: string) => void` | | — | Fired when text-row selection changes |
+| `focusedPane` | [`DirectoryTextBrowserPane`](#directorytextbrowserpane) | | `'directories'` | Controlled focused pane |
+| `initialFocusedPane

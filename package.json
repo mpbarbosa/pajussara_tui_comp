@@ -1,6 +1,6 @@
 {
   "name": "pajussara_tui_comp",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An Ink TUI Component Library in TypeScript",
   "homepage": "https://github.com/mpbarbosa/pajussara_tui_comp#readme",
   "bugs": {
@@ -50,5 +50,8 @@
   },
   "overrides": {
     "collect-v8-coverage": "1.0.3"
+  },
+  "dependencies": {
+    "beautiful-mermaid": "^1.1.3"
   }
 }
