@@ -6,7 +6,7 @@
  * so callers can render the two-pane directory/text browser together with
  * keyboard hints and async status feedback.
  *
- * @version 1.2.1
+ * @version 1.2.2
  * @since 2026-04-12
  */
 import React from 'react';

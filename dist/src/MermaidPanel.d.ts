@@ -21,7 +21,7 @@
  * Supported diagram types: `graph`, `flowchart`, `stateDiagram-v2`,
  * `sequenceDiagram`, `classDiagram`, `erDiagram`, `xychart-beta`.
  *
- * @version 1.2.1
+ * @version 1.2.2
  * @since 2026-04-07
  */
 import React from 'react';

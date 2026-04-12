@@ -7,7 +7,7 @@
  * This is adapted from ai_workflow.js so it fits pajussara_tui_comp's generic
  * component API and local type/export conventions.
  *
- * @version 1.2.1
+ * @version 1.2.2
  * @since 2026-04-12
  */
 import React from 'react';

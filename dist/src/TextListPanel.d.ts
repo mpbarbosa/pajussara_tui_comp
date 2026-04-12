@@ -6,7 +6,7 @@
  * same scrolling, highlighting, and keyboard navigation behavior can be reused
  * for textual content.
  *
- * @version 1.2.1
+ * @version 1.2.2
  * @since 2026-04-12
  */
 import React from 'react';
