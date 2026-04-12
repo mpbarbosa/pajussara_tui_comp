@@ -1,0 +1,1500 @@
+{
+  "version": "1.0.0",
+  "workflowId": "workflow_1776003641129",
+  "workflowVersion": "2.0.0",
+  "timestamp": 1776004050380,
+  "state": {
+    "currentStep": null,
+    "completedSteps": [],
+    "failedSteps": [],
+    "skippedSteps": [],
+    "results": {
+      "step_00": {
+        "stepId": "step_00",
+        "stepName": "Pre-Analysis",
+        "success": true,
+        "output": {
+          "success": true,
+          "analysis": {
+            "commitsAhead": 0,
+            "modifiedFiles": 42,
+            "modifiedFilesList": [
+              ".ai_workflow/metrics/current_run.json",
+              ".ai_workflow/plan.md",
+              "README.md",
+              "dist/src/index.d.ts",
+              "dist/src/index.d.ts.map",
+              "dist/src/index.js",
+              "dist/src/index.js.map",
+              "docs/API.md",
+              "docs/ARCHITECTURE.md",
+              "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "docs/GETTING_STARTED.md",
+              "package-lock.json",
+              "package.json",
+              "src/index.ts",
+              "test/index.test.ts",
+              "demos/directory-text-browser.tsx",
+              "demos/directorypanel-github.tsx",
+              "demos/mermaid-demo.tsx",
+              "dist/src/DirectoryPanel.d.ts",
+              "dist/src/DirectoryPanel.d.ts.map",
+              "dist/src/DirectoryPanel.js",
+              "dist/src/DirectoryPanel.js.map",
+              "dist/src/DirectoryTextBrowser.d.ts",
+              "dist/src/DirectoryTextBrowser.d.ts.map",
+              "dist/src/DirectoryTextBrowser.js",
+              "dist/src/DirectoryTextBrowser.js.map",
+              "dist/src/MermaidPanel.d.ts",
+              "dist/src/MermaidPanel.d.ts.map",
+              "dist/src/MermaidPanel.js",
+              "dist/src/MermaidPanel.js.map",
+              "dist/src/TextListPanel.d.ts",
+              "dist/src/TextListPanel.d.ts.map",
+              "dist/src/TextListPanel.js",
+              "dist/src/TextListPanel.js.map",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/MermaidPanel.tsx",
+              "src/TextListPanel.tsx",
+              "test/DirectoryPanel.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/MermaidPanel.test.tsx",
+              "test/TextListPanel.test.tsx"
+            ],
+            "changeScope": "full-stack",
+            "fileCounts": {
+              "documentation": 5,
+              "test": 5,
+              "source": 18,
+              "config": 12,
+              "workflow_artifact": 0
+            },
+            "categorizedFiles": {
+              "documentation": [
+                "README.md",
+                "docs/API.md",
+                "docs/ARCHITECTURE.md",
+                "docs/FUNCTIONAL_REQUIREMENTS.md",
+                "docs/GETTING_STARTED.md"
+              ],
+              "test": [
+                "test/index.test.ts",
+                "test/DirectoryPanel.test.tsx",
+                "test/DirectoryTextBrowser.test.tsx",
+                "test/MermaidPanel.test.tsx",
+                "test/TextListPanel.test.tsx"
+              ],
+              "source": [
+                "dist/src/index.d.ts",
+                "dist/src/index.js",
+                "src/index.ts",
+                "demos/directory-text-browser.tsx",
+                "demos/directorypanel-github.tsx",
+                "demos/mermaid-demo.tsx",
+                "dist/src/DirectoryPanel.d.ts",
+                "dist/src/DirectoryPanel.js",
+                "dist/src/DirectoryTextBrowser.d.ts",
+                "dist/src/DirectoryTextBrowser.js",
+                "dist/src/MermaidPanel.d.ts",
+                "dist/src/MermaidPanel.js",
+                "dist/src/TextListPanel.d.ts",
+                "dist/src/TextListPanel.js",
+                "src/DirectoryPanel.tsx",
+                "src/DirectoryTextBrowser.tsx",
+                "src/MermaidPanel.tsx",
+                "src/TextListPanel.tsx"
+              ],
+              "config": [
+                "dist/src/index.d.ts.map",
+                "dist/src/index.js.map",
+                "package-lock.json",
+                "package.json",
+                "dist/src/DirectoryPanel.d.ts.map",
+                "dist/src/DirectoryPanel.js.map",
+                "dist/src/DirectoryTextBrowser.d.ts.map",
+                "dist/src/DirectoryTextBrowser.js.map",
+                "dist/src/MermaidPanel.d.ts.map",
+                "dist/src/MermaidPanel.js.map",
+                "dist/src/TextListPanel.d.ts.map",
+                "dist/src/TextListPanel.js.map"
+              ],
+              "workflow_artifact": []
+            },
+            "projectKind": {
+              "kind": "typescript_library",
+              "confidence": 100,
+              "source": "config",
+              "description": "typescript_library"
+            },
+            "techStack": {
+              "primary_language": "typescript",
+              "languages": [
+                "typescript",
+                "json",
+                "markdown",
+                "html",
+                "bash",
+                "javascript",
+                "css",
+                "yaml"
+              ],
+              "frameworks": [
+                {
+                  "name": "Jest",
+                  "type": "test-framework",
+                  "version": "^29.5.0",
+                  "package": "jest"
+                }
+              ],
+              "build_system": "npm",
+              "build_files": [
+                "package.json",
+                "package-lock.json"
+              ],
+              "test_framework": "jest",
+              "test_command": "npm test",
+              "linters": [
+                {
+                  "name": "eslint",
+                  "configFile": ".eslintrc.*"
+                },
+                {
+                  "name": "shellcheck",
+                  "configFile": null
+                }
+              ],
+              "detected_at": "2026-04-12T14:20:41.238Z",
+              "primaryLanguage": "typescript"
+            },
+            "smokeTest": null,
+            "timestamp": 1776003641241
+          },
+          "contextUpdate": {
+            "projectType": "typescript_library",
+            "modifiedFiles": [
+              ".ai_workflow/metrics/current_run.json",
+              ".ai_workflow/plan.md",
+              "README.md",
+              "dist/src/index.d.ts",
+              "dist/src/index.d.ts.map",
+              "dist/src/index.js",
+              "dist/src/index.js.map",
+              "docs/API.md",
+              "docs/ARCHITECTURE.md",
+              "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "docs/GETTING_STARTED.md",
+              "package-lock.json",
+              "package.json",
+              "src/index.ts",
+              "test/index.test.ts",
+              "demos/directory-text-browser.tsx",
+              "demos/directorypanel-github.tsx",
+              "demos/mermaid-demo.tsx",
+              "dist/src/DirectoryPanel.d.ts",
+              "dist/src/DirectoryPanel.d.ts.map",
+              "dist/src/DirectoryPanel.js",
+              "dist/src/DirectoryPanel.js.map",
+              "dist/src/DirectoryTextBrowser.d.ts",
+              "dist/src/DirectoryTextBrowser.d.ts.map",
+              "dist/src/DirectoryTextBrowser.js",
+              "dist/src/DirectoryTextBrowser.js.map",
+              "dist/src/MermaidPanel.d.ts",
+              "dist/src/MermaidPanel.d.ts.map",
+              "dist/src/MermaidPanel.js",
+              "dist/src/MermaidPanel.js.map",
+              "dist/src/TextListPanel.d.ts",
+              "dist/src/TextListPanel.d.ts.map",
+              "dist/src/TextListPanel.js",
+              "dist/src/TextListPanel.js.map",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/MermaidPanel.tsx",
+              "src/TextListPanel.tsx",
+              "test/DirectoryPanel.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/MermaidPanel.test.tsx",
+              "test/TextListPanel.test.tsx"
+            ],
+            "categorizedFiles": {
+              "documentation": [
+                "README.md",
+                "docs/API.md",
+                "docs/ARCHITECTURE.md",
+                "docs/FUNCTIONAL_REQUIREMENTS.md",
+                "docs/GETTING_STARTED.md"
+              ],
+              "test": [
+                "test/index.test.ts",
+                "test/DirectoryPanel.test.tsx",
+                "test/DirectoryTextBrowser.test.tsx",
+                "test/MermaidPanel.test.tsx",
+                "test/TextListPanel.test.tsx"
+              ],
+              "source": [
+                "dist/src/index.d.ts",
+                "dist/src/index.js",
+                "src/index.ts",
+                "demos/directory-text-browser.tsx",
+                "demos/directorypanel-github.tsx",
+                "demos/mermaid-demo.tsx",
+                "dist/src/DirectoryPanel.d.ts",
+                "dist/src/DirectoryPanel.js",
+                "dist/src/DirectoryTextBrowser.d.ts",
+                "dist/src/DirectoryTextBrowser.js",
+                "dist/src/MermaidPanel.d.ts",
+                "dist/src/MermaidPanel.js",
+                "dist/src/TextListPanel.d.ts",
+                "dist/src/TextListPanel.js",
+                "src/DirectoryPanel.tsx",
+                "src/DirectoryTextBrowser.tsx",
+                "src/MermaidPanel.tsx",
+                "src/TextListPanel.tsx"
+              ],
+              "config": [
+                "dist/src/index.d.ts.map",
+                "dist/src/index.js.map",
+                "package-lock.json",
+                "package.json",
+                "dist/src/DirectoryPanel.d.ts.map",
+                "dist/src/DirectoryPanel.js.map",
+                "dist/src/DirectoryTextBrowser.d.ts.map",
+                "dist/src/DirectoryTextBrowser.js.map",
+                "dist/src/MermaidPanel.d.ts.map",
+                "dist/src/MermaidPanel.js.map",
+                "dist/src/TextListPanel.d.ts.map",
+                "dist/src/TextListPanel.js.map"
+              ],
+              "workflow_artifact": []
+            },
+            "fileCounts": {
+              "documentation": 5,
+              "test": 5,
+              "source": 18,
+              "config": 12,
+              "workflow_artifact": 0
+            },
+            "changeScope": "full-stack",
+            "commitsAhead": 0
+          }
+        },
+        "duration": 106
+      },
+      "step_0b": {
+        "stepId": "step_0b",
+        "stepName": "Bootstrap Documentation",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "all catalog documentation files present"
+        },
+        "duration": 51
+      },
+      "step_01": {
+        "stepId": "step_01",
+        "stepName": "Documentation Updates",
+        "success": true,
+        "output": {
+          "success": true,
+          "classification": {
+            "documentation": [
+              "README.md",
+              "docs/API.md",
+              "docs/ARCHITECTURE.md",
+              "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "docs/GETTING_STARTED.md"
+            ],
+            "source": [
+              "dist/src/index.d.ts",
+              "dist/src/index.js",
+              "src/index.ts",
+              "demos/directory-text-browser.tsx",
+              "demos/directorypanel-github.tsx",
+              "demos/mermaid-demo.tsx",
+              "dist/src/DirectoryPanel.d.ts",
+              "dist/src/DirectoryPanel.js",
+              "dist/src/DirectoryTextBrowser.d.ts",
+              "dist/src/DirectoryTextBrowser.js",
+              "dist/src/MermaidPanel.d.ts",
+              "dist/src/MermaidPanel.js",
+              "dist/src/TextListPanel.d.ts",
+              "dist/src/TextListPanel.js",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/MermaidPanel.tsx",
+              "src/TextListPanel.tsx"
+            ],
+            "tests": [
+              "test/index.test.ts",
+              "test/DirectoryPanel.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/MermaidPanel.test.tsx",
+              "test/TextListPanel.test.tsx"
+            ],
+            "config": [
+              "package-lock.json",
+              "package.json"
+            ],
+            "counts": {
+              "documentation": 5,
+              "source": 18,
+              "tests": 5,
+              "config": 2,
+              "total": 42
+            }
+          },
+          "validation": {
+            "fileCount": {
+              "success": true,
+              "issues": [],
+              "counts": {
+                "markdown": 5,
+                "readme": 1,
+                "docs": 4
+              }
+            },
+            "versionRefs": {
+              "success": true,
+              "issues": []
+            },
+            "sourceDoc": {
+              "success": true,
+              "issues": [],
+              "totalIssues": 0,
+              "fileResults": []
+            },
+            "totalIssues": 0,
+            "success": true
+          },
+          "analysis": {
+            "success": true,
+            "categories": {
+              "readme": {
+                "status": "completed",
+                "fileCount": 1,
+                "duration": 12,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "content": "No updates required.\n\n**Reason**:  \nAfter reviewing the changed files and the listed documentation files (`README.md`, `docs/API.md`, `docs/ARCHITECTURE.md`, `docs/FUNCTIONAL_REQUIREMENTS.md`, `docs/GETTING_STARTED.md`), I found that:\n\n- The code changes (in `src/`, `demos/`, `dist/`, and test files) are for TypeScript/React component implementation, build artifacts, and tests.\n- The documentation files in scope (`README.md`, `docs/API.md`, `docs/ARCHITECTURE.md`, `docs/FUNCTIONAL_REQUIREMENTS.md`, `docs/GETTING_STARTED.md`) already accurately describe the current features, API, and architecture, or are not directly impacted by the recent code changes.\n- No version numbers, usage instructions, or API signatures in the listed documentation files are out of sync with the code changes.\n- All cross-references and examples remain correct.\n\nIf you have a specific documentation file or section you believe is out of date, please specify.",
+                    "metadata": {
+                      "model": "unknown",
+                      "tokens": 0,
+                      "finishReason": "complete"
+                    },
+                    "confidence": 0.9,
+                    "success": true
+                  }
+                },
+                "error": null
+              },
+              "api": {
+                "status": "completed",
+                "fileCount": 1,
+                "duration": 4,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "content": "No updates required.\n\n**Reason**:  \nAfter reviewing the recent code changes (new/updated React components, TypeScript types, and index exports) and the current `docs/API.md` file, I found that:\n\n- The API documentation in `docs/API.md` already accurately describes the public components, their props, and usage.\n- No new public API surface, prop changes, or breaking changes were introduced that are not already reflected in the API doc.\n- All function/component signatures, parameter types, and usage examples remain correct and up to date.\n\nNo edits are necessary for `docs/API.md` at this time.",
+                    "metadata": {
+                      "model": "unknown",
+                      "tokens": 0,
+                      "finishReason": "complete"
+                    },
+                    "confidence": 0.9,
+                    "success": true
+                  }
+                },
+                "error": null
+              },
+              "other": {
+                "status": "completed",
+                "fileCount": 3,
+                "duration": 5,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "content": "No updates required.\n\n**Reason**:  \nAfter reviewing the recent code changes (component updates, new demos, type exports, and packaging) and the documentation files in scope (`docs/ARCHITECTURE.md`, `docs/FUNCTIONAL_REQUIREMENTS.md`, `docs/GETTING_STARTED.md`):\n\n- No new architectural patterns, module structure changes, or design shifts are present that would require updates to `docs/ARCHITECTURE.md`.\n- No new or changed functional requirements are introduced that would require updates to `docs/FUNCTIONAL_REQUIREMENTS.md`.\n- No changes to setup, installation, or getting started flows are present that would require updates to `docs/GETTING_STARTED.md`.\n\nAll documentation remains accurate and consistent with the current codebase.",
+                    "metadata": {
+                      "model": "unknown",
+                      "tokens": 0,
+                      "finishReason": "complete"
+                    },
+                    "confidence": 0.9,
+                    "success": true
+                  }
+                },
+                "error": null
+              }
+            },
+            "errors": [],
+            "totalFiles": 5,
+            "validatedFiles": 5,
+            "skippedFiles": 0,
+            "stats": {
+              "processed": 5,
+              "totalTime": 21,
+              "speedup": 1
+            }
+          },
+          "filesProcessed": 5
+        },
+        "duration": 23624
+      },
+      "step_04": {
+        "stepId": "step_04",
+        "stepName": "Configuration Validation",
+        "success": true,
+        "output": {
+          "success": true,
+          "filesChecked": 2,
+          "syntaxErrors": [],
+          "securityFindings": [],
+          "bestPracticeIssues": [],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 20028
+      },
+      "step_02": {
+        "stepId": "step_02",
+        "stepName": "Consistency Analysis",
+        "success": true,
+        "output": {
+          "success": true,
+          "filesChecked": 13,
+          "totalIssues": 11,
+          "brokenLinks": [],
+          "versionIssues": [
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/CHANGELOG.md",
+              "found": "1.1.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/CHANGELOG.md",
+              "found": "v2.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/CHANGELOG.md",
+              "found": "1.1.9",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/README.md",
+              "found": "5.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/README.md",
+              "found": "19.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/DOCKER_TESTING.md",
+              "found": "v18.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/DOCKER_TESTING.md",
+              "found": "19.2.4",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/FUNCTIONAL_REQUIREMENTS.md",
+              "found": "6.8.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/FUNCTIONAL_REQUIREMENTS.md",
+              "found": "1.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/GETTING_STARTED.md",
+              "found": "5.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/GETTING_STARTED.md",
+              "found": "19.0.0",
+              "expected": "1.2.0",
+              "type": "invalid_version"
+            }
+          ]
+        },
+        "duration": 46863
+      },
+      "step_05": {
+        "stepId": "step_05",
+        "stepName": "Directory Structure",
+        "success": true,
+        "output": {
+          "success": true,
+          "totalDirs": 10,
+          "misplacedDocs": 0,
+          "organizedDocs": 0,
+          "issues": [],
+          "missingCritical": 0,
+          "undocumented": 0,
+          "docMismatch": 0,
+          "existingDirs": [
+            ".github",
+            ".github/skills",
+            ".github/skills/js-to-ts",
+            ".github/workflows",
+            "demos",
+            "docs",
+            "helpers",
+            "scripts",
+            "src",
+            "test"
+          ]
+        },
+        "duration": 41670
+      },
+      "step_02_5": {
+        "stepId": "step_02_5",
+        "stepName": "Documentation Optimization",
+        "success": true,
+        "output": {
+          "success": true,
+          "summary": {
+            "totalFiles": 7,
+            "exactDuplicates": [],
+            "redundantPairs": [],
+            "outdatedFiles": [],
+            "edgeCases": [],
+            "filesOptimized": 0,
+            "errors": []
+          },
+          "optimizationResults": null,
+          "reportResult": null,
+          "executionTime": 0,
+          "errors": []
+        },
+        "duration": 226
+      },
+      "step_03": {
+        "stepId": "step_03",
+        "stepName": "Script References",
+        "success": true,
+        "output": {
+          "success": true,
+          "scriptsFound": 4,
+          "referencesChecked": 1,
+          "totalIssues": 1,
+          "missingReferences": [],
+          "nonExecutable": [],
+          "undocumented": [
+            "scripts/run-demos-docker.sh"
+          ],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 30706
+      },
+      "step_06": {
+        "stepId": "step_06",
+        "stepName": "Test Review",
+        "success": true,
+        "output": {
+          "success": true,
+          "testFiles": [
+            "test/index.test.ts",
+            "test/types.test.ts",
+            "test/Chronometer.test.tsx",
+            "test/DirectoryPanel.test.tsx",
+            "test/DirectoryTextBrowser.test.tsx",
+            "test/ListPanel.test.tsx",
+            "test/MermaidPanel.test.tsx",
+            "test/StreamViewer.test.tsx",
+            "test/TextListPanel.test.tsx",
+            "test/listpanel-cities2.test.tsx",
+            "test/status_badge.test.tsx",
+            "test/status_chronometer.test.tsx"
+          ],
+          "categories": {
+            "unit": [],
+            "integration": [],
+            "e2e": [],
+            "other": [
+              "test/index.test.ts",
+              "test/types.test.ts",
+              "test/Chronometer.test.tsx",
+              "test/DirectoryPanel.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/ListPanel.test.tsx",
+              "test/MermaidPanel.test.tsx",
+              "test/StreamViewer.test.tsx",
+              "test/TextListPanel.test.tsx",
+              "test/listpanel-cities2.test.tsx",
+              "test/status_badge.test.tsx",
+              "test/status_chronometer.test.tsx"
+            ]
+          },
+          "statistics": {
+            "totalTests": 12,
+            "unitTests": 0,
+            "integrationTests": 0,
+            "e2eTests": 0,
+            "otherTests": 12,
+            "totalLines": 1813,
+            "averageLinesPerTest": 151
+          },
+          "coverage": {
+            "found": false,
+            "path": null,
+            "percentage": null
+          },
+          "issues": [
+            {
+              "type": "no_coverage_report",
+              "message": "No coverage reports found - consider generating coverage data"
+            },
+            {
+              "type": "missing_tests",
+              "message": "No unit tests found - consider adding unit tests"
+            }
+          ]
+        },
+        "duration": 38867
+      },
+      "step_21": {
+        "stepId": "step_21",
+        "stepName": "Doc Consolidation",
+        "success": true,
+        "output": {
+          "success": true,
+          "clustersFound": 1,
+          "totalDocs": 13,
+          "mergedPaths": [
+            "README.md"
+          ],
+          "archivedPaths": [
+            "docs/API.md"
+          ],
+          "report": "## Doc Consolidation Report\n\n- **Documents scanned:** 13\n- **Similarity threshold:** 0.65\n- **Clusters merged:** 1\n- **Canonical docs written:** 1\n- **Originals archived:** 1\n\n### Merged Clusters\n\n#### Cluster 1\n\n- `README.md`\n- `docs/API.md`\n\n→ Merged into: `README.md`\n\n### Archived Originals\n\n- `docs/API.md`"
+        },
+        "duration": 403
+      },
+      "step_07": {
+        "stepId": "step_07",
+        "stepName": "Test Generation",
+        "success": true,
+        "output": {
+          "success": true,
+          "totalSourceFiles": 11,
+          "totalTestFiles": 2,
+          "untestedFiles": [
+            "src/Chronometer.tsx",
+            "src/DirectoryPanel.tsx",
+            "src/DirectoryTextBrowser.tsx",
+            "src/ListPanel.tsx",
+            "src/MermaidPanel.tsx",
+            "src/StreamViewer.tsx",
+            "src/TextListPanel.tsx",
+            "src/status_badge.tsx",
+            "src/status_chronometer.tsx"
+          ],
+          "coveragePercentage": 18,
+          "categories": {
+            "src": [
+              "src/Chronometer.tsx",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/ListPanel.tsx",
+              "src/MermaidPanel.tsx",
+              "src/StreamViewer.tsx",
+              "src/TextListPanel.tsx",
+              "src/status_badge.tsx",
+              "src/status_chronometer.tsx"
+            ]
+          },
+          "generatedFiles": []
+        },
+        "duration": 26606
+      },
+      "step_22": {
+        "stepId": "step_22",
+        "stepName": "Accessibility Review",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": false,
+          "fileCount": 29,
+          "scores": {
+            "missingAltCount": 0,
+            "keyboardTrapRisk": 0,
+            "missingAriaCount": 0,
+            "missingReducedMotionCount": 0,
+            "totalIssues": 0
+          },
+          "report": "## Accessibility Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Images missing alt attribute (WCAG 1.1.1) | 0 |\n| Keyboard accessibility risks (onclick/tabindex=-1) | 0 |\n| Interactive elements missing ARIA labels (WCAG 4.1.2) | 0 |\n| Animations without reduced-motion guard (WCAG 2.3.3) | 0 |\n| **Total heuristic signals** | **0** |\n\n### AI Analysis\n\n**API Documentation Accessibility Review — pajussara_tui_comp (TypeDoc HTML, sampled source)**\n\n---\n\n### **Perceivable**\n\n#### 1.1.1 Non-text Content (Images)\n- **All files (sampled):**  \n  **Finding:** No `<img>` elements or image content present in the sampled code.  \n  **Status:** No issues detected.\n\n#### 1.4.3 Contrast (Minimum) / 1.4.6 (Enhanced)\n- **All files (sampled):**  \n  **Finding:** Inline color usage (e.g., `{ color: 'white' }`, `{ color: 'cyan' }`, `{ color: 'magenta' }`) on potentially dark backgrounds. Actual contrast cannot be confirmed without CSS context, but \"white\" on black is usually sufficient.  \n  **Status:** No issues detected in code, but verify in rendered docs.\n\n---\n\n### **Operable**\n\n#### 2.1.1 Keyboard (All Functionality)\n- **All demo files:**  \n  **Finding:** All interactive demos support keyboard navigation (Tab, arrow keys, q to quit).  \n  **Status:** No issues detected.\n\n#### 2.4.3 Focus Order / 2.4.7 Focus Visible\n- **All demo files:**  \n  **Finding:** Focus management is handled via state (e.g., `isFocused`, `setFocusedPane`). However, no explicit visible focus indicator is described for terminal or web output.  \n  **Severity:** Minor  \n  **Remediation:**  \n  - For web: Ensure a visible focus indicator (e.g., `:focus-visible` CSS) is present for all focusable elements.\n  - For terminal: Use color or style changes to indicate focus.\n\n#### 2.4.1 Bypass Blocks (Landmarks)\n- **All files:**  \n  **Finding:** No use of `<nav>`, `<main>`, `<header>`, `<footer>`, or skip links in the sampled code.  \n  **Severity:** Minor (for web output)  \n  **Remediation Example:**  \n  ```html\n  <nav aria-label=\"Main navigation\">...</nav>\n  <main id=\"main-content\">...</main>\n  <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n  ```\n\n---\n\n### **Understandable**\n\n#### 3.2.4 Consistent Identification\n- **All files:**  \n  **Finding:** No inconsistent component labeling or identification.  \n  **Status:** No issues detected.\n\n#### 3.3.2 Labels or Instructions\n- **All files:**  \n  **Finding:** Keyboard instructions are provided in visible text (e.g., \"Tab/←/→ switch focus · ↑/↓ navigate · q quit\").  \n  **Status:** No issues detected.\n\n---\n\n### **Robust**\n\n#### 4.1.2 Name, Role, Value (ARIA)\n- **All files:**  \n  **Finding:** No ARIA attributes (`aria-label`, `aria-labelledby`, `aria-describedby`, `role`) are present in the sampled code.  \n  **Severity:** Major (for web output)  \n  **Remediation Example:**  \n  ```jsx\n  <div role=\"listbox\" aria-label=\"City list\" tabIndex={0}>...</div>\n  ```\n\n#### 4.1.1 Parsing (Semantic HTML)\n- **All files:**  \n  **Finding:** All UI is rendered via React/Ink (terminal), not HTML. For web output, ensure semantic elements are used.  \n  **Status:** No issues detected in code, but verify in generated HTML.\n\n---\n\n### **Other Checks**\n\n#### Reduced Motion (2.3.3)\n- **All files:**  \n  **Finding:** No CSS animations or transitions are present in the sampled code.  \n  **Status:** No issues detected.\n\n#### Link Text Clarity (2.4.4)\n- **All files:**  \n  **Finding:** No anchor (`<a>`) elements or links present in the sampled code.  \n  **Status:** No issues detected.\n\n---\n\n## **Summary Table**\n\n| Principle     | File(s)                  | WCAG | Severity | Finding / Remediation Example |\n|---------------|--------------------------|------|----------|------------------------------|\n| Perceivable   | All sampled              | 1.1.1, 1.4.3 | —      | No issues detected           |\n| Operable      | All sampled              | 2.1.1 | —        | No issues detected           |\n| Operable      | All sampled              | 2.4.3/2.4.7 | Minor   | Ensure visible focus indicator (`:focus-visible` for web, color for terminal) |\n| Operable      | All sampled              | 2.4.1 | Minor    | Add landmarks/skip links for web output |\n| Understandable| All sampled              | 3.3.2 | —        | No issues detected           |\n| Robust        | All sampled              | 4.1.2 | Major    | Add ARIA roles/labels for web output |\n| Robust        | All sampled              | 4.1.1 | —        | No issues detected           |\n| Other         | All sampled              | 2.3.3 | —        | No issues detected           |\n| Other         | All sampled              | 2.4.4 | —        | No issues detected           |\n\n---\n\n**Note:**  \n- This review is based on sampled TypeScript/JSX source for terminal demos and does not include the actual TypeDoc-generated HTML. For a full web accessibility audit, review the generated HTML for heading structure, ARIA, landmarks, and color contrast.\n- For terminal UIs, focus indicators and keyboard navigation are handled in code, but for web output, explicit ARIA and semantic HTML are required.  \n- No images, links, or animations were found in the sampled code.  \n- All keyboard instructions are clearly provided in visible text.\n\n---\n\n**Remediation Priority:**  \n1. **Major:** Add ARIA roles/labels for web output (4.1.2).\n2. **Minor:** Ensure visible focus indicators and add landmarks/skip links for web output (2.4.3/2.4.7, 2.4.1).\n\nIf you need a review of the actual TypeDoc HTML output, please provide a sample file."
+        },
+        "duration": 27693
+      },
+      "step_08": {
+        "stepId": "step_08",
+        "stepName": "Test Execution",
+        "success": true,
+        "output": {
+          "success": true,
+          "noTestsFound": true,
+          "language": "typescript",
+          "testResults": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "suitesFailed": 0,
+            "suitesTotal": 0
+          },
+          "coverage": {},
+          "duration": 20,
+          "exitCode": 1
+        },
+        "duration": 19559
+      },
+      "step_23": {
+        "stepId": "step_23",
+        "stepName": "Performance Review",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": false,
+          "fileCount": 35,
+          "scores": {
+            "nestedLoopCount": 0,
+            "syncIoCount": 0,
+            "jsonParseCount": 0,
+            "objectInLoopCount": 0,
+            "totalIssues": 0
+          },
+          "report": "## Performance Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Nested loops (O(n²) risk) | 0 |\n| Synchronous I/O operations | 0 |\n| JSON.parse/stringify calls | 0 |\n| Object instantiation inside loops | 0 |\n| **Total heuristic signals** | **0** |\n\n### AI Analysis\n\nHere is a focused performance engineering review of pajussara_tui_comp based on the provided code excerpts. Each finding includes file, line reference, severity, impact, and a concrete optimization example.\n\n---\n\n## Summary Table\n\n| File                                 | Issue Type                | Severity | Impact         |\n|-------------------------------------- |--------------------------|----------|---------------|\n| demos/listpanel-cities*.tsx           | Algorithmic complexity    | Low      | Minor CPU     |\n| demos/listpanel-cities*.tsx           | Memory allocation         | Low      | Minor RAM     |\n| demos/listpanel-cities*.tsx           | Data structure choice     | Low      | Minor CPU     |\n| demos/directory-text-browser.tsx      | Data structure choice     | Low      | Minor CPU     |\n| demos/directory-text-browser.tsx      | Missing memoization       | Low      | Minor CPU     |\n| (All demos)                           | Synchronous I/O           | Low      | Negligible    |\n| (All demos)                           | Regex performance         | Low      | Negligible    |\n| (All demos)                           | Benchmarking coverage     | Medium   | Missed issues |\n\n---\n\n## Detailed Findings\n\n### 1. Algorithmic Complexity: O(n) Loops in Hot Path\n**Files:** demos/listpanel-cities.tsx, demos/listpanel-cities2.tsx, demos/status-chronometer-cities*.tsx  \n**Lines:** `buildItems()` function (all variants)  \n**Severity:** Low  \n**Impact:** For small lists (≤15), negligible. For larger lists, O(n) per render could add up.\n\n**Example:**\n```ts\nfunction buildItems(\n  cities: string[],\n  currentIndex: number,\n  durations: Record<string, number>,\n): Record<string, ListItem> {\n  return Object.fromEntries(\n    cities.map((city, i) => {\n      // ...\n    }),\n  );\n}\n```\n**Optimization:**  \nIf cities is large or buildItems is called frequently, memoize the result based on input.\n\n**Before:**\n```ts\nconst items = buildItems(CITIES, tourIndex, durations);\n```\n**After:**\n```ts\nimport memoize from 'lodash.memoize';\nconst buildItemsMemo = memoize(buildItems, (cities, idx, durs) => `${idx}:${JSON.stringify(durs)}`);\nconst items = buildItemsMemo(CITIES, tourIndex, durations);\n```\n\n---\n\n### 2. Memory Allocation Hotspot: Object Creation in Loops\n**Files:** demos/listpanel-cities*.tsx  \n**Lines:** `buildItems()`  \n**Severity:** Low  \n**Impact:** Minor, but avoidable GC churn if called often.\n\n**Optimization:**  \nReuse objects or preallocate if possible. For small lists, impact is negligible.\n\n---\n\n### 3. Data Structure Choice: Object vs Map for Membership\n**Files:** demos/listpanel-cities*.tsx, demos/directory-text-browser.tsx  \n**Lines:** `buildItems()` returns Record<string, ListItem>  \n**Severity:** Low  \n**Impact:** For small N, fine. For large N, Map is faster for lookups.\n\n**Before:**\n```ts\nconst items: Record<string, ListItem> = { ... };\nitems[id]\n```\n**After:**\n```ts\nconst items = new Map<string, ListItem>();\nitems.set(id, { ... });\nitems.get(id)\n```\n\n---\n\n### 4. Missing Memoization: getTextItems\n**File:** demos/directory-text-browser.tsx  \n**Lines:** `getTextItems(directoryPath)`  \n**Severity:** Low  \n**Impact:** If called repeatedly with the same input, could avoid recomputation.\n\n**Optimization:**  \nMemoize getTextItems by directoryPath.\n\n---\n\n### 5. Synchronous I/O in Hot Path\n**Files:** All demos  \n**Lines:** No direct evidence in provided code (all I/O is via React state/hooks).  \n**Severity:** Low  \n**Impact:** None found in provided code.\n\n---\n\n### 6. Regex Performance Risks\n**Files:** demos/listpanel-cities*.tsx  \n**Lines:** `cityId(name)`  \n**Severity:** Low  \n**Impact:** Regexes are simple, no catastrophic backtracking.\n\n---\n\n### 7. Bundle/Build Impact: Eager Imports\n**Files:** All demos  \n**Lines:** Top-level imports  \n**Severity:** Low  \n**Impact:** All imports are necessary for demo startup; no evidence of large, unnecessary imports.\n\n---\n\n### 8. Benchmarking Coverage\n**Files:** All demos  \n**Severity:** Medium  \n**Impact:** No evidence of microbenchmarks or performance tests for hot paths (e.g., buildItems, cityId, directory traversal).  \n**Optimization:**  \nAdd vitest bench or Benchmark.js for buildItems and directory traversal logic.\n\n---\n\n## Concrete Optimization Example\n\n**Memoizing buildItems for large lists:**\n\n_Before:_\n```ts\nconst items = buildItems(CITIES, tourIndex, durations);\n```\n_After:_\n```ts\nimport memoize from 'lodash.memoize';\nconst buildItemsMemo = memoize(buildItems, (cities, idx, durs) => `${idx}:${JSON.stringify(durs)}`);\nconst items = buildItemsMemo(CITIES, tourIndex, durations);\n```\n\n---\n\n## Recommendations\n\n- Memoize expensive computations (buildItems, getTextItems) if input size grows.\n- Use Map for large dynamic collections instead of plain objects.\n- Add microbenchmarks for buildItems and directory traversal.\n- No critical O(n²) or blocking I/O found; current code is efficient for demo-scale data.\n\nLet me know if you want a deeper review of src/ or more on bundle/build analysis."
+        },
+        "duration": 21035
+      },
+      "step_09": {
+        "stepId": "step_09",
+        "stepName": "Dependency Analysis",
+        "success": true,
+        "output": {
+          "success": true,
+          "hasSecurityIssues": false,
+          "language": "typescript",
+          "dependencyCounts": {
+            "total": 12,
+            "production": 1,
+            "development": 9,
+            "peer": 2,
+            "dependencies": {
+              "beautiful-mermaid": "^1.1.3"
+            },
+            "devDependencies": {
+              "@types/jest": "^29.5.0",
+              "@types/react": "^19.0.0",
+              "@typescript-eslint/eslint-plugin": "^7.0.0",
+              "@typescript-eslint/parser": "^7.0.0",
+              "eslint": "^8.0.0",
+              "ink-testing-library": "^4.0.0",
+              "jest": "^29.5.0",
+              "ts-jest": "^29.1.0",
+              "typescript": "^5.0.0"
+            }
+          },
+          "vulnerabilities": {
+            "summary": {
+              "total": 0,
+              "critical": 0,
+              "high": 0,
+              "moderate": 0,
+              "low": 0,
+              "info": 0
+            },
+            "packages": []
+          },
+          "outdatedPackages": [],
+          "lockfileIssues": [],
+          "dryRunIssues": [
+            ""
+          ],
+          "skipped": false
+        },
+        "duration": 22169
+      },
+      "step_10": {
+        "stepId": "step_10",
+        "stepName": "Code Quality",
+        "success": true,
+        "output": {
+          "success": true,
+          "hasLintErrors": false,
+          "perLanguageResults": [
+            {
+              "language": "typescript",
+              "sourceFileCount": 22,
+              "linterCommand": "\"npm run lint\"",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "files": 0,
+                "fileIssues": {}
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            },
+            {
+              "language": "json",
+              "sourceFileCount": 5,
+              "linterCommand": "(native JSON.parse)",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "files": 0
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            },
+            {
+              "language": "bash",
+              "sourceFileCount": 4,
+              "linterCommand": "find . -name \"*.sh\" -not -path \"*/node_modules/*\" -not -path \"*/.git/*\" | xargs shellcheck",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "infos": 0,
+                "files": 0
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            }
+          ],
+          "aggregateTotals": {
+            "totalIssues": 0,
+            "errors": 0,
+            "warnings": 0,
+            "infos": 0,
+            "fileCount": 31
+          },
+          "language": "typescript",
+          "sourceFileCount": 31,
+          "alternatives": [],
+          "recommendedAlternative": null,
+          "erFindings": "**Error Resilience Review**\n\n_No issues found in the following categories:_\n- Uncaught Exceptions & Unhandled Rejections\n- Silent Failure Swallowing\n- Missing `await` on Async Calls\n- Error Masking in Control Flow\n- Resource Leak on Error\n\n**Details:**\n- All demo files use React/Ink event-driven patterns and do not expose unhandled async calls, empty catch blocks, or resource management code in the provided snippets.\n- No evidence of un-awaited async functions, silent error swallowing, or resource leaks in the visible code.\n\n**Summary:**  \n0 findings (Critical: 0, High: 0, Medium: 0). Error resilience is excellent in the reviewed files."
+        },
+        "duration": 20405
+      },
+      "step_11": {
+        "stepId": "step_11",
+        "stepName": "Context Management",
+        "success": true,
+        "output": {
+          "success": true,
+          "completionRate": 100,
+          "completionStatus": "excellent",
+          "completedSteps": 16,
+          "totalSteps": 16,
+          "gitStatus": {
+            "isGitRepo": true,
+            "branch": "unknown",
+            "modifiedFiles": 0,
+            "untrackedFiles": 83,
+            "stagedFiles": 1,
+            "commitsAhead": 0
+          },
+          "changeImpact": "low",
+          "impactScore": 0,
+          "issues": {
+            "total": 0,
+            "critical": 0,
+            "warnings": 0,
+            "passed": 16
+          },
+          "duration": 340
+        },
+        "duration": 188
+      },
+      "step_11_5": {
+        "stepId": "step_11_5",
+        "stepName": "AWS LBS Validation",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Step 11.5 skipped — project kind 'typescript_library' is not aws_lbs_backend_setup"
+        },
+        "duration": 22
+      },
+      "step_13": {
+        "stepId": "step_13",
+        "stepName": "Markdown Linting",
+        "success": true,
+        "output": {
+          "success": true,
+          "status": "pass",
+          "stats": {
+            "totalIssues": 0,
+            "filesWithIssues": 0,
+            "filesChecked": 12,
+            "cleanFiles": 12,
+            "uniqueRules": 0,
+            "issuesPerFile": 0
+          },
+          "issues": []
+        },
+        "duration": 2972
+      },
+      "step_11_6": {
+        "stepId": "step_11_6",
+        "stepName": "AWS Serverless AI Review",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Step 11.6 skipped — project kind 'typescript_library' is not aws_lbs_backend_setup"
+        },
+        "duration": 39
+      },
+      "step_14": {
+        "stepId": "step_14",
+        "stepName": "Prompt Engineering",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "project type not eligible"
+        },
+        "duration": 26
+      },
+      "step_15": {
+        "stepId": "step_15",
+        "stepName": "UX Analysis",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "non-web project kind: typescript_library"
+        },
+        "duration": 28
+      },
+      "step_16": {
+        "stepId": "step_16",
+        "stepName": "Version Update",
+        "success": true,
+        "output": {
+          "success": true,
+          "oldVersion": "1.2.0",
+          "newVersion": "1.2.1",
+          "bumpType": "patch",
+          "stats": {
+            "updated": 19,
+            "skipped": 29,
+            "failed": 0
+          },
+          "updates": [
+            {
+              "file": "package.json",
+              "success": true
+            },
+            {
+              "file": "pyproject.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "setup.py",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "Cargo.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": ".workflow-config.yaml",
+              "success": true
+            },
+            {
+              "file": ".ai_workflow/metrics/current_run.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/plan.md",
+              "skipped": true
+            },
+            {
+              "file": "README.md",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.d.ts",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.js.map",
+              "skipped": true
+            },
+            {
+              "file": "docs/API.md",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "docs/ARCHITECTURE.md",
+              "skipped": true
+            },
+            {
+              "file": "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "skipped": true
+            },
+            {
+              "file": "docs/GETTING_STARTED.md",
+              "skipped": true
+            },
+            {
+              "file": "package-lock.json",
+              "success": true
+            },
+            {
+              "file": "src/index.ts",
+              "skipped": true
+            },
+            {
+              "file": "test/index.test.ts",
+              "skipped": true
+            },
+            {
+              "file": "demos/directory-text-browser.tsx",
+              "success": true
+            },
+            {
+              "file": "demos/directorypanel-github.tsx",
+              "success": true
+            },
+            {
+              "file": "demos/mermaid-demo.tsx",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowser.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowser.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowser.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowser.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/MermaidPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/MermaidPanel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/MermaidPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/MermaidPanel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/TextListPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/TextListPanel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/TextListPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/TextListPanel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "src/DirectoryPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "src/DirectoryTextBrowser.tsx",
+              "success": true
+            },
+            {
+              "file": "src/MermaidPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "src/TextListPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "test/DirectoryPanel.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/DirectoryTextBrowser.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/MermaidPanel.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/TextListPanel.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "CHANGELOG.md",
+              "success": true
+            },
+            {
+              "file": "package.json",
+              "skipped": true,
+              "reason": "not a version config file"
+            }
+          ],
+          "consistencyCheck": {
+            "ran": false
+          },
+          "duration": 8523
+        },
+        "duration": 8551
+      },
+      "step_18": {
+        "stepId": "step_18",
+        "stepName": "Debugging Analysis",
+        "success": true,
+        "output": {
+          "success": true,
+          "personaKey": "async_flow_debugger_prompt",
+          "filesAnalyzed": [
+            "helpers/index.ts",
+            "src/index.ts",
+            "src/types.ts"
+          ],
+          "totalSourceFiles": 3,
+          "aiContent": "**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in helpers/index.ts, src/index.ts, or src/types.ts.\n- No `fetch`, `XMLHttpRequest`, or HTTP/network client calls present.\n- No try/catch, error boundary, or error propagation logic found.\n\n**Step 0: Pattern Presence Scan**\n- async/await: Not found\n- Promise chains: Not found\n- Network/fetch: Not found\n\n**Step 1–4: Skipped**\nNot applicable — no async, promise, or network patterns found in the provided files.\n\n**Summary:**  \nNo asynchronous or network-related code is present in the analyzed files. No async flow, error, or timing issues to report.",
+          "report": "# Step 18: Debugging Analysis — Async Flow Debugger\n\n## Files Analyzed\n- helpers/index.ts\n- src/index.ts\n- src/types.ts\n\n## AI Analysis\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in helpers/index.ts, src/index.ts, or src/types.ts.\n- No `fetch`, `XMLHttpRequest`, or HTTP/network client calls present.\n- No try/catch, error boundary, or error propagation logic found.\n\n**Step 0: Pattern Presence Scan**\n- async/await: Not found\n- Promise chains: Not found\n- Network/fetch: Not found\n\n**Step 1–4: Skipped**\nNot applicable — no async, promise, or network patterns found in the provided files.\n\n**Summary:**  \nNo asynchronous or network-related code is present in the analyzed files. No async flow, error, or timing issues to report.\n"
+        },
+        "duration": 11038
+      },
+      "step_19": {
+        "stepId": "step_19",
+        "stepName": "TypeScript Review",
+        "success": true,
+        "output": {
+          "success": true,
+          "filesAnalyzed": [
+            "helpers/index.ts",
+            "src/index.ts",
+            "src/types.ts",
+            "demos/directory-text-browser.tsx",
+            "demos/directorypanel-github.tsx",
+            "demos/listpanel-cities.tsx",
+            "demos/listpanel-cities2.tsx",
+            "demos/mermaid-demo.tsx",
+            "demos/status-chronometer-cities.tsx",
+            "demos/status-chronometer-cities2.tsx",
+            "demos/status-chronometer-cities3.tsx",
+            "demos/status-chronometer-cities4.tsx",
+            "demos/status-chronometer-cities5.tsx",
+            "src/Chronometer.tsx",
+            "src/DirectoryPanel.tsx",
+            "src/DirectoryTextBrowser.tsx",
+            "src/ListPanel.tsx",
+            "src/MermaidPanel.tsx",
+            "src/StreamViewer.tsx",
+            "src/TextListPanel.tsx"
+          ],
+          "totalTsFiles": 22,
+          "issueScore": {
+            "anyCount": 0,
+            "tsIgnoreCount": 0,
+            "missingReturnTypeCount": 0,
+            "totalIssues": 0
+          },
+          "aiContent": "```\n📄 helpers/index.ts:7, 15, 25  [🟡 Warning]\n- Before:\n  export function formatStepIcon(status: string): string { ... }\n  export function statusColor(status: string): string { ... }\n  export function formatDuration(ms: number): string { ... }\n- After:\n  export function formatStepIcon(status: string): string { ... }\n  export function statusColor(status: string): string { ... }\n  export function formatDuration(ms: number): string { ... }\n- Reason: All function parameters and return types are explicitly annotated; no `any` or implicit `any` present. No changes needed.\n\n📄 src/types.ts:9  [🟢 Info]\n- Before:\n  export type PanelStatus = 'idle' | 'loading' | 'streaming' | 'done' | 'error';\n- After:\n  export type PanelStatus = 'idle' | 'loading' | 'streaming' | 'done' | 'error';\n- Reason: Type alias is idiomatic for string literal union; no changes needed.\n\n📄 src/index.ts:7–38  [🟢 Info]\n- All exports use `export type` for type-only exports and plain `export` for values, matching project conventions. No changes needed.\n\n📄 tsconfig.json  [🟢 Info]\n- \"strict\": true is enabled; \"target\", \"module\", and \"moduleResolution\" are set appropriately for NodeNext; \"lib\" is ES2020; \"skipLibCheck\": true is present for third-party types. No changes needed.\n\n**Summary:**  \nNo updates needed – documentation and code are current, type-safe, and follow project conventions. No `any` usage, all types are explicit, and strict mode is enforced. No action required.\n```",
+          "report": "# Step 19: TypeScript Review — Strider\n\n## Files Analyzed\n- helpers/index.ts\n- src/index.ts\n- src/types.ts\n- demos/directory-text-browser.tsx\n- demos/directorypanel-github.tsx\n- demos/listpanel-cities.tsx\n- demos/listpanel-cities2.tsx\n- demos/mermaid-demo.tsx\n- demos/status-chronometer-cities.tsx\n- demos/status-chronometer-cities2.tsx\n- demos/status-chronometer-cities3.tsx\n- demos/status-chronometer-cities4.tsx\n- demos/status-chronometer-cities5.tsx\n- src/Chronometer.tsx\n- src/DirectoryPanel.tsx\n- src/DirectoryTextBrowser.tsx\n- src/ListPanel.tsx\n- src/MermaidPanel.tsx\n- src/StreamViewer.tsx\n- src/TextListPanel.tsx\n\n## Issue Score (Heuristic)\n\n| Metric | Count |\n|--------|-------|\n| Explicit `any` / `as any` | 0 |\n| `@ts-ignore` / `@ts-nocheck` | 0 |\n| Functions missing return type | 0 |\n| **Total** | **0** |\n\n## AI Analysis\n\n```\n📄 helpers/index.ts:7, 15, 25  [🟡 Warning]\n- Before:\n  export function formatStepIcon(status: string): string { ... }\n  export function statusColor(status: string): string { ... }\n  export function formatDuration(ms: number): string { ... }\n- After:\n  export function formatStepIcon(status: string): string { ... }\n  export function statusColor(status: string): string { ... }\n  export function formatDuration(ms: number): string { ... }\n- Reason: All function parameters and return types are explicitly annotated; no `any` or implicit `any` present. No changes needed.\n\n📄 src/types.ts:9  [🟢 Info]\n- Before:\n  export type PanelStatus = 'idle' | 'loading' | 'streaming' | 'done' | 'error';\n- After:\n  export type PanelStatus = 'idle' | 'loading' | 'streaming' | 'done' | 'error';\n- Reason: Type alias is idiomatic for string literal union; no changes needed.\n\n📄 src/index.ts:7–38  [🟢 Info]\n- All exports use `export type` for type-only exports and plain `export` for values, matching project conventions. No changes needed.\n\n📄 tsconfig.json  [🟢 Info]\n- \"strict\": true is enabled; \"target\", \"module\", and \"moduleResolution\" are set appropriately for NodeNext; \"lib\" is ES2020; \"skipLibCheck\": true is present for third-party types. No changes needed.\n\n**Summary:**  \nNo updates needed – documentation and code are current, type-safe, and follow project conventions. No `any` usage, all types are explicit, and strict mode is enforced. No action required.\n```\n"
+        },
+        "duration": 13516
+      },
+      "step_20": {
+        "stepId": "step_20",
+        "stepName": "Async Performance Review",
+        "success": true,
+        "output": {
+          "success": true,
+          "skipped": false,
+          "fileCount": 35,
+          "scores": {
+            "promiseConstructorCount": 0,
+            "unhandledRejectionCount": 0,
+            "missingCleanupCount": 0,
+            "totalIssues": 0
+          },
+          "report": "## Async Performance Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Explicit Promise constructors | 0 |\n| Potential unhandled rejections (.then without .catch) | 0 |\n| Missing event listener cleanup | 0 |\n| **Total heuristic signals** | **0** |\n\n### AI Analysis\n\n**Async Performance Review — pajussara_tui_comp (Partial Coverage)**\n\n---\n\n### ⚠️ Coverage may be partial — not all source files were provided. Analysis is based on the 35 listed files.\n\n---\n\n## 1. Overfetching\n✅ No issues found  \n- No network fetches, REST, or GraphQL queries in the provided files.\n\n---\n\n## 2. Promise Overhead\n\n**File:** All demo files (e.g., `demos/listpanel-cities.tsx`, etc.)  \n**Severity:** LOW  \n**Dimension:** Promise Overhead  \n**Issue:** All async logic is handled via `setTimeout` and React state; no sequential `await` chains, unnecessary `async` functions, or mixed `.then()`/`await` patterns detected.  \n**Fix:** N/A  \n**Impact:** No performance risk.\n\n---\n\n## 3. Event Loop Congestion\n\n**File:** All demo files  \n**Severity:** LOW  \n**Dimension:** Event Loop Congestion  \n**Issue:** No CPU-heavy synchronous work (e.g., large sorts, regex, or JSON.parse on big data) inside async paths.  \n**Fix:** N/A  \n**Impact:** No event loop blocking risk.\n\n---\n\n## 4. Memory Leaks\n\n**File:** All demo files  \n**Severity:** MEDIUM  \n**Dimension:** Memory Leaks  \n**Issue:** Timers (`setTimeout`) are correctly cleared in `useEffect` cleanup, but event listeners (e.g., `useInput`) are not explicitly removed. However, in React Ink, `useInput` is automatically cleaned up on unmount.  \n**Fix:**  \n_Before:_  \n```ts\nuseInput((input) => { ... });\n```\n_After (if not auto-cleaned):_  \n```ts\nconst unsubscribe = useInput((input) => { ... });\nuseEffect(() => unsubscribe, []);\n```\n**Impact:** If `useInput` were not auto-cleaned, could cause leaks; in Ink, this is safe.\n\n---\n\n## 5. API Call Batching\n✅ No issues found  \n- No API/network calls or N+1 fetch patterns.\n\n---\n\n## 6. Debouncing & Throttling\n\n**File:** All demo files  \n**Severity:** LOW  \n**Dimension:** Debouncing & Throttling  \n**Issue:** No rapid-fire event handlers or polling loops; all input is user-driven and infrequent.  \n**Fix:** N/A  \n**Impact:** No UX or performance risk.\n\n---\n\n## 7. Error Handling\n\n**File:** All demo files  \n**Severity:** MEDIUM  \n**Dimension:** Error Handling  \n**Issue:** No try/catch around timer logic or state updates, but all async is via `setTimeout` and React state, which is safe in this context. No floating promises.  \n**Fix:**  \n_Before:_  \n```ts\nconst timer = setTimeout(() => { ... }, VISIT_MS);\n```\n_After (if error-prone logic inside):_  \n```ts\nconst timer = setTimeout(() => {\n  try { ... } catch (e) { /* handle error */ }\n}, VISIT_MS);\n```\n**Impact:** Low risk; errors in timer callbacks would not crash the app but could be missed.\n\n---\n\n## 8. Promise Anti-Patterns\n✅ No issues found  \n- No explicit `new Promise` wrapping async code, no deferreds, no redundant `return await`.\n\n---\n\n## 9. Resource Cleanup\n\n**File:** All demo files  \n**Severity:** MEDIUM  \n**Dimension:** Resource Cleanup  \n**Issue:** Timers are always cleared in `useEffect` cleanup. No fetches needing `AbortController`. No streams or manual event listeners.  \n**Fix:** N/A  \n**Impact:** No resource leaks detected.\n\n---\n\n## Prioritized Recommendations\n\n1. **(MEDIUM)** If adding network fetches or event listeners in the future, always pair with cleanup (`AbortController`, `removeEventListener`).\n2. **(MEDIUM)** For complex timer logic, consider try/catch in callbacks to avoid silent errors.\n3. **(LOW)** No current need for debouncing/throttling, but add if rapid input or polling is introduced.\n4. **(LOW)** No promise anti-patterns, but maintain discipline as codebase grows.\n\n---\n\n## Summary Table\n\n| Dimension                | Issues Found? | Severity | Notes                                      |\n|--------------------------|--------------|----------|--------------------------------------------|\n| Overfetching             | No           | —        | No network/data fetches                    |\n| Promise Overhead         | No           | —        | Async via timers/state only                |\n| Event Loop Congestion    | No           | —        | No CPU-heavy sync work                     |\n| Memory Leaks             | Minor        | MEDIUM   | Safe in Ink, but watch for future leaks    |\n| API Call Batching        | No           | —        | No API calls                               |\n| Debounce/Throttle        | No           | —        | No rapid-fire handlers                     |\n| Error Handling           | Minor        | MEDIUM   | Timer logic could use try/catch if complex |\n| Promise Anti-Patterns    | No           | —        | No misuse detected                         |\n| Resource Cleanup         | No           | —        | Timers cleaned, no fetch/streams           |\n\n---\n\n**Overall:**  \n- No critical or high-severity async issues found in the provided files.  \n- Code is clean, with correct timer cleanup and no async anti-patterns.  \n- Future additions (network, event listeners) should follow cleanup and error handling best practices."
+        },
+        "duration": 19242
+      },
+      "step_17": {
+        "stepId": "step_17",
+        "stepName": "Workflow Summary",
+        "success": true,
+        "output": {
+          "success": true,
+          "summary": {
+            "metrics": {
+              "totalSteps": 0,
+              "successfulSteps": 0,
+              "failedSteps": 0,
+              "skippedSteps": 0,
+              "totalDuration": 0,
+              "avgDuration": 0,
+              "successRate": 0,
+              "startTime": "2026-04-11T17:02:33.652Z",
+              "endTime": "2026-04-12T14:27:16.832Z",
+              "workflowRunId": "workflow_20260412_112040",
+              "version": "1.0.0",
+              "mode": "interactive"
+            },
+            "timeline": {
+              "steps": [],
+              "phases": {
+                "initialization": [],
+                "documentation": [],
+                "validation": [],
+                "testing": [],
+                "quality": [],
+                "finalization": []
+              }
+            },
+            "cacheEfficiency": {
+              "cacheHits": 0,
+              "cacheMisses": 0,
+              "totalRequests": 0,
+              "hitRate": 0,
+              "quality": "poor"
+            },
+            "recommendations": [
+              {
+                "type": "caching",
+                "priority": "high",
+                "title": "Low Cache Hit Rate",
+                "description": "Cache hit rate is 0.0% (below 60%)",
+                "impact": "high",
+                "suggestion": "Review caching strategy and increase cache TTL",
+                "details": [
+                  "Cache hits: 0",
+                  "Cache misses: 0"
+                ]
+              }
+            ],
+            "report": "# Workflow Summary Report\n\n**Workflow Run ID:** workflow_20260412_112040\n**Version:** 1.0.0\n**Mode:** interactive\n**Start Time:** 2026-04-11T17:02:33.652Z\n**End Time:** 2026-04-12T14:27:16.832Z\n**Total Duration:** 0s\n\n---\n\n## Executive Summary\n\n**Overall Status:** ⚠️ Completed\n**Success Rate:** 0.0%\n**Total Steps:** 0\n**Successful:** 0 ✅\n**Average Step Duration:** 0s\n\n---\n\n## Execution Timeline\n\n\n\n---\n\n## Phase Breakdown\n\n\n\n---\n\n## Performance Metrics\n\n| Metric | Value |\n|--------|-------|\n| Total Duration | 0s |\n| Average Step Duration | 0s |\n| Total Steps | 0 |\n| Success Rate | 0.0% |\n\n---\n\n## Recommendations\n\n### 🟠 Low Cache Hit Rate\n**Priority:** HIGH\n**Type:** caching\n**Description:** Cache hit rate is 0.0% (below 60%)\n**Suggestion:** Review caching strategy and increase cache TTL\n\n**Details:**\n- Cache hits: 0\n- Cache misses: 0\n\n\n---\n\n*Generated by AI Workflow Automation v1.0.0*\n\n*Report generated at: 2026-04-12T14:27:16.833Z*\n"
+          },
+          "message": "Workflow summary generated successfully"
+        },
+        "duration": 33
+      },
+      "step_0f": {
+        "stepId": "step_0f",
+        "stepName": "Commit Artifacts",
+        "success": true,
+        "output": {
+          "success": true,
+          "committed": true,
+          "files": [
+            ".ai_workflow/.step_cache/step_06_partition.json",
+            ".ai_workflow/.step_cache/step_10_partition.json",
+            ".ai_workflow/.step_cache/step_10_quality.json",
+            ".ai_workflow/cache/step_21_doc_consolidation.json",
+            ".ai_workflow/metrics/current_run.json",
+            ".ai_workflow/plan.md",
+            "docs/API.md",
+            "docs/ARCHITECTURE.md",
+            "docs/FUNCTIONAL_REQUIREMENTS.md",
+            "docs/GETTING_STARTED.md"
+          ],
+          "summary": "Committed 10 artifact file(s)"
+        },
+        "duration": 89
+      },
+      "step_12": {
+        "stepId": "step_12",
+        "stepName": "Git Finalization",
+        "success": true,
+        "output": {
+          "success": true,
+          "branch": "main",
+          "commitMessage": "feat(implementation+tests): update panels, docs, and tests\n\nRefactor and enhance core TUI panels, update documentation, and expand\ntest coverage to align with workflow automation v1.2.1.\n\n- Refactor DirectoryPanel, DirectoryTextBrowser, MermaidPanel, and TextListPanel\n- Update README and CHANGELOG for new props and usage patterns\n- Improve and add tests for all major panel components\n- Sync package.json and workflow-config.yaml for version 1.2.1\n- Regenerate type declarations and distribution files\n\nNo breaking changes; all updates are backward compatible.\n[workflow-automation v1.2.1]\n\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+          "pushed": true,
+          "report": "### Git Finalization Summary\n\n**Branch:** main\n**Commits Ahead:** 4\n**Commits Behind:** 0\n**Commit Type:** feat(implementation+tests)\n**Modified Files:** 11\n**Total Changes:** 40\n\n### Change Breakdown\n\n- Documentation: 2 files\n- Tests: 1 files\n- Scripts: 0 files\n- Code: 11 files\n- Config: 3 files\n\n### Commit Message\n\n```\nfeat(implementation+tests): update panels, docs, and tests\n\nRefactor and enhance core TUI panels, update documentation, and expand\ntest coverage to align with workflow automation v1.2.1.\n\n- Refactor DirectoryPanel, DirectoryTextBrowser, MermaidPanel, and TextListPanel\n- Update README and CHANGELOG for new props and usage patterns\n- Improve and add tests for all major panel components\n- Sync package.json and workflow-config.yaml for version 1.2.1\n- Regenerate type declarations and distribution files\n\nNo breaking changes; all updates are backward compatible.\n[workflow-automation v1.2.1]\n\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\n```\n\n**Push Status:** ✅ Pushed successfully"
+        },
+        "duration": 13455
+      }
+    },
+    "context": {
+      "workflowDir": "/home/mpb/Documents/GitHub/pajussara_tui_comp/.ai_workflow",
+      "projectRoot": "/home/mpb/Documents/GitHub/pajussara_tui_comp",
+      "auto": false,
+      "workflowRunId": "workflow_20260412_112040",
+      "modifiedFiles": [
+        ".dockerignore",
+        ".github/copilot-instructions.md",
+        ".workflow-config.yaml",
+        "CHANGELOG.md",
+        "Dockerfile.demos",
+        "Dockerfile.test",
+        "README.md",
+        "demos/listpanel-cities.tsx",
+        "demos/listpanel-cities2.tsx",
+        "demos/status-chronometer-cities.tsx",
+        "demos/status-chronometer-cities2.tsx",
+        "demos/status-chronometer-cities3.tsx",
+        "demos/status-chronometer-cities4.tsx",
+        "demos/status-chronometer-cities5.tsx",
+        "dist/helpers/index.d.ts",
+        "dist/helpers/index.js",
+        "dist/src/Chronometer.d.ts",
+        "dist/src/Chronometer.d.ts.map",
+        "dist/src/Chronometer.js",
+        "dist/src/Chronometer.js.map",
+        "dist/src/ListPanel.d.ts",
+        "dist/src/ListPanel.js",
+        "dist/src/StreamViewer.d.ts",
+        "dist/src/StreamViewer.js",
+        "dist/src/index.d.ts",
+        "dist/src/index.d.ts.map",
+        "dist/src/index.js",
+        "dist/src/index.js.map",
+        "dist/src/status_badge.d.ts",
+        "dist/src/status_badge.js",
+        "dist/src/status_chronometer.d.ts",
+        "dist/src/status_chronometer.d.ts.map",
+        "dist/src/status_chronometer.js",
+        "dist/src/status_chronometer.js.map",
+        "dist/src/types.d.ts",
+        "dist/src/types.js",
+        "docs/DOCKER_TESTING.md",
+        "docs/FUNCTIONAL_REQUIREMENTS.md",
+        "docs/GETTING_STARTED.md",
+        "helpers/index.ts",
+        "jest.config.json",
+        "package-lock.json",
+        "package.json",
+        "scripts/run-demos-docker.sh",
+        "scripts/run-tests-docker.sh",
+        "src/Chronometer.tsx",
+        "src/ListPanel.tsx",
+        "src/StreamViewer.tsx",
+        "src/index.ts",
+        "src/status_badge.tsx",
+        "src/status_chronometer.tsx",
+        "src/types.ts",
+        "test/Chronometer.test.tsx",
+        "test/ListPanel.test.tsx",
+        "test/StreamViewer.test.tsx",
+        "test/listpanel-cities2.test.tsx",
+        "test/setup.ts",
+        "test/status_badge.test.tsx",
+        "test/status_chronometer.test.tsx",
+        "tsconfig.json",
+        ".ai_workflow/metrics/current_run.json",
+        ".ai_workflow/plan.md",
+        "docs/API.md",
+        "docs/ARCHITECTURE.md",
+        "test/index.test.ts",
+        "demos/directory-text-browser.tsx",
+        "demos/directorypanel-github.tsx",
+        "demos/mermaid-demo.tsx",
+        "dist/src/DirectoryPanel.d.ts",
+        "dist/src/DirectoryPanel.d.ts.map",
+        "dist/src/DirectoryPanel.js",
+        "dist/src/DirectoryPanel.js.map",
+        "dist/src/DirectoryTextBrowser.d.ts",
+        "dist/src/DirectoryTextBrowser.d.ts.map",
+        "dist/src/DirectoryTextBrowser.js",
+        "dist/src/DirectoryTextBrowser.js.map",
+        "dist/src/MermaidPanel.d.ts",
+        "dist/src/MermaidPanel.d.ts.map",
+        "dist/src/MermaidPanel.js",
+        "dist/src/MermaidPanel.js.map",
+        "dist/src/TextListPanel.d.ts",
+        "dist/src/TextListPanel.d.ts.map",
+        "dist/src/TextListPanel.js",
+        "dist/src/TextListPanel.js.map",
+        "src/DirectoryPanel.tsx",
+        "src/DirectoryTextBrowser.tsx",
+        "src/MermaidPanel.tsx",
+        "src/TextListPanel.tsx",
+        "test/DirectoryPanel.test.tsx",
+        "test/DirectoryTextBrowser.test.tsx",
+        "test/MermaidPanel.test.tsx",
+        "test/TextListPanel.test.tsx"
+      ],
+      "projectType": "nodejs_api",
+      "scope": "full_validation",
+      "projectDescription": "pajussara_tui_comp",
+      "alternatives": false
+    }
+  },
+  "metadata": {
+    "totalSteps": 29,
+    "progress": 0
+  }
+}
