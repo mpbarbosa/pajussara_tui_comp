@@ -9,7 +9,7 @@
  * Run with:
  *   npx tsx demos/mermaid-demo.tsx
  *
- * @version 1.2.1
+ * @version 1.2.2
  * @since 2026-04-07
  */
 

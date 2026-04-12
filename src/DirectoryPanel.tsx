@@ -6,7 +6,7 @@
  * panel. Supports keyboard selection (↑/↓ or k/j) and surfaces loading, empty,
  * and filesystem error states inline.
  *
- * @version 1.2.1
+ * @version 1.2.2
  * @since 2026-04-12
  */
 

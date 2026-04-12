@@ -11,9 +11,10 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     expect(typeof api.DirectoryPanel).toBe('function');
   });
 
-  it('should export TextListPanel and DirectoryTextBrowser', () => {
+  it('should export TextListPanel, DirectoryTextBrowser, and DirectoryTextBrowserWithStatusBar', () => {
     expect(typeof api.TextListPanel).toBe('function');
     expect(typeof api.DirectoryTextBrowser).toBe('function');
+    expect(typeof api.DirectoryTextBrowserWithStatusBar).toBe('function');
   });
 
   it('should export ListItem and ListPanelProps types', () => {
@@ -27,6 +28,8 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     type _TextListPanelProps = api.TextListPanelProps;
     type _DirectoryTextBrowserPane = api.DirectoryTextBrowserPane;
     type _DirectoryTextBrowserProps = api.DirectoryTextBrowserProps;
+    type _DirectoryTextBrowserWithStatusBarProps =
+      api.DirectoryTextBrowserWithStatusBarProps;
     // Runtime: assert the module is an object with the expected function exports
     expect(typeof api.ListPanel).toBe('function');
     expect(typeof api.StepsPanel).toBe('function');
@@ -44,7 +47,9 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     expect(exportedKeys.sort()).toEqual(
       [
         'Chronometer',
+        'StatusBar',
         'DirectoryTextBrowser',
+        'DirectoryTextBrowserWithStatusBar',
         'DirectoryPanel',
         'ListPanel',
         'MermaidPanel',
