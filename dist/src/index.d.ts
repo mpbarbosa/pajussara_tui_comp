@@ -13,6 +13,8 @@ export { TextListPanel } from './TextListPanel.js';
 export type { TextListItem, TextListPanelProps } from './TextListPanel.js';
 export { DirectoryTextBrowser } from './DirectoryTextBrowser.js';
 export type { DirectoryTextBrowserPane, DirectoryTextBrowserProps, } from './DirectoryTextBrowser.js';
+export { DirectoryTextBrowserWithStatusBar } from './DirectoryTextBrowserWithStatusBar.js';
+export type { DirectoryTextBrowserWithStatusBarProps } from './DirectoryTextBrowserWithStatusBar.js';
 export { StreamViewer, wrapText } from './StreamViewer.js';
 export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './StreamViewer.js';
 export { StatusBadge } from './status_badge.js';
@@ -22,6 +24,8 @@ export { Chronometer } from './Chronometer.js';
 export type { ChronometerProps, ChronometerStatus } from './Chronometer.js';
 export { StatusChronometer } from './status_chronometer.js';
 export type { StatusChronometerProps } from './status_chronometer.js';
+export { StatusBar } from './StatusBar.js';
+export type { StatusBarHint, StatusBarProps } from './StatusBar.js';
 export { MermaidPanel } from './MermaidPanel.js';
 export type { MermaidPanelProps } from './MermaidPanel.js';
 //# sourceMappingURL=index.d.ts.map
