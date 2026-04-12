@@ -135,6 +135,16 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-04-12T14:26:21.171Z"
+    },
+    "demos/directory-text-browser-with-status-bar.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T16:04:48.908Z"
+    },
+    "demos/statusbar-lifecycle.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-12T16:04:48.908Z"
     }
   }
 }
