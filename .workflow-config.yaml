@@ -13,7 +13,7 @@ project:
 
 tech_stack:
   primary_language: "typescript"
-  build_system: "tsc"           # tsc compiles src/**/*.tsx → dist/
+  build_system: "npm"           # build/test/lint entrypoints are npm scripts
   test_framework: "jest"
   test_runner: "ts-jest"        # TypeScript test runner
   test_command: "npm test"
@@ -22,12 +22,12 @@ tech_stack:
     javascript: "npm run lint"
     typescript: "npm run lint"
   build_command: "npm run build"
-  node_version: ">=20.0.0"
+  node_version: ">=18.0.0"
 
 structure:
   source_dirs:
     - src
-    - helpers            # shared display utilities (formatStepIcon, statusColor, formatDuration)
+    - src/helpers        # shared display utilities (formatStepIcon, statusColor, formatDuration)
   test_dirs:
     - test
   docs_dirs:
@@ -544,7 +544,7 @@ change_patterns:
   code_files:
     - "src/**/*.tsx"
     - "src/**/*.ts"
-    - "helpers/**/*.ts"
+    - "src/helpers/**/*.ts"
   test_files:
     - "test/**/*.ts"
     - "test/**/*.tsx"
