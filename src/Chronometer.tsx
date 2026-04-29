@@ -12,7 +12,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput, Key } from 'ink';
-import { formatDuration } from '../helpers/index.js';
+import { formatDuration } from './helpers/index.js';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 

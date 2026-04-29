@@ -6,7 +6,7 @@
  * ListPanel-backed text view on the right. Focus can be moved between panes
  * with Tab, ← / h, and → / l.
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-12
  */
 import React, { useMemo, useState } from 'react';

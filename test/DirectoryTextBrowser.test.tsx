@@ -20,7 +20,7 @@ jest.unstable_mockModule('node:fs/promises', () => ({
   readdir: readdirMock,
 }));
 
-jest.unstable_mockModule('../helpers/index.js', () => ({
+jest.unstable_mockModule('../src/helpers/index.js', () => ({
   formatStepIcon: (status: string) =>
     status === 'done' ? '$' : status === 'running' ? '@' : '#',
   statusColor: (status: string) =>

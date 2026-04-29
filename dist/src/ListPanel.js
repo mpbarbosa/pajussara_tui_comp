@@ -11,7 +11,8 @@
  */
 import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput } from 'ink';
-import { formatStepIcon, statusColor, formatDuration } from '../helpers/index.js';
+import { formatStepIcon, statusColor, formatDuration } from './helpers/index.js';
+import { formatFixedWidthLabel, getBoundedSelectionIndex, getVisibleWindow, } from './helpers/panel.js';
 // ── Component ─────────────────────────────────────────────────────────────────
 /**
  * Scrollable, keyboard-navigable list panel for Ink TUI applications.
@@ -39,23 +40,18 @@ export function ListPanel({ items = {}, currentItemId, width, height = 20, selec
     // Keep a scrolling window: show the last (height - 2) entries, always
     // including the current item.
     const maxVisible = Math.max(1, height - 2);
-    let visible = entries;
-    if (entries.length > maxVisible) {
-        const currentIdx = entries.findIndex((item) => item.id === currentItemId);
-        const end = Math.max(currentIdx + 1, maxVisible);
-        const start = Math.max(0, end - maxVisible);
-        visible = entries.slice(start, end);
-    }
+    const currentItemIndex = entries.findIndex((item) => item.id === currentItemId);
+    const visible = getVisibleWindow(entries, maxVisible, currentItemIndex);
     useInput((input, key) => {
         if (entries.length === 0)
             return;
         if (key.downArrow || input === 'j') {
-            const next = Math.min(selIdx + 1, entries.length - 1);
+            const next = getBoundedSelectionIndex(selIdx, entries.length, 1);
             setSelIdx(next);
             onSelectItem?.(entries[next]?.id);
         }
         else if (key.upArrow || input === 'k') {
-            const prev = Math.max(selIdx - 1, 0);
+            const prev = getBoundedSelectionIndex(selIdx, entries.length, -1);
             setSelIdx(prev);
             onSelectItem?.(entries[prev]?.id);
         }
@@ -80,9 +76,7 @@ export function ListPanel({ items = {}, currentItemId, width, height = 20, selec
             : item.status === 'running'
                 ? '…'
                 : '';
-        const label = item.name.length > labelWidth
-            ? `${item.name.slice(0, labelWidth - 1)}…`
-            : item.name.padEnd(labelWidth);
+        const label = formatFixedWidthLabel(item.name, labelWidth);
         const cursor = isSelected ? '>' : ' ';
         return React.createElement(Box, { key: item.id, flexDirection: 'row', gap: 1 }, React.createElement(Text, { color: isSelected ? 'cyan' : 'gray' }, cursor), React.createElement(Text, null, icon), React.createElement(Text, {
             color: isSelected ? 'cyan' : color,

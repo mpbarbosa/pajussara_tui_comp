@@ -6,7 +6,7 @@
  * panel. Supports keyboard selection (↑/↓ or k/j) and surfaces loading, empty,
  * and filesystem error states inline.
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-12
  */
 
@@ -14,6 +14,11 @@ import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import React, { useEffect, useState } from 'react';
 import { Box, Text, useInput, Key } from 'ink';
+import {
+  formatFixedWidthLabel,
+  getBoundedSelectionIndex,
+  getVisibleWindow,
+} from './helpers/panel.js';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -137,11 +142,11 @@ export function DirectoryPanel({
       }
 
       if (key.downArrow || input === 'j') {
-        const next = Math.min(selIdx + 1, directories.length - 1);
+        const next = getBoundedSelectionIndex(selIdx, directories.length, 1);
         setSelIdx(next);
         onSelectDirectory?.(directories[next]?.path);
       } else if (key.upArrow || input === 'k') {
-        const prev = Math.max(selIdx - 1, 0);
+        const prev = getBoundedSelectionIndex(selIdx, directories.length, -1);
         setSelIdx(prev);
         onSelectDirectory?.(directories[prev]?.path);
       }
@@ -150,12 +155,7 @@ export function DirectoryPanel({
   );
 
   const maxVisible: number = Math.max(1, height - 2);
-  let visibleDirectories: DirectoryEntry[] = directories;
-  if (directories.length > maxVisible) {
-    const end = Math.max(selIdx + 1, maxVisible);
-    const start = Math.max(0, end - maxVisible);
-    visibleDirectories = directories.slice(start, end);
-  }
+  const visibleDirectories = getVisibleWindow(directories, maxVisible, selIdx);
 
   const labelWidth: number = Math.max(8, width - 10);
   const currentSelectedPath: string | null =
@@ -188,10 +188,7 @@ export function DirectoryPanel({
       const isSelected: boolean =
         isFocused && directory.path === currentSelectedPath;
       const labelWithSuffix = `${directory.name}/`;
-      const label: string =
-        labelWithSuffix.length > labelWidth
-          ? `${labelWithSuffix.slice(0, labelWidth - 1)}…`
-          : labelWithSuffix.padEnd(labelWidth);
+      const label = formatFixedWidthLabel(labelWithSuffix, labelWidth);
       const cursor: string = isSelected ? '>' : ' ';
 
       return React.createElement(

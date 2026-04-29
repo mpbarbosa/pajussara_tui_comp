@@ -3,7 +3,7 @@ import { render } from 'ink-testing-library';
 import { jest } from '@jest/globals';
 import type { TextListItem, TextListPanelProps } from '../src/TextListPanel.js';
 
-jest.unstable_mockModule('../helpers/index.js', () => ({
+jest.unstable_mockModule('../src/helpers/index.js', () => ({
   formatStepIcon: (status: string) =>
     status === 'done' ? '$' : status === 'running' ? '@' : '#',
   statusColor: (status: string) =>

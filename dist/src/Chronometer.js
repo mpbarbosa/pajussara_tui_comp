@@ -11,7 +11,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput } from 'ink';
-import { formatDuration } from '../helpers/index.js';
+import { formatDuration } from './helpers/index.js';
 // ── Component ─────────────────────────────────────────────────────────────────
 /**
  * Elapsed-time display with start, stop, and reset keyboard controls.

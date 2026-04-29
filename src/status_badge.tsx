@@ -15,6 +15,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Text } from 'ink';
 import type { PanelStatus } from './types.js';
+import { getActiveStatusLabel, isActivePanelStatus } from './helpers/status.js';
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 
@@ -36,7 +37,7 @@ export function StatusBadge({ status, errorMessage }: StatusBadgeProps): React.R
   const [frame, setFrame] = useState(0);
 
   useEffect(() => {
-    if (status !== 'loading' && status !== 'streaming') return;
+    if (!isActivePanelStatus(status)) return;
     const t = setInterval(
       () => setFrame((f) => (f + 1) % SPINNER_FRAMES.length),
       100,
@@ -62,8 +63,8 @@ export function StatusBadge({ status, errorMessage }: StatusBadgeProps): React.R
     );
   }
 
-  if (status === 'loading' || status === 'streaming') {
-    const label = status === 'streaming' ? 'Streaming…' : 'Loading…';
+  if (isActivePanelStatus(status)) {
+    const label = getActiveStatusLabel(status);
     return React.createElement(
       Box,
       null,

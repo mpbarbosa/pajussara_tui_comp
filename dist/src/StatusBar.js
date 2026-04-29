@@ -7,12 +7,13 @@
  * This is adapted from ai_workflow.js so it fits pajussara_tui_comp's generic
  * component API and local type/export conventions.
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-12
  */
 import React from 'react';
 import { Box, Text } from 'ink';
 import { StatusChronometer } from './status_chronometer.js';
+import { isActivePanelStatus, shouldRenderStatusBadge } from './helpers/status.js';
 const DEFAULT_HINTS = [
     { key: 'q', label: 'Quit' },
     { key: 'a', label: 'Abort' },
@@ -23,6 +24,9 @@ const DEFAULT_HINTS = [
     { key: 'e', label: 'Error' },
 ];
 const DEFAULT_COMPLETE_HINTS = [{ key: 'q', label: 'Exit' }];
+function renderStatusBarHint(hint, index) {
+    return React.createElement(React.Fragment, { key: `${hint.key}:${hint.label}` }, index > 0 ? React.createElement(Text, { color: 'gray' }, '   ') : null, React.createElement(Text, null, React.createElement(Text, { color: 'cyan', bold: true }, `[${hint.key}]`), React.createElement(Text, { color: 'white' }, ` ${hint.label}`)));
+}
 /**
  * Keybinding status bar with optional right-aligned async activity indicator.
  *
@@ -30,25 +34,28 @@ const DEFAULT_COMPLETE_HINTS = [{ key: 'q', label: 'Exit' }];
  */
 export function StatusBar({ hints = DEFAULT_HINTS, completeHints = DEFAULT_COMPLETE_HINTS, isComplete = false, status = 'idle', errorMessage = null, width = 80, }) {
     const visibleHints = isComplete ? completeHints : hints;
-    const showBadge = status === 'done' ||
-        status === 'error' ||
-        status === 'loading' ||
-        status === 'streaming';
-    const forceRunning = status === 'loading' || status === 'streaming';
+    const showBadge = shouldRenderStatusBadge(status);
+    const forceRunning = isActivePanelStatus(status);
     // Budget roughly one third of the bar for the chronometer, with a sensible floor.
     const chronometerWidth = Math.max(20, Math.floor(width / 3));
-    return (React.createElement(Box, { borderStyle: "single", borderColor: "gray", paddingX: 1, flexDirection: "row", justifyContent: "space-between" },
-        React.createElement(Box, { flexDirection: "row" }, visibleHints.map(({ key, label }, index) => (React.createElement(React.Fragment, { key: `${key}:${label}` },
-            index > 0 ? (React.createElement(Text, { color: "gray" }, '   ')) : null,
-            React.createElement(Text, null,
-                React.createElement(Text, { color: "cyan", bold: true },
-                    "[",
-                    key,
-                    "]"),
-                React.createElement(Text, { color: "white" },
-                    " ",
-                    label)))))),
-        showBadge ? (React.createElement(StatusChronometer, { status: status, errorMessage: errorMessage ?? undefined, width: chronometerWidth, isFocused: false, forceRunning: forceRunning, showLabel: false, showBorder: false, showHints: false })) : null));
+    return React.createElement(Box, {
+        borderStyle: 'single',
+        borderColor: 'gray',
+        paddingX: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    }, React.createElement(Box, { flexDirection: 'row' }, ...visibleHints.map(renderStatusBarHint)), showBadge
+        ? React.createElement(StatusChronometer, {
+            status,
+            errorMessage: errorMessage ?? undefined,
+            width: chronometerWidth,
+            isFocused: false,
+            forceRunning,
+            showLabel: false,
+            showBorder: false,
+            showHints: false,
+        })
+        : null);
 }
 export default StatusBar;
 //# sourceMappingURL=StatusBar.js.map

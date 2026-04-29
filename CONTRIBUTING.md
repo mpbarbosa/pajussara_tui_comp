@@ -34,7 +34,7 @@ Thank you for your interest in contributing!
 - Every source file starts with a `@fileoverview` JSDoc block.
 - Use `interface` (not `type`) for object shapes.
 - Display helpers (`formatStepIcon`, `statusColor`, `formatDuration`) live
-  in `helpers/` and must not be duplicated inline in components.
+  in `src/helpers/` and must not be duplicated inline in components.
 - Components accept `isFocused?: boolean` and pass `{ isActive: isFocused }`
   to `useInput`.
 

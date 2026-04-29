@@ -5,7 +5,7 @@ import type { CitiesApp as CitiesAppType } from '../demos/listpanel-cities2.js';
 
 // ── ESM mocks (must be set up before dynamic import of demo) ──────────────────
 // The demo imports helpers; mock them so formatDuration returns predictable values.
-jest.unstable_mockModule('../helpers/index.js', () => ({
+jest.unstable_mockModule('../src/helpers/index.js', () => ({
   formatStepIcon: (status: string) => `[${status}]`,
   statusColor: (status: string) => (status === 'done' ? 'green' : status === 'running' ? 'yellow' : 'gray'),
   formatDuration: (ms: number) => `${ms}ms`,

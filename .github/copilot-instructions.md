@@ -1,83 +1,52 @@
 # Copilot Instructions
 
-## Project
+This file provides durable, high-signal guidance for Copilot-assisted development in this repository. For detailed or evolving information, refer to the authoritative documentation listed below.
 
-`pajussara_tui_comp` is an [Ink](https://github.com/vadimdemedes/ink) TUI component library written in TypeScript. Components render in the terminal using React's programming model (via Ink's `Box`/`Text` primitives).
+## Project Overview
 
-## Architecture
+`pajussara_tui_comp` is an [Ink](https://github.com/vadimdemedes/ink) TUI component library in TypeScript. Components render in the terminal using React's programming model.
 
-- `src/` — component source files (`.tsx`)
-- `helpers/` — shared display utilities (`formatStepIcon`, `statusColor`, `formatDuration`) imported by components as `'../helpers'`
-- `test/` — Jest test suite (mirrors `src/` structure)
-- `demos/` — runnable usage examples (e.g. `listpanel-cities.tsx`)
-- `docs/` — project documentation (ARCHITECTURE.md, API.md, FUNCTIONAL_REQUIREMENTS.md, etc.)
-- `scripts/` — shell scripts for build, deploy, and test automation
-- `.github/workflows/` — GitHub Actions CI workflows
-- `.github/skills/` — Copilot CLI custom skills (e.g. `js-to-ts`)
-- Build/test scripts are configured in `package.json`: `build` (tsc), `test` (jest), `lint` (eslint), `typecheck` (tsc --noEmit)
-- Module system: `"type": "module"` in `package.json` (ESM)
+## Architecture Boundaries
 
-## Key Conventions
+- **Primary source modules**: `src/`
+- **Shared helpers**: `src/helpers/`
+- **Workflow config**: `.workflow-config.yaml`
+- **Runtime artifacts**: `.ai_workflow/`
 
-### React.createElement, not JSX
+For further details, see [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) and [README.md](../README.md).
 
-All components use `React.createElement(...)` directly — **do not use JSX syntax**, even though files use `.tsx`.
+## Validation Commands
 
-### File-level JSDoc header
+- **Lint**: `npm run lint`
+- **Test**: `npm test`
+- **Build**: `npm run build`
 
-Every source file starts with:
-```ts
-/**
- * @fileoverview <short description>
- * @module components/<ComponentName>
- *
- * <longer description>
- *
- * @version x.y.z
- * @since YYYY-MM-DD
- */
-```
+## Module System and Entry Points
 
-### Section dividers
+- ESM modules (`"type": "module"` in `package.json`)
+- Main entry: `dist/src/index.js`
+- Types entry: `dist/src/index.d.ts`
+- See `package.json` for full export map.
 
-Use Unicode box-drawing section comments to separate logical blocks:
-```ts
-// ── Types ─────────────────────────────────────────────────────────────────────
-// ── Component ─────────────────────────────────────────────────────────────────
-```
+## Key Coding Conventions
 
-### Props interfaces
+- **Component creation**: Use `React.createElement(...)` (no JSX), even in `.tsx` files.
+- **File headers**: Start each source file with a JSDoc header including `@fileoverview`, `@module`, `@version`, and `@since`.
+- **Section dividers**: Use Unicode box-drawing comments to separate logical blocks.
+- **Props and data interfaces**: Define above the component; prefer `interface` over `type` for object shapes.
+- **Exports**: Each component must have both a named and a default export. When renaming, keep the old name as a deprecated alias.
+- **Naming**: Use domain-agnostic, intention-revealing names for all identifiers.
+- **Focus and input**: Components accept `isFocused?: boolean`; keyboard handlers should respect focus.
+- **Status display**: Use shared helpers from `src/helpers` for status color and icon logic.
 
-- Define a `<ComponentName>Props` interface **above** the component function
-- Also define any data-shape interfaces (e.g., `ListItem`) above the component
-- Prefer `interface` over `type` alias for object shapes
+## Copilot Custom Skills
 
-### Exports
+- The `js-to-ts` skill (`.github/skills/js-to-ts/SKILL.md`) converts `.js` files to TypeScript, enforcing the conventions above.
 
-Every component must have both a named export and a `default` export:
-```ts
-export function ListPanel(...) { ... }
-export default ListPanel;
-```
+## Authoritative Documentation
 
-When renaming an exported symbol, keep the old name as a deprecated alias:
-```ts
-/** @deprecated Use {@link ListPanel} instead */
-export { ListPanel as OldName };
-```
-
-### Domain-agnostic naming
-
-All identifiers — props, types, helpers, variables — must use generic, intention-revealing names rather than project- or application-specific ones. If a rename would break a public API, expose the new name as primary and the old as a `@deprecated` re-export.
-
-### Focus and keyboard input
-
-Components accept an `isFocused?: boolean` prop. Keyboard handlers via `useInput` must pass `{ isActive: isFocused }` so only the focused panel consumes key events.
-
-### Status-driven display
-
-Items carry a `status` string (`'pending'`, `'running'`, `'done'`, etc.). Use the shared `statusColor` and `formatStepIcon` helpers (from `helpers`) rather than inline color/icon logic.
-
-## Custom Skills
-
-The `js-to-ts` skill (`.github/skills/js-to-ts/SKILL.md`) converts `.js` files to TypeScript. It enforces all conventions above (typed signatures, extracted interfaces, named exports, domain-agnostic naming). Invoke it when asked to convert a JS file.
+For comprehensive and current information, refer to:
+- [README.md](../README.md)
+- [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md)
+- [CONTRIBUTING.md](../CONTRIBUTING.md)
+- [CHANGELOG.md](../CHANGELOG.md)

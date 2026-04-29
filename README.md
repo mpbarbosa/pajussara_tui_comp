@@ -130,6 +130,7 @@ Complete reference for all public exports of `pajussara_tui_comp`.
   - [ListPanel](#listpanel)
   - [TextListPanel](#textlistpanel)
   - [StreamViewer](#streamviewer)
+  - [ErrorDetailPanel](#errordetailpanel)
   - [StatusBadge](#statusbadge)
   - [Chronometer](#chronometer)
   - [StatusChronometer](#statuschronometer)

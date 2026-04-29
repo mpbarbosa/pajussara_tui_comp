@@ -11,6 +11,7 @@ export { TextListPanel } from './TextListPanel.js';
 export { DirectoryTextBrowser } from './DirectoryTextBrowser.js';
 export { DirectoryTextBrowserWithStatusBar } from './DirectoryTextBrowserWithStatusBar.js';
 export { StreamViewer, wrapText } from './StreamViewer.js';
+export { ErrorDetailPanel } from './ErrorDetailPanel.js';
 export { StatusBadge } from './status_badge.js';
 export { Chronometer } from './Chronometer.js';
 export { StatusChronometer } from './status_chronometer.js';

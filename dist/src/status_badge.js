@@ -13,13 +13,14 @@
  */
 import React, { useState, useEffect } from 'react';
 import { Box, Text } from 'ink';
+import { getActiveStatusLabel, isActivePanelStatus } from './helpers/status.js';
 // ── Constants ──────────────────────────────────────────────────────────────────
 const SPINNER_FRAMES = ['⠋', '⠙', '⠸', '⠴', '⠦', '⠇'];
 // ── Component ─────────────────────────────────────────────────────────────────
 export function StatusBadge({ status, errorMessage }) {
     const [frame, setFrame] = useState(0);
     useEffect(() => {
-        if (status !== 'loading' && status !== 'streaming')
+        if (!isActivePanelStatus(status))
             return;
         const t = setInterval(() => setFrame((f) => (f + 1) % SPINNER_FRAMES.length), 100);
         return () => clearInterval(t);
@@ -30,8 +31,8 @@ export function StatusBadge({ status, errorMessage }) {
     if (status === 'error') {
         return React.createElement(Box, null, React.createElement(Text, { bold: true, color: 'red' }, '✗ '), React.createElement(Text, { color: 'red' }, errorMessage ?? 'An error occurred.'));
     }
-    if (status === 'loading' || status === 'streaming') {
-        const label = status === 'streaming' ? 'Streaming…' : 'Loading…';
+    if (isActivePanelStatus(status)) {
+        const label = getActiveStatusLabel(status);
         return React.createElement(Box, null, React.createElement(Text, { color: 'yellow' }, SPINNER_FRAMES[frame] + ' '), React.createElement(Text, { dimColor: true }, label));
     }
     // 'idle' — render nothing

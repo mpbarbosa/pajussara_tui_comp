@@ -16,6 +16,7 @@ import React from 'react';
 import { Box } from 'ink';
 import { StatusBadge } from './status_badge.js';
 import { Chronometer } from './Chronometer.js';
+import { isActivePanelStatus } from './helpers/status.js';
 import type { StatusBadgeProps } from './status_badge.js';
 import type { ChronometerProps } from './Chronometer.js';
 
@@ -51,23 +52,21 @@ export interface StatusChronometerProps
  * @param props - {@link StatusChronometerProps}
  */
 export function StatusChronometer({
-	status,
-	errorMessage,
-	syncWithStatus = false,
-	...chronometerProps
+  status,
+  errorMessage,
+  syncWithStatus = false,
+  ...chronometerProps
 }: StatusChronometerProps): React.ReactElement {
-	// When syncWithStatus is active it drives forceRunning from status;
-	// otherwise the caller's forceRunning prop (if any) is passed through.
-	const forceRunning: boolean | undefined = syncWithStatus
-		? status === 'loading' || status === 'streaming'
-		: chronometerProps.forceRunning;
+  const forceRunning: boolean | undefined = syncWithStatus
+    ? isActivePanelStatus(status)
+    : chronometerProps.forceRunning;
 
-	return (
-		<Box flexDirection="row" alignItems="center" gap={1}>
-			<StatusBadge status={status} errorMessage={errorMessage} />
-			<Chronometer {...chronometerProps} forceRunning={forceRunning} />
-		</Box>
-	);
+  return React.createElement(
+    Box,
+    { flexDirection: 'row', alignItems: 'center', gap: 1 },
+    React.createElement(StatusBadge, { status, errorMessage }),
+    React.createElement(Chronometer, { ...chronometerProps, forceRunning })
+  );
 }
 
 export default StatusChronometer;

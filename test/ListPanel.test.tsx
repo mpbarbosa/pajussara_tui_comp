@@ -5,7 +5,7 @@ import type { ListItem, ListPanelProps } from '../src/ListPanel.js';
 
 // ── ESM mocks (must come before dynamic import of the module under test) ───────
 // Icons use single chars to match the component's label-width formula (width-12).
-jest.unstable_mockModule('../helpers/index.js', () => ({
+jest.unstable_mockModule('../src/helpers/index.js', () => ({
   formatStepIcon: (status: string) =>
     status === 'done' ? '$' : status === 'running' ? '@' : '#',
   statusColor: (status: string) => (status === 'done' ? 'green' : status === 'running' ? 'yellow' : 'gray'),

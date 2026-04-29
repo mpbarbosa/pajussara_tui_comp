@@ -17,6 +17,8 @@ export { DirectoryTextBrowserWithStatusBar } from './DirectoryTextBrowserWithSta
 export type { DirectoryTextBrowserWithStatusBarProps } from './DirectoryTextBrowserWithStatusBar.js';
 export { StreamViewer, wrapText } from './StreamViewer.js';
 export type { StreamState, StreamHistoryEntry, StreamViewerProps } from './StreamViewer.js';
+export { ErrorDetailPanel } from './ErrorDetailPanel.js';
+export type { ErrorDetailPanelError, ErrorDetailPanelProps } from './ErrorDetailPanel.js';
 export { StatusBadge } from './status_badge.js';
 export type { StatusBadgeProps } from './status_badge.js';
 export type { PanelStatus } from './types.js';

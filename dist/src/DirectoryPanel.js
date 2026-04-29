@@ -6,13 +6,14 @@
  * panel. Supports keyboard selection (↑/↓ or k/j) and surfaces loading, empty,
  * and filesystem error states inline.
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-12
  */
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import React, { useEffect, useState } from 'react';
 import { Box, Text, useInput } from 'ink';
+import { formatFixedWidthLabel, getBoundedSelectionIndex, getVisibleWindow, } from './helpers/panel.js';
 // ── Component ─────────────────────────────────────────────────────────────────
 /**
  * Scrollable, keyboard-navigable directory panel for Ink TUI applications.
@@ -77,23 +78,18 @@ export function DirectoryPanel({ directoryPath, width, height = 20, selectedDire
             return;
         }
         if (key.downArrow || input === 'j') {
-            const next = Math.min(selIdx + 1, directories.length - 1);
+            const next = getBoundedSelectionIndex(selIdx, directories.length, 1);
             setSelIdx(next);
             onSelectDirectory?.(directories[next]?.path);
         }
         else if (key.upArrow || input === 'k') {
-            const prev = Math.max(selIdx - 1, 0);
+            const prev = getBoundedSelectionIndex(selIdx, directories.length, -1);
             setSelIdx(prev);
             onSelectDirectory?.(directories[prev]?.path);
         }
     }, { isActive: isFocused });
     const maxVisible = Math.max(1, height - 2);
-    let visibleDirectories = directories;
-    if (directories.length > maxVisible) {
-        const end = Math.max(selIdx + 1, maxVisible);
-        const start = Math.max(0, end - maxVisible);
-        visibleDirectories = directories.slice(start, end);
-    }
+    const visibleDirectories = getVisibleWindow(directories, maxVisible, selIdx);
     const labelWidth = Math.max(8, width - 10);
     const currentSelectedPath = directories[selIdx]?.path ?? selectedDirectoryPath;
     return React.createElement(Box, {
@@ -111,9 +107,7 @@ export function DirectoryPanel({ directoryPath, width, height = 20, selectedDire
         : null, ...visibleDirectories.map((directory) => {
         const isSelected = isFocused && directory.path === currentSelectedPath;
         const labelWithSuffix = `${directory.name}/`;
-        const label = labelWithSuffix.length > labelWidth
-            ? `${labelWithSuffix.slice(0, labelWidth - 1)}…`
-            : labelWithSuffix.padEnd(labelWidth);
+        const label = formatFixedWidthLabel(labelWithSuffix, labelWidth);
         const cursor = isSelected ? '>' : ' ';
         return React.createElement(Box, { key: directory.path, flexDirection: 'row', gap: 1 }, React.createElement(Text, { color: isSelected ? 'cyan' : 'gray' }, cursor), React.createElement(Text, { color: 'yellow' }, '[D]'), React.createElement(Text, {
             color: isSelected ? 'cyan' : 'white',

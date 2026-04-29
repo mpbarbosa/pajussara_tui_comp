@@ -21,7 +21,7 @@
  * Supported diagram types: `graph`, `flowchart`, `stateDiagram-v2`,
  * `sequenceDiagram`, `classDiagram`, `erDiagram`, `xychart-beta`.
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-07
  */
 

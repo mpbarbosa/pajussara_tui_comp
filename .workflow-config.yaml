@@ -6,7 +6,7 @@ project:
   name: "pajussara_tui_comp"
   type: "typescript-library"
   kind: "typescript_library"   # Ink TUI component library (React/TypeScript)
-  version: "1.2.2"             # keep in sync with package.json
+  version: "1.4.0"             # keep in sync with package.json
   description: "Ink TUI Component Library in TypeScript — React.createElement (no JSX); strict conventions: JSDoc @fileoverview headers, section dividers, interface-over-type, named+default exports"
   target_users: "Developers building Ink-based TUIs in TypeScript"
   design_system: "None — terminal UI only (Ink Box/Text primitives)"
@@ -101,15 +101,10 @@ workflow:
   stages:
     quick:
       enabled: true
-      steps: [step_00, step_01, step_02]
     medium:
       enabled: true
-      steps: [step_00, step_01, step_02, step_03, step_04, step_05]
     full:
       enabled: true
-      steps: [step_00, step_0b, step_01, step_02, step_02_5, step_03, step_04,
-              step_05, step_06, step_07, step_08, step_09, step_10, step_13,
-              step_19, step_20, step_15, step_11, step_16, step_17, step_0f, step_12]
 
   steps:
 
@@ -148,7 +143,17 @@ workflow:
       phase: "analysis"
       enabled: true
       can_parallelize: true
-      dependencies: ["00"]
+      dependencies: ["0b"]
+      ai_persona: "documentation_expert"
+
+    - id: "01_5"
+      name: "Copilot Instructions Validation"
+      file: "step_01_5_copilot_instructions.js"
+      description: "Validate repository Copilot instructions against the current codebase"
+      phase: "analysis"
+      enabled: true
+      can_parallelize: true
+      dependencies: ["01"]
       ai_persona: "documentation_expert"
 
     - id: "02"
@@ -158,7 +163,7 @@ workflow:
       phase: "analysis"
       enabled: true
       can_parallelize: true
-      dependencies: ["01"]
+      dependencies: ["01_5"]
       ai_persona: "documentation_expert"
 
     - id: "02_5"
@@ -169,6 +174,16 @@ workflow:
       enabled: true
       can_parallelize: true
       dependencies: ["02"]
+      ai_persona: "technical_writer"
+
+    - id: "21"
+      name: "Documentation Consolidation"
+      file: "step_21_doc_consolidation.js"
+      description: "Consolidate overlapping docs into canonical references"
+      phase: "analysis"
+      enabled: true
+      can_parallelize: true
+      dependencies: ["02_5"]
       ai_persona: "technical_writer"
 
     - id: "03"
@@ -188,7 +203,7 @@ workflow:
       phase: "analysis"
       enabled: true
       can_parallelize: true
-      dependencies: ["01"]
+      dependencies: ["10"]
       ai_persona: "technical_writer"
 
     # -------------------------------------------------------------------------
@@ -281,6 +296,7 @@ workflow:
       enabled: true
       can_parallelize: true
       dependencies: ["10"]
+      dependency_comment: "step_18 (Debugging Analysis) is disabled for this project; TypeScript Review runs directly after Code Quality (step_10)"
       ai_persona: "typescript_reviewer"
 
     - id: "20"
@@ -290,7 +306,7 @@ workflow:
       phase: "quality"
       enabled: true
       can_parallelize: true
-      dependencies: ["10"]
+      dependencies: ["19"]
       ai_persona: "async_performance_engineer"
 
     - id: "15"
@@ -301,6 +317,7 @@ workflow:
       enabled: true
       can_parallelize: true
       dependencies: ["10"]
+      dependency_comment: "step_14 (Prompt Engineering) is disabled — not an AI/prompt project; TUI UX Review runs after Code Quality (step_10)"
       ai_persona: "ux_analyst"
       custom_prompt:
         task: >
@@ -312,7 +329,7 @@ workflow:
         project_context:
           source_files:
             - "src/ListPanel.tsx"         # main component implementation
-            - "helpers/index.ts"          # formatStepIcon, statusColor, formatDuration
+            - "src/helpers/index.ts"      # formatStepIcon, statusColor, formatDuration
             - "docs/usability-heuristics.md"  # Nielsen heuristics mapped to TUI features
           component: "ListPanel"
           props:
@@ -356,6 +373,36 @@ workflow:
             - "Assess whether emptyText default ('Waiting for steps…') is generic enough"
             - "Confirm StepsPanel deprecated alias is documented with @deprecated JSDoc"
 
+    - id: "18"
+      name: "Debugging Analysis"
+      file: "step_18_debugging_analysis.js"
+      description: "AI-assisted debugging analysis"
+      phase: "quality"
+      enabled: false
+      can_parallelize: true
+      dependencies: ["16"]
+      reason: "Current workflow keeps the TypeScript and async review path focused without the generic debugging pass"
+
+    - id: "22"
+      name: "Accessibility Review"
+      file: "step_22_accessibility.js"
+      description: "Accessibility and keyboard-interaction review"
+      phase: "quality"
+      enabled: false
+      can_parallelize: true
+      dependencies: ["21"]
+      reason: "This Ink TUI library uses terminal-native UX heuristics rather than the default web accessibility review path"
+
+    - id: "23"
+      name: "Performance Review"
+      file: "step_23_performance.js"
+      description: "Performance analysis for component rendering and data flow"
+      phase: "quality"
+      enabled: false
+      can_parallelize: true
+      dependencies: ["22"]
+      reason: "The project is intentionally skipping the generic performance review branch in this workflow profile"
+
     # -------------------------------------------------------------------------
     # FINALIZATION
     # -------------------------------------------------------------------------
@@ -367,7 +414,7 @@ workflow:
       phase: "finalization"
       enabled: true
       can_parallelize: false
-      dependencies: ["19", "20"]
+      dependencies: ["13"]
 
     - id: "16"
       name: "Version Update"
@@ -376,7 +423,7 @@ workflow:
       phase: "finalization"
       enabled: true
       can_parallelize: false
-      dependencies: ["11"]
+      dependencies: ["15"]
       ai_persona: "devops_engineer"
 
     - id: "17"
@@ -386,7 +433,8 @@ workflow:
       phase: "finalization"
       enabled: true
       can_parallelize: false
-      dependencies: ["16"]
+      dependencies: ["03", "20", "11", "16"]
+      dependency_comment: "step_11_6 (AWS Serverless) and step_23 (Performance Review) are disabled for this project; Summary waits on active chain endpoints: step_03 (Script Refs), step_20 (Async/Event), step_11 (Context), step_16 (Version Update)"
 
     - id: "0f"
       name: "Commit Artifacts"
@@ -419,7 +467,7 @@ workflow:
       description: "AI prompt quality review"
       phase: "quality"
       enabled: false
-      dependencies: []
+      dependencies: ["13"]
       reason: "Not an AI/prompt project"
 
     - id: "11_5"
@@ -428,7 +476,7 @@ workflow:
       description: "AWS Location-Based Services infrastructure validation"
       phase: "quality"
       enabled: false
-      dependencies: []
+      dependencies: ["11"]
       reason: "No AWS infrastructure"
 
     - id: "11_6"
@@ -437,7 +485,7 @@ workflow:
       description: "AWS serverless deployment readiness review"
       phase: "quality"
       enabled: false
-      dependencies: []
+      dependencies: ["11_5"]
       reason: "No AWS infrastructure"
 
   phases:

@@ -6,7 +6,7 @@
  * panel. Supports keyboard selection (↑/↓ or k/j) and surfaces loading, empty,
  * and filesystem error states inline.
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-12
  */
 import React from 'react';

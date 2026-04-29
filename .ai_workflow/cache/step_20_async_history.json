@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "entries": {
+    "demos/directory-text-browser-with-status-bar.tsx": {
+      "mtimeMs": 1777495816683,
+      "hasAsyncPatterns": false
+    },
+    "demos/directory-text-browser.tsx": {
+      "mtimeMs": 1777495816683,
+      "hasAsyncPatterns": false
+    },
+    "demos/directorypanel-github.tsx": {
+      "mtimeMs": 1777495816683,
+      "hasAsyncPatterns": false
+    },
+    "demos/listpanel-cities.tsx": {
+      "mtimeMs": 1775507550492,
+      "hasAsyncPatterns": true
+    },
+    "demos/listpanel-cities2.tsx": {
+      "mtimeMs": 1775507550493,
+      "hasAsyncPatterns": true
+    },
+    "demos/mermaid-demo.tsx": {
+      "mtimeMs": 1777495816683,
+      "hasAsyncPatterns": true
+    },
+    "demos/status-chronometer-cities.tsx": {
+      "mtimeMs": 1775507550493,
+      "hasAsyncPatterns": true
+    },
+    "demos/status-chronometer-cities2.tsx": {
+      "mtimeMs": 1775507550493,
+      "hasAsyncPatterns": true
+    },
+    "demos/status-chronometer-cities3.tsx": {
+      "mtimeMs": 1775507550494,
+      "hasAsyncPatterns": true
+    },
+    "demos/status-chronometer-cities4.tsx": {
+      "mtimeMs": 1775507550494,
+      "hasAsyncPatterns": true
+    },
+    "demos/status-chronometer-cities5.tsx": {
+      "mtimeMs": 1775507550494,
+      "hasAsyncPatterns": true
+    },
+    "demos/statusbar-lifecycle.tsx": {
+      "mtimeMs": 1777495816683,
+      "hasAsyncPatterns": true
+    },
+    "src/Chronometer.tsx": {
+      "mtimeMs": 1777483833950,
+      "hasAsyncPatterns": true
+    },
+    "src/DirectoryPanel.tsx": {
+      "mtimeMs": 1777495816680,
+      "hasAsyncPatterns": true
+    },
+    "src/DirectoryTextBrowser.tsx": {
+      "mtimeMs": 1777495816684,
+      "hasAsyncPatterns": false
+    },
+    "src/DirectoryTextBrowserWithStatusBar.tsx": {
+      "mtimeMs": 1777495816684,
+      "hasAsyncPatterns": true
+    },
+    "src/ErrorDetailPanel.tsx": {
+      "mtimeMs": 1777495816682,
+      "hasAsyncPatterns": false
+    },
+    "src/ListPanel.tsx": {
+      "mtimeMs": 1777485838118,
+      "hasAsyncPatterns": false
+    },
+    "src/MermaidPanel.tsx": {
+      "mtimeMs": 1777495816684,
+      "hasAsyncPatterns": false
+    },
+    "src/StatusBar.tsx": {
+      "mtimeMs": 1777495816680,
+      "hasAsyncPatterns": true
+    },
+    "src/StreamViewer.tsx": {
+      "mtimeMs": 1775445757019,
+      "hasAsyncPatterns": false
+    },
+    "src/TextListPanel.tsx": {
+      "mtimeMs": 1777495816684,
+      "hasAsyncPatterns": false
+    },
+    "src/helpers/index.ts": {
+      "mtimeMs": 1775483519387,
+      "hasAsyncPatterns": false
+    },
+    "src/helpers/panel.ts": {
+      "mtimeMs": 1777500959642,
+      "hasAsyncPatterns": false
+    },
+    "src/helpers/reusable.ts": {
+      "mtimeMs": 1777485838123,
+      "hasAsyncPatterns": false
+    },
+    "src/helpers/status.ts": {
+      "mtimeMs": 1777495816683,
+      "hasAsyncPatterns": true
+    },
+    "src/index.ts": {
+      "mtimeMs": 1777485046035,
+      "hasAsyncPatterns": false
+    },
+    "src/status_badge.tsx": {
+      "mtimeMs": 1777485838120,
+      "hasAsyncPatterns": true
+    },
+    "src/status_chronometer.tsx": {
+      "mtimeMs": 1777485838120,
+      "hasAsyncPatterns": false
+    },
+    "src/types.ts": {
+      "mtimeMs": 1775445757020,
+      "hasAsyncPatterns": true
+    }
+  }
+}

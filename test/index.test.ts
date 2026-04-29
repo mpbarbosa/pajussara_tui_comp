@@ -42,6 +42,13 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
     // compile-time only; no runtime assertion needed.
   });
 
+  it('should export ErrorDetailPanel', () => {
+    expect(typeof api.ErrorDetailPanel).toBe('function');
+    type _ErrorDetailPanelError = api.ErrorDetailPanelError;
+    type _ErrorDetailPanelProps = api.ErrorDetailPanelProps;
+    expect(typeof api.ErrorDetailPanel).toBe('function');
+  });
+
   it('should not export unexpected symbols', () => {
     const exportedKeys = Object.keys(api);
     expect(exportedKeys.sort()).toEqual(
@@ -51,6 +58,7 @@ describe('pajussara_tui_comp public API (src/index.ts)', () => {
         'DirectoryTextBrowser',
         'DirectoryTextBrowserWithStatusBar',
         'DirectoryPanel',
+        'ErrorDetailPanel',
         'ListPanel',
         'MermaidPanel',
         'StatusBadge',

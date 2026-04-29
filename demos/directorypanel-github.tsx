@@ -10,7 +10,7 @@
  * Run with:
  *   npx tsx demos/directorypanel-github.tsx
  *
- * @version 1.2.2
+ * @version 1.4.0
  * @since 2026-04-12
  */
 

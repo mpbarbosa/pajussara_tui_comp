@@ -3,7 +3,7 @@ import { render, cleanup as inkCleanup } from 'ink-testing-library';
 import { jest } from '@jest/globals';
 import StatusChronometerDefault, { StatusChronometer, type StatusChronometerProps } from '../src/status_chronometer';
 
-jest.mock('../helpers', () => ({
+jest.mock('../src/helpers/index.js', () => ({
 	formatStepIcon: (status: string) => `[${status}]`,
 	statusColor: (status: string) =>
 		status === 'done' ? 'green' : status === 'running' ? 'yellow' : 'gray',
