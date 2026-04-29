@@ -1,0 +1,2239 @@
+{
+  "version": "1.0.0",
+  "workflowId": "workflow_1777501620817",
+  "workflowVersion": "2.0.0",
+  "timestamp": 1777502782637,
+  "state": {
+    "currentStep": null,
+    "completedSteps": [],
+    "failedSteps": [],
+    "skippedSteps": [],
+    "results": {
+      "step_00": {
+        "stepId": "step_00",
+        "stepName": "Pre-Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "analysis": {
+            "commitsAhead": 0,
+            "modifiedFiles": 119,
+            "modifiedFilesList": [
+              ".ai_workflow/.step_cache/step_06_partition.json",
+              ".ai_workflow/metrics/current_run.json",
+              ".github/copilot-instructions.md",
+              ".workflow-config.yaml",
+              "CHANGELOG.md",
+              "CONTRIBUTING.md",
+              "README.md",
+              "demos/directory-text-browser-with-status-bar.tsx",
+              "demos/directory-text-browser.tsx",
+              "demos/directorypanel-github.tsx",
+              "demos/mermaid-demo.tsx",
+              "demos/statusbar-lifecycle.tsx",
+              "dist/src/Chronometer.js",
+              "dist/src/Chronometer.js.map",
+              "dist/src/DirectoryPanel.d.ts",
+              "dist/src/DirectoryPanel.d.ts.map",
+              "dist/src/DirectoryPanel.js",
+              "dist/src/DirectoryPanel.js.map",
+              "dist/src/DirectoryTextBrowser.d.ts",
+              "dist/src/DirectoryTextBrowser.js",
+              "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+              "dist/src/DirectoryTextBrowserWithStatusBar.js",
+              "dist/src/ListPanel.d.ts.map",
+              "dist/src/ListPanel.js",
+              "dist/src/ListPanel.js.map",
+              "dist/src/MermaidPanel.d.ts",
+              "dist/src/MermaidPanel.js",
+              "dist/src/StatusBar.d.ts",
+              "dist/src/StatusBar.d.ts.map",
+              "dist/src/StatusBar.js",
+              "dist/src/StatusBar.js.map",
+              "dist/src/TextListPanel.d.ts",
+              "dist/src/TextListPanel.js",
+              "dist/src/helpers/index.d.ts.map",
+              "dist/src/helpers/index.js.map",
+              "dist/src/index.d.ts",
+              "dist/src/index.d.ts.map",
+              "dist/src/index.js",
+              "dist/src/index.js.map",
+              "dist/src/status_badge.d.ts.map",
+              "dist/src/status_badge.js",
+              "dist/src/status_badge.js.map",
+              "dist/src/status_chronometer.d.ts.map",
+              "dist/src/status_chronometer.js",
+              "dist/src/status_chronometer.js.map",
+              "docs/ARCHITECTURE.md",
+              "docs/DOCKER_TESTING.md",
+              "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "docs/usability-heuristics.md",
+              "jest.config.json",
+              "package-lock.json",
+              "package.json",
+              "src/Chronometer.tsx",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/DirectoryTextBrowserWithStatusBar.tsx",
+              "src/ListPanel.tsx",
+              "src/MermaidPanel.tsx",
+              "src/StatusBar.tsx",
+              "src/TextListPanel.tsx",
+              "src/helpers/README.md",
+              "src/index.ts",
+              "src/status_badge.tsx",
+              "src/status_chronometer.tsx",
+              "test/Chronometer.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+              "test/ListPanel.test.tsx",
+              "test/TextListPanel.test.tsx",
+              "test/index.test.ts",
+              "test/listpanel-cities2.test.tsx",
+              "test/status_chronometer.test.tsx",
+              "tsconfig.json",
+              ".ai_workflow/.ml_model.json",
+              ".ai_workflow/analysis/workflow_20260429_182314/part_preamble_2026-04-29T21-24-18-481Z.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_00.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_04.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_05.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_06.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_07.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_08.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_0b.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_15.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_16.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_19.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_20.md",
+              ".ai_workflow/cache/step_20_async_history.json",
+              ".ai_workflow/checkpoints/workflow_1777494160084-1777495816687.json",
+              ".ai_workflow/preflight_baseline.json",
+              ".github/skills/sync-workflow-config/SKILL.md",
+              "dist/src/ErrorDetailPanel.d.ts",
+              "dist/src/ErrorDetailPanel.d.ts.map",
+              "dist/src/ErrorDetailPanel.js",
+              "dist/src/ErrorDetailPanel.js.map",
+              "dist/src/helpers/panel.d.ts",
+              "dist/src/helpers/panel.d.ts.map",
+              "dist/src/helpers/panel.js",
+              "dist/src/helpers/panel.js.map",
+              "dist/src/helpers/reusable.d.ts",
+              "dist/src/helpers/reusable.d.ts.map",
+              "dist/src/helpers/reusable.js",
+              "dist/src/helpers/reusable.js.map",
+              "dist/src/helpers/status.d.ts",
+              "dist/src/helpers/status.d.ts.map",
+              "dist/src/helpers/status.js",
+              "dist/src/helpers/status.js.map",
+              "src/ErrorDetailPanel.tsx",
+              "src/helpers/panel.ts",
+              "src/helpers/reusable.ts",
+              "src/helpers/status.ts",
+              "test/ErrorDetailPanel.test.tsx",
+              "test/helpers.reusable.test.ts",
+              "test/helpers/panel.test.ts",
+              "test/helpers/reusable.test.ts",
+              "test/helpers/status.test.ts"
+            ],
+            "changeScope": "full-stack",
+            "fileCounts": {
+              "documentation": 10,
+              "test": 13,
+              "source": 46,
+              "config": 28,
+              "workflow_artifact": 0
+            },
+            "categorizedFiles": {
+              "documentation": [
+                ".github/copilot-instructions.md",
+                "CHANGELOG.md",
+                "CONTRIBUTING.md",
+                "README.md",
+                "docs/ARCHITECTURE.md",
+                "docs/DOCKER_TESTING.md",
+                "docs/FUNCTIONAL_REQUIREMENTS.md",
+                "docs/usability-heuristics.md",
+                "src/helpers/README.md",
+                ".github/skills/sync-workflow-config/SKILL.md"
+              ],
+              "test": [
+                "test/Chronometer.test.tsx",
+                "test/DirectoryTextBrowser.test.tsx",
+                "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+                "test/ListPanel.test.tsx",
+                "test/TextListPanel.test.tsx",
+                "test/index.test.ts",
+                "test/listpanel-cities2.test.tsx",
+                "test/status_chronometer.test.tsx",
+                "test/ErrorDetailPanel.test.tsx",
+                "test/helpers.reusable.test.ts",
+                "test/helpers/panel.test.ts",
+                "test/helpers/reusable.test.ts",
+                "test/helpers/status.test.ts"
+              ],
+              "source": [
+                "demos/directory-text-browser-with-status-bar.tsx",
+                "demos/directory-text-browser.tsx",
+                "demos/directorypanel-github.tsx",
+                "demos/mermaid-demo.tsx",
+                "demos/statusbar-lifecycle.tsx",
+                "dist/src/Chronometer.js",
+                "dist/src/DirectoryPanel.d.ts",
+                "dist/src/DirectoryPanel.js",
+                "dist/src/DirectoryTextBrowser.d.ts",
+                "dist/src/DirectoryTextBrowser.js",
+                "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+                "dist/src/DirectoryTextBrowserWithStatusBar.js",
+                "dist/src/ListPanel.js",
+                "dist/src/MermaidPanel.d.ts",
+                "dist/src/MermaidPanel.js",
+                "dist/src/StatusBar.d.ts",
+                "dist/src/StatusBar.js",
+                "dist/src/TextListPanel.d.ts",
+                "dist/src/TextListPanel.js",
+                "dist/src/index.d.ts",
+                "dist/src/index.js",
+                "dist/src/status_badge.js",
+                "dist/src/status_chronometer.js",
+                "src/Chronometer.tsx",
+                "src/DirectoryPanel.tsx",
+                "src/DirectoryTextBrowser.tsx",
+                "src/DirectoryTextBrowserWithStatusBar.tsx",
+                "src/ListPanel.tsx",
+                "src/MermaidPanel.tsx",
+                "src/StatusBar.tsx",
+                "src/TextListPanel.tsx",
+                "src/index.ts",
+                "src/status_badge.tsx",
+                "src/status_chronometer.tsx",
+                "dist/src/ErrorDetailPanel.d.ts",
+                "dist/src/ErrorDetailPanel.js",
+                "dist/src/helpers/panel.d.ts",
+                "dist/src/helpers/panel.js",
+                "dist/src/helpers/reusable.d.ts",
+                "dist/src/helpers/reusable.js",
+                "dist/src/helpers/status.d.ts",
+                "dist/src/helpers/status.js",
+                "src/ErrorDetailPanel.tsx",
+                "src/helpers/panel.ts",
+                "src/helpers/reusable.ts",
+                "src/helpers/status.ts"
+              ],
+              "config": [
+                ".workflow-config.yaml",
+                "dist/src/Chronometer.js.map",
+                "dist/src/DirectoryPanel.d.ts.map",
+                "dist/src/DirectoryPanel.js.map",
+                "dist/src/ListPanel.d.ts.map",
+                "dist/src/ListPanel.js.map",
+                "dist/src/StatusBar.d.ts.map",
+                "dist/src/StatusBar.js.map",
+                "dist/src/helpers/index.d.ts.map",
+                "dist/src/helpers/index.js.map",
+                "dist/src/index.d.ts.map",
+                "dist/src/index.js.map",
+                "dist/src/status_badge.d.ts.map",
+                "dist/src/status_badge.js.map",
+                "dist/src/status_chronometer.d.ts.map",
+                "dist/src/status_chronometer.js.map",
+                "jest.config.json",
+                "package-lock.json",
+                "package.json",
+                "tsconfig.json",
+                "dist/src/ErrorDetailPanel.d.ts.map",
+                "dist/src/ErrorDetailPanel.js.map",
+                "dist/src/helpers/panel.d.ts.map",
+                "dist/src/helpers/panel.js.map",
+                "dist/src/helpers/reusable.d.ts.map",
+                "dist/src/helpers/reusable.js.map",
+                "dist/src/helpers/status.d.ts.map",
+                "dist/src/helpers/status.js.map"
+              ],
+              "workflow_artifact": []
+            },
+            "projectKind": {
+              "kind": "typescript_library",
+              "confidence": 100,
+              "source": "config",
+              "description": "typescript_library"
+            },
+            "techStack": {
+              "primary_language": "typescript",
+              "languages": [
+                "typescript",
+                "markdown",
+                "json",
+                "html",
+                "bash",
+                "javascript",
+                "css",
+                "yaml"
+              ],
+              "frameworks": [
+                {
+                  "name": "Jest",
+                  "type": "test-framework",
+                  "version": "^29.5.0",
+                  "package": "jest"
+                }
+              ],
+              "build_system": "npm",
+              "build_files": [
+                "package.json",
+                "package-lock.json"
+              ],
+              "test_framework": "jest",
+              "test_command": "npm test",
+              "linters": [
+                {
+                  "name": "eslint",
+                  "configFile": ".eslintrc.*"
+                },
+                {
+                  "name": "shellcheck",
+                  "configFile": null
+                }
+              ],
+              "detected_at": "2026-04-29T22:27:00.956Z",
+              "primaryLanguage": "typescript",
+              "buildSystem": "npm",
+              "testFramework": "jest",
+              "testCommand": "npm test"
+            },
+            "smokeTest": null,
+            "timestamp": 1777501620959
+          },
+          "contextUpdate": {
+            "projectType": "typescript_library",
+            "modifiedFiles": [
+              ".ai_workflow/.step_cache/step_06_partition.json",
+              ".ai_workflow/metrics/current_run.json",
+              ".github/copilot-instructions.md",
+              ".workflow-config.yaml",
+              "CHANGELOG.md",
+              "CONTRIBUTING.md",
+              "README.md",
+              "demos/directory-text-browser-with-status-bar.tsx",
+              "demos/directory-text-browser.tsx",
+              "demos/directorypanel-github.tsx",
+              "demos/mermaid-demo.tsx",
+              "demos/statusbar-lifecycle.tsx",
+              "dist/src/Chronometer.js",
+              "dist/src/Chronometer.js.map",
+              "dist/src/DirectoryPanel.d.ts",
+              "dist/src/DirectoryPanel.d.ts.map",
+              "dist/src/DirectoryPanel.js",
+              "dist/src/DirectoryPanel.js.map",
+              "dist/src/DirectoryTextBrowser.d.ts",
+              "dist/src/DirectoryTextBrowser.js",
+              "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+              "dist/src/DirectoryTextBrowserWithStatusBar.js",
+              "dist/src/ListPanel.d.ts.map",
+              "dist/src/ListPanel.js",
+              "dist/src/ListPanel.js.map",
+              "dist/src/MermaidPanel.d.ts",
+              "dist/src/MermaidPanel.js",
+              "dist/src/StatusBar.d.ts",
+              "dist/src/StatusBar.d.ts.map",
+              "dist/src/StatusBar.js",
+              "dist/src/StatusBar.js.map",
+              "dist/src/TextListPanel.d.ts",
+              "dist/src/TextListPanel.js",
+              "dist/src/helpers/index.d.ts.map",
+              "dist/src/helpers/index.js.map",
+              "dist/src/index.d.ts",
+              "dist/src/index.d.ts.map",
+              "dist/src/index.js",
+              "dist/src/index.js.map",
+              "dist/src/status_badge.d.ts.map",
+              "dist/src/status_badge.js",
+              "dist/src/status_badge.js.map",
+              "dist/src/status_chronometer.d.ts.map",
+              "dist/src/status_chronometer.js",
+              "dist/src/status_chronometer.js.map",
+              "docs/ARCHITECTURE.md",
+              "docs/DOCKER_TESTING.md",
+              "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "docs/usability-heuristics.md",
+              "jest.config.json",
+              "package-lock.json",
+              "package.json",
+              "src/Chronometer.tsx",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/DirectoryTextBrowserWithStatusBar.tsx",
+              "src/ListPanel.tsx",
+              "src/MermaidPanel.tsx",
+              "src/StatusBar.tsx",
+              "src/TextListPanel.tsx",
+              "src/helpers/README.md",
+              "src/index.ts",
+              "src/status_badge.tsx",
+              "src/status_chronometer.tsx",
+              "test/Chronometer.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+              "test/ListPanel.test.tsx",
+              "test/TextListPanel.test.tsx",
+              "test/index.test.ts",
+              "test/listpanel-cities2.test.tsx",
+              "test/status_chronometer.test.tsx",
+              "tsconfig.json",
+              ".ai_workflow/.ml_model.json",
+              ".ai_workflow/analysis/workflow_20260429_182314/part_preamble_2026-04-29T21-24-18-481Z.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_00.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_04.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_05.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_06.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_07.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_08.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_0b.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_15.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_16.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_19.md",
+              ".ai_workflow/backlog/workflow_20260429_172234/step_20.md",
+              ".ai_workflow/cache/step_20_async_history.json",
+              ".ai_workflow/checkpoints/workflow_1777494160084-1777495816687.json",
+              ".ai_workflow/preflight_baseline.json",
+              ".github/skills/sync-workflow-config/SKILL.md",
+              "dist/src/ErrorDetailPanel.d.ts",
+              "dist/src/ErrorDetailPanel.d.ts.map",
+              "dist/src/ErrorDetailPanel.js",
+              "dist/src/ErrorDetailPanel.js.map",
+              "dist/src/helpers/panel.d.ts",
+              "dist/src/helpers/panel.d.ts.map",
+              "dist/src/helpers/panel.js",
+              "dist/src/helpers/panel.js.map",
+              "dist/src/helpers/reusable.d.ts",
+              "dist/src/helpers/reusable.d.ts.map",
+              "dist/src/helpers/reusable.js",
+              "dist/src/helpers/reusable.js.map",
+              "dist/src/helpers/status.d.ts",
+              "dist/src/helpers/status.d.ts.map",
+              "dist/src/helpers/status.js",
+              "dist/src/helpers/status.js.map",
+              "src/ErrorDetailPanel.tsx",
+              "src/helpers/panel.ts",
+              "src/helpers/reusable.ts",
+              "src/helpers/status.ts",
+              "test/ErrorDetailPanel.test.tsx",
+              "test/helpers.reusable.test.ts",
+              "test/helpers/panel.test.ts",
+              "test/helpers/reusable.test.ts",
+              "test/helpers/status.test.ts"
+            ],
+            "categorizedFiles": {
+              "documentation": [
+                ".github/copilot-instructions.md",
+                "CHANGELOG.md",
+                "CONTRIBUTING.md",
+                "README.md",
+                "docs/ARCHITECTURE.md",
+                "docs/DOCKER_TESTING.md",
+                "docs/FUNCTIONAL_REQUIREMENTS.md",
+                "docs/usability-heuristics.md",
+                "src/helpers/README.md",
+                ".github/skills/sync-workflow-config/SKILL.md"
+              ],
+              "test": [
+                "test/Chronometer.test.tsx",
+                "test/DirectoryTextBrowser.test.tsx",
+                "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+                "test/ListPanel.test.tsx",
+                "test/TextListPanel.test.tsx",
+                "test/index.test.ts",
+                "test/listpanel-cities2.test.tsx",
+                "test/status_chronometer.test.tsx",
+                "test/ErrorDetailPanel.test.tsx",
+                "test/helpers.reusable.test.ts",
+                "test/helpers/panel.test.ts",
+                "test/helpers/reusable.test.ts",
+                "test/helpers/status.test.ts"
+              ],
+              "source": [
+                "demos/directory-text-browser-with-status-bar.tsx",
+                "demos/directory-text-browser.tsx",
+                "demos/directorypanel-github.tsx",
+                "demos/mermaid-demo.tsx",
+                "demos/statusbar-lifecycle.tsx",
+                "dist/src/Chronometer.js",
+                "dist/src/DirectoryPanel.d.ts",
+                "dist/src/DirectoryPanel.js",
+                "dist/src/DirectoryTextBrowser.d.ts",
+                "dist/src/DirectoryTextBrowser.js",
+                "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+                "dist/src/DirectoryTextBrowserWithStatusBar.js",
+                "dist/src/ListPanel.js",
+                "dist/src/MermaidPanel.d.ts",
+                "dist/src/MermaidPanel.js",
+                "dist/src/StatusBar.d.ts",
+                "dist/src/StatusBar.js",
+                "dist/src/TextListPanel.d.ts",
+                "dist/src/TextListPanel.js",
+                "dist/src/index.d.ts",
+                "dist/src/index.js",
+                "dist/src/status_badge.js",
+                "dist/src/status_chronometer.js",
+                "src/Chronometer.tsx",
+                "src/DirectoryPanel.tsx",
+                "src/DirectoryTextBrowser.tsx",
+                "src/DirectoryTextBrowserWithStatusBar.tsx",
+                "src/ListPanel.tsx",
+                "src/MermaidPanel.tsx",
+                "src/StatusBar.tsx",
+                "src/TextListPanel.tsx",
+                "src/index.ts",
+                "src/status_badge.tsx",
+                "src/status_chronometer.tsx",
+                "dist/src/ErrorDetailPanel.d.ts",
+                "dist/src/ErrorDetailPanel.js",
+                "dist/src/helpers/panel.d.ts",
+                "dist/src/helpers/panel.js",
+                "dist/src/helpers/reusable.d.ts",
+                "dist/src/helpers/reusable.js",
+                "dist/src/helpers/status.d.ts",
+                "dist/src/helpers/status.js",
+                "src/ErrorDetailPanel.tsx",
+                "src/helpers/panel.ts",
+                "src/helpers/reusable.ts",
+                "src/helpers/status.ts"
+              ],
+              "config": [
+                ".workflow-config.yaml",
+                "dist/src/Chronometer.js.map",
+                "dist/src/DirectoryPanel.d.ts.map",
+                "dist/src/DirectoryPanel.js.map",
+                "dist/src/ListPanel.d.ts.map",
+                "dist/src/ListPanel.js.map",
+                "dist/src/StatusBar.d.ts.map",
+                "dist/src/StatusBar.js.map",
+                "dist/src/helpers/index.d.ts.map",
+                "dist/src/helpers/index.js.map",
+                "dist/src/index.d.ts.map",
+                "dist/src/index.js.map",
+                "dist/src/status_badge.d.ts.map",
+                "dist/src/status_badge.js.map",
+                "dist/src/status_chronometer.d.ts.map",
+                "dist/src/status_chronometer.js.map",
+                "jest.config.json",
+                "package-lock.json",
+                "package.json",
+                "tsconfig.json",
+                "dist/src/ErrorDetailPanel.d.ts.map",
+                "dist/src/ErrorDetailPanel.js.map",
+                "dist/src/helpers/panel.d.ts.map",
+                "dist/src/helpers/panel.js.map",
+                "dist/src/helpers/reusable.d.ts.map",
+                "dist/src/helpers/reusable.js.map",
+                "dist/src/helpers/status.d.ts.map",
+                "dist/src/helpers/status.js.map"
+              ],
+              "workflow_artifact": []
+            },
+            "fileCounts": {
+              "documentation": 10,
+              "test": 13,
+              "source": 46,
+              "config": 28,
+              "workflow_artifact": 0
+            },
+            "changeScope": "full-stack",
+            "commitsAhead": 0
+          }
+        },
+        "duration": 160,
+        "degraded": false
+      },
+      "step_04": {
+        "stepId": "step_04",
+        "stepName": "Configuration Validation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "filesChecked": 5,
+          "syntaxErrors": [],
+          "securityFindings": [],
+          "bestPracticeIssues": [],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 45089,
+        "degraded": false
+      },
+      "step_05": {
+        "stepId": "step_05",
+        "stepName": "Directory Structure",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "totalDirs": 12,
+          "misplacedDocs": 0,
+          "organizedDocs": 0,
+          "issues": [
+            {
+              "type": "undocumented",
+              "directory": ".github/skills/sync-workflow-config",
+              "message": "Undocumented directory: .github/skills/sync-workflow-config"
+            }
+          ],
+          "missingCritical": 0,
+          "undocumented": 1,
+          "docMismatch": 0,
+          "existingDirs": [
+            ".github",
+            ".github/skills",
+            ".github/skills/js-to-ts",
+            ".github/skills/sync-workflow-config",
+            ".github/workflows",
+            "demos",
+            "docs",
+            "scripts",
+            "src",
+            "src/helpers",
+            "test",
+            "test/helpers"
+          ],
+          "documentationFiles": [
+            {
+              "path": "README.md",
+              "content": "## README\n\n# pajussara_tui_comp\n\nAn Ink TUI Component Library in TypeScript.\n\n---\n\n## Installation\n\n```sh\nnpm install pajussara_tui_comp\n```\n\n**Peer dependencies:** `ink >= 5.0.0`, `react >= 19.0.0`\n\n---\n\n## Components\n\n### `DirectoryPanel`\n\nA scrollable, keyboard-navigable folder browser for\n[Ink](https://github.com/vadimdemedes/ink) TUI applications. It reads the direct\nchild folders from a filesystem path and renders them in a `ListPanel`-style\nbordered panel.\n\n#### Props\n\n| Prop | Type | Default | Description |\n|---|---|---|---|\n| `directoryPath` | `string` | — | Filesystem path whose child folders should be listed |\n| `width` | `number` | — | Panel width in terminal columns |\n| `height` | `number` | `20` | Panel height in terminal rows |\n| `selectedDirectoryPath` | `string \\| null` | `null` | Externally-controlled selected folder path |\n| `onSelectDirectory` | `(directoryPath: string) => void` | — | Fired when the user moves the selection |\n| `isFocused` | `boolean` | `false` | Whether this panel holds keyboard focus |\n| `title` | `string` | `'FOLDERS'` | Header label at the top of the panel |\n| `loadingText` | `string` | `'Loading folders…'` | Text shown while reading the directory |\n| `emptyText` | `string` | `'No folders found.'` | Text shown when no child folders are present |\n\n#### `DirectoryEntry` interface\n\n```ts\ninterface DirectoryEntry {\n  name: string;\n  path: string;\n}\n```\n\n#### Keyboard controls\n\n| Key | Action |\n|---|---|\n| `↑` or `k` | Move selection up |\n| `↓` or `j` | Move selection down |\n\n> Keyboard events are only consumed when `isFocused` is `true`.\n\n#### Usage\n\n```ts\nimport React from 'react';\nimport { render } from 'ink';\nimport { DirectoryPanel } from 'pajussara_tui_comp';\n\nrender(\n  React.createElement(DirectoryPanel, {\n    directoryPath: process.cwd(),\n    width: 60,\n    isFocused: true,\n    title: 'PROJECT FOLDERS',\n    onSelectDirectory: (directoryPath) => {\n      console.log(`Selected: ${directoryPath}`);\n    },\n  })\n);\n```\n\n---\n\n### `DirectoryTextBrowser`\n\nA composite browser that places a [`DirectoryPanel`](#directorypanel) on the\nleft and a [`TextListPanel`](#textlistpanel) on the right.\n\nUse this when you want a file-system chooser and a coordinated text/details\npanel in one reusable component.\n\n#### Props\n\n| Prop | Type | Default | Description |\n|---|---|---|---|\n| `directoryPath` | `string` | — | Filesystem path whose child folders should be listed |\n| `getTextItems` | `(directoryPath: string \\| null) => TextListItem[]` | — | Returns the right-pane rows for the selected directory |\n| `width` | `number` | — | Total width of the two-pane layout |\n| `height` | `number` | `20` | Shared panel height |\n| `directoryPanelWidth` | `number` | `40% of width` | Width of the left pane |\n| `gap` | `number` | `1` | Horizontal spacing between panes |\n| `selectedDirectoryPath` | `string \\| null` | `null` | Controlled selected directory path |\n| `onSelectDirectory` | `(directoryPath: string) => void` | — | Fired when the directory selection changes |\n| `currentTextItemId` | `string \\| null` | `null` | Active text row ID shown as current |\n| `selectedTextItemId` | `string \\| null` | `null` | Controlled selected text row ID |\n| `onSelectTextItem` | `(id: string) => void` | — | Fired when the text selection changes |\n| `focusedPane` | `'directories' \\| 'text'` | `'directories'` | Controlled focused pane |\n| `initialFocusedPane` | `'directories' \\| 'text'` | `'directories'` | Initial pane for uncontrolled focus |\n| `onFocusPaneChange` | `(pane: 'directories' \\| 'text') => void` | — | Fired when focus moves between panes |\n| `directoryTitle` | `string` | `'FOLDERS'` | Left-pane title |\n| `directoryLoadingText` | `string` | `'Loading folders…'` | Left-pane loading text |\n| `directoryEmptyText` | `string` | `'No folders found.'` | Left-pane empty state |\n| `textTitle` | `string` | `'TEXT'` | Right-pane title |\n| `textEmptyText` | `string` | `'No text items for this directory.'` | Right-pane empty state after selection |\n| `\n\n---\n\n## API\n\n# API Reference\n\nComplete reference for all public exports of `pajussara_tui_comp`.\n\n---\n\n## Table of Contents\n\n- [Components](#components)\n  - [DirectoryPanel](#directorypanel)\n  - [DirectoryTextBrowser](#directorytextbrowser)\n  - [ListPanel](#listpanel)\n  - [TextListPanel](#textlistpanel)\n  - [StreamViewer](#streamviewer)\n  - [ErrorDetailPanel](#errordetailpanel)\n  - [StatusBadge](#statusbadge)\n  - [Chronometer](#chronometer)\n  - [StatusChronometer](#statuschronometer)\n- [Types](#types)\n  - [DirectoryTextBrowserPane](#directorytextbrowserpane)\n  - [DirectoryEntry](#directoryentry)\n  - [ListItem](#listitem)\n  - [TextListItem](#textlistitem)\n  - [StreamState](#streamstate)\n  - [StreamHistoryEntry](#streamhistoryentry)\n  - [PanelStatus](#panelstatus)\n- [Helpers](#helpers)\n- [Deprecated Aliases](#deprecated-aliases)\n\n---\n\n## Components\n\n### `DirectoryPanel`\n\nScrollable, keyboard-navigable folder browser. Reads the direct child folders of\n`directoryPath` and renders them in a bordered panel.\n\n```ts\nimport { DirectoryPanel } from 'pajussara_tui_comp';\n```\n\n#### Props — `DirectoryPanelProps`\n\n| Prop | Type | Required | Default | Description |\n|------|------|:--------:|---------|-------------|\n| `directoryPath` | `string` | ✓ | — | Filesystem path whose child folders should be listed |\n| `width` | `number` | ✓ | — | Panel width in terminal columns |\n| `height` | `number` | | `20` | Panel height in terminal rows |\n| `selectedDirectoryPath` | `string \\| null` | | `null` | Currently selected folder path |\n| `onSelectDirectory` | `(directoryPath: string) => void` | | — | Callback fired when user moves the selection |\n| `isFocused` | `boolean` | | `false` | Whether this panel holds keyboard focus |\n| `title` | `string` | | `'FOLDERS'` | Header label at the top of the panel |\n| `loadingText` | `string` | | `'Loading folders…'` | Text shown while the directory is being read |\n| `emptyText` | `string` | | `'No folders found.'` | Text shown when the directory contains no child folders |\n\n#### Keyboard controls (when `isFocused` is `true`)\n\n| Key | Action |\n|-----|--------|\n| `↑` / `k` | Move selection up |\n| `↓` / `j` | Move selection down |\n\n#### Usage\n\n```ts\nimport React from 'react';\nimport { render } from 'ink';\nimport { DirectoryPanel } from 'pajussara_tui_comp';\n\nrender(\n  React.createElement(DirectoryPanel, {\n    directoryPath: process.cwd(),\n    width: 48,\n    isFocused: true,\n    onSelectDirectory: (directoryPath) => {\n      console.log(`Selected: ${directoryPath}`);\n    },\n  })\n);\n```\n\n---\n\n### `DirectoryTextBrowser`\n\nTwo-pane browser that composes [`DirectoryPanel`](#directorypanel) on the left\nwith [`TextListPanel`](#textlistpanel) on the right.\n\n```ts\nimport { DirectoryTextBrowser } from 'pajussara_tui_comp';\n```\n\n#### Props — `DirectoryTextBrowserProps`\n\n| Prop | Type | Required | Default | Description |\n|------|------|:--------:|---------|-------------|\n| `directoryPath` | `string` | ✓ | — | Filesystem path whose child folders should be listed |\n| `getTextItems` | `(directoryPath: string \\| null) => TextListItem[]` | ✓ | — | Returns the text rows for the currently selected directory |\n| `width` | `number` | ✓ | — | Total layout width in terminal columns |\n| `height` | `number` | | `20` | Shared panel height |\n| `directoryPanelWidth` | `number` | | `40% of width` | Width of the left pane |\n| `gap` | `number` | | `1` | Horizontal spacing between panes |\n| `selectedDirectoryPath` | `string \\| null` | | `null` | Controlled selected directory path |\n| `onSelectDirectory` | `(directoryPath: string) => void` | | — | Fired when directory selection changes |\n| `currentTextItemId` | `string \\| null` | | `null` | Active text row ID shown as running/current |\n| `selectedTextItemId` | `string \\| null` | | `null` | Controlled selected text row ID |\n| `onSelectTextItem` | `(id: string) => void` | | — | Fired when text-row selection changes |\n| `focusedPane` | [`DirectoryTextBrowserPane`](#directorytextbrowserpane) | | `'directories'` | Controlled focused pane |\n| `initialFocusedPane\n"
+            },
+            {
+              "path": "docs/ARCHITECTURE.md",
+              "content": "# Architecture\n\n`pajussara_tui_comp` is an [Ink](https://github.com/vadimdemedes/ink) TUI component\nlibrary written in TypeScript. Components render in the terminal using React's\nprogramming model via Ink's `Box`/`Text` primitives.\n\n## Directory structure\n\n```\npajussara_tui_comp/\n├── src/                        # Component source files (.tsx / .ts)\n│   ├── index.ts                # Public API barrel — re-exports all components and types\n│   ├── types.ts                # Shared type definitions (PanelStatus)\n│   ├── ListPanel.tsx           # Scrollable, keyboard-navigable list panel\n│   ├── DirectoryPanel.tsx      # Filesystem folder browser panel\n│   ├── StreamViewer.tsx        # Live AI token stream panel with history navigation\n│   ├── ErrorDetailPanel.tsx    # Failed-step error details with stack trace display\n│   ├── Chronometer.tsx         # Elapsed-time display with start/stop/reset controls\n│   ├── status_badge.tsx        # Animated spinner / completion / error indicator\n│   ├── status_chronometer.tsx  # StatusBadge + Chronometer side-by-side composite\n│   └── MermaidPanel.tsx        # Terminal Mermaid diagram renderer (Unicode ASCII art)\n│   ├── helpers/                # Shared display and reusable TUI utilities\n│   │   ├── index.ts            # Existing component-facing display helpers\n│   │   └── reusable.ts         # Generic formatting, layout, progress, and log helpers\n├── test/                       # Jest test suite\n├── dist/                       # Compiled output (tracked for jsDelivr CDN delivery)\n│   └── src/                    # Mirrors src/ structure after tsc compilation\n├── docs/                       # Project documentation\n├── demos/                      # Runnable usage examples (e.g. listpanel-cities.tsx, status-chronometer-cities.tsx)\n├── scripts/                    # Shell scripts (deploy.sh, colors.sh)\n└── .github/                    # GitHub Actions workflows and Copilot skills\n```\n\n## Module boundaries\n\n```\nsrc/ListPanel.tsx\n      └── import ← src/helpers/index.ts   (formatStepIcon, statusColor, formatDuration)\n      └── import ← ink                (Box, Text, useInput)\n      └── import ← react              (React, useState, useEffect)\n\nsrc/DirectoryPanel.tsx\n      └── import ← node:fs/promises   (readdir)\n      └── import ← node:path          (join)\n      └── import ← ink                (Box, Text, useInput)\n      └── import ← react              (React, useState, useEffect)\n\nsrc/StreamViewer.tsx\n      └── import ← ink                (Box, Text, useInput)\n      └── import ← react              (React, useState, useEffect, useRef)\n\nsrc/ErrorDetailPanel.tsx\n      └── import ← src/helpers/reusable.ts   (truncateStackTrace)\n      └── import ← ink                       (Box, Text, useInput)\n      └── import ← react                     (React)\n\nsrc/Chronometer.tsx\n      └── import ← src/helpers/index.ts   (formatDuration)\n      └── import ← ink                (Box, Text, useInput)\n      └── import ← react              (React, useState, useEffect)\n\nsrc/helpers/reusable.ts\n      └── pure exports → status formatting, progress formatting, log utilities\n      └── pure exports → terminal/layout sizing and step-detail formatting\n\nsrc/status_badge.tsx\n      └── import ← src/types.ts       (PanelStatus)\n      └── import ← ink                (Box, Text)\n      └── import ← react              (React, useState, useEffect)\n\nsrc/status_chronometer.tsx\n      └── import ← src/status_badge.tsx   (StatusBadge, StatusBadgeProps)\n      └── import ← src/Chronometer.tsx    (Chronometer, ChronometerProps)\n      └── import ← ink                    (Box)\n      └── import ← react                  (React)\n\nsrc/MermaidPanel.tsx\n      └── import ← beautiful-mermaid     (renderMermaidASCII)\n      └── import ← ink                   (Box, Text, useInput)\n      └── import ← react                 (React, useMemo, useState)\n\nsrc/index.ts\n      └── re-exports ← src/ListPanel.tsx\n      └── re-exports ← src/DirectoryPanel.tsx\n      └── re-exports ← src/StreamViewer.tsx\n      └── re-exports ← src/ErrorDetailPanel.tsx\n      └── re-exports ← src/Chronometer.tsx\n      └── re-exports ← src/status_badge.tsx\n      └── re-exports ← src/status_chronometer.tsx\n      └── re-exports ← src/MermaidPanel.tsx\n      └── re-exports ← src/types.ts\n```\n\n## Rendering model\n\nComponents are pure React function components. All output is declarative:\n`React.createElement(Box, ...)` / `React.createElement(Text, ...)`. No JSX\nsyntax is used in source files — `.tsx` extension is kept for type-checking\nonly.\n\n## Build\n\nTypeScript compiles `src/**/*` to `dist/` via `tsc`:\n\n```bash\nnpm run build      # tsc → dist/\nnpm run typecheck  # tsc --noEmit (no output)\n```\n\n`tsconfig.json` settings of note:\n\n| Setting | Value | Reason |\n|---------|-------|--------|\n| `rootDir` | `.` | Preserves the `src/` hierarchy under `dist/` |\n| `outDir` | `dist` | Output root |\n| `module` | `ESNext` | ESM output |\n| `moduleResolution` | `Bundler` | Compatible with Ink/React consumer bundlers |\n| `declaration` | `true` | Emits `.d.ts` for library consumers |\n\n`src/helpers/reusable.ts` is compiled alongside the existing `src/helpers/index.ts`\nmodule. It stays separate because it preserves copied `ai_workflow.js`\nsemantics for overlapping helper names instead of changing the established\nbehaviour of `pajussara_tui_comp`'s current helper barrel.\n\n## CDN delivery\n\nThe `dist/` directory is committed and tagged. Consumers can reference\ncompiled files directly via jsDelivr:\n\n```\nhttps://cdn.jsdelivr.net/gh/mpbarbosa/pajussara_tui_comp@<version>/dist/src/index.js\n```\n\nDeployment is handled by `scripts/deploy.sh` (invoked via `ai-workflow deploy`).\n"
+            },
+            {
+              "path": "CONTRIBUTING.md",
+              "content": "# Contributing to pajussara_tui_comp\n\nThank you for your interest in contributing!\n\n## Getting started\n\n1. Fork the repository and create a feature branch:\n\n   ```bash\n   git checkout -b feature/your-feature\n   ```\n\n2. Install dependencies:\n\n   ```bash\n   npm install\n   ```\n\n3. Make your changes, following the conventions below.\n\n4. Run the checks before submitting:\n\n   ```bash\n   npm run typecheck   # TypeScript validation\n   npm test            # Jest test suite\n   npm run lint        # ESLint\n   ```\n\n5. Submit a pull request with a clear description of your changes.\n\n## Code conventions\n\n- All components use `React.createElement(...)` directly — no JSX syntax.\n- Every source file starts with a `@fileoverview` JSDoc block.\n- Use `interface` (not `type`) for object shapes.\n- Display helpers (`formatStepIcon`, `statusColor`, `formatDuration`) live\n  in `src/helpers/` and must not be duplicated inline in components.\n- Components accept `isFocused?: boolean` and pass `{ isActive: isFocused }`\n  to `useInput`.\n\n## JSDoc conventions\n\nEvery source file must open with a header block in this exact shape:\n\n```ts\n/**\n * @fileoverview <one-line description>\n * @module components/<ComponentName>   // or \"helpers\", \"types\"\n *\n * <longer description paragraph(s)>\n *\n * @version x.y.z\n * @since YYYY-MM-DD\n */\n```\n\n`@module` naming:\n- Components → `components/<ComponentName>` (PascalCase filename, e.g. `components/ListPanel`)\n- Helpers entry point → `helpers`\n- Shared types → `types`\n\nLogical blocks inside a file are separated with Unicode box-drawing dividers:\n\n```ts\n// ── Types ─────────────────────────────────────────────────────────────────────\n// ── Component ─────────────────────────────────────────────────────────────────\n```\n\nProps and data interfaces go **above** the component function and use `interface`:\n\n```ts\nexport interface ListPanelProps { ... }\nexport interface ListItem { ... }\n```\n\nCross-references use the `{@link}` inline tag:\n\n```ts\n/** Props for {@link StatusBadge}. */\n```\n\nDeprecated symbols must keep the old name as a re-export with a `@deprecated` tag\n— only when an export has actually been renamed:\n\n```ts\n/** @deprecated Use {@link ListPanel} instead */\nexport { ListPanel as OldName };\n```\n\n## Commit style\n\nFollow [Conventional Commits](https://www.conventionalcommits.org/):\n\n```\nfeat(component): add EmptyState component\nfix(ListPanel): correct scroll offset on empty items\ndocs: update ARCHITECTURE.md with new module\n```\n\nAlways include the Copilot trailer on automated commits:\n\n```\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\n```\n\n## Reporting issues\n\nUse [GitHub Issues](https://github.com/mpbarbosa/pajussara_tui_comp/issues)\nfor bugs or feature requests.\n"
+            },
+            {
+              "path": ".github/copilot-instructions.md",
+              "content": "# Copilot Instructions\n\n## Project\n\n`pajussara_tui_comp` is an [Ink](https://github.com/vadimdemedes/ink) TUI component library written in TypeScript. Components render in the terminal using React's programming model (via Ink's `Box`/`Text` primitives).\n\n## Architecture\n\n- `src/` — component source files (`.tsx`)\n- `src/helpers/` — shared display utilities (`formatStepIcon`, `statusColor`, `formatDuration`) imported by components as `'./helpers/index.js'`\n- `test/` — Jest test suite (mirrors `src/` structure)\n- `demos/` — runnable usage examples (e.g. `listpanel-cities.tsx`)\n- `docs/` — project documentation (ARCHITECTURE.md, API.md, FUNCTIONAL_REQUIREMENTS.md, etc.)\n- `scripts/` — shell scripts for build, deploy, and test automation\n- `.github/workflows/` — GitHub Actions CI workflows\n- `.github/skills/` — Copilot CLI custom skills (e.g. `js-to-ts`)\n- Build/test scripts are configured in `package.json`: `build` (tsc), `test` (jest), `lint` (eslint), `typecheck` (tsc --noEmit)\n- Module system: `\"type\": \"module\"` in `package.json` (ESM)\n\n## Key Conventions\n\n### React.createElement, not JSX\n\nAll components use `React.createElement(...)` directly — **do not use JSX syntax**, even though files use `.tsx`.\n\n### File-level JSDoc header\n\nEvery source file starts with:\n```ts\n/**\n * @fileoverview <short description>\n * @module components/<ComponentName>\n *\n * <longer description>\n *\n * @version x.y.z\n * @since YYYY-MM-DD\n */\n```\n\n### Section dividers\n\nUse Unicode box-drawing section comments to separate logical blocks:\n```ts\n// ── Types ─────────────────────────────────────────────────────────────────────\n// ── Component ─────────────────────────────────────────────────────────────────\n```\n\n### Props interfaces\n\n- Define a `<ComponentName>Props` interface **above** the component function\n- Also define any data-shape interfaces (e.g., `ListItem`) above the component\n- Prefer `interface` over `type` alias for object shapes\n\n### Exports\n\nEvery component must have both a named export and a `default` export:\n```ts\nexport function ListPanel(...) { ... }\nexport default ListPanel;\n```\n\nWhen renaming an exported symbol, keep the old name as a deprecated alias:\n```ts\n/** @deprecated Use {@link ListPanel} instead */\nexport { ListPanel as OldName };\n```\n\n### Domain-agnostic naming\n\nAll identifiers — props, types, helpers, variables — must use generic, intention-revealing names rather than project- or application-specific ones. If a rename would break a public API, expose the new name as primary and the old as a `@deprecated` re-export.\n\n### Focus and keyboard input\n\nComponents accept an `isFocused?: boolean` prop. Keyboard handlers via `useInput` must pass `{ isActive: isFocused }` so only the focused panel consumes key events.\n\n### Status-driven display\n\nItems carry a `status` string (`'pending'`, `'running'`, `'done'`, etc.). Use the shared `statusColor` and `formatStepIcon` helpers (from `src/helpers`) rather than inline color/icon logic.\n\n## Custom Skills\n\nThe `js-to-ts` skill (`.github/skills/js-to-ts/SKILL.md`) converts `.js` files to TypeScript. It enforces all conventions above (typed signatures, extracted interfaces, named exports, domain-agnostic naming). Invoke it when asked to convert a JS file.\n"
+            },
+            {
+              "path": "docs/README.md",
+              "content": "# docs/\n\nThis directory contains project-level documentation for `pajussara_tui_comp`.\n\n## Contents\n\n| File | Description |\n|------|-------------|\n| [ARCHITECTURE.md](ARCHITECTURE.md) | Module structure, component design, and data-flow |\n| [FUNCTIONAL_REQUIREMENTS.md](FUNCTIONAL_REQUIREMENTS.md) | Feature catalogue and acceptance criteria |\n| [usability-heuristics.md](usability-heuristics.md) | UX/accessibility heuristic analysis for TUI components |\n"
+            },
+            {
+              "path": "src/helpers/README.md",
+              "content": "# src/helpers/\n\nShared display utilities consumed by all `pajussara_tui_comp` components.\n\nThis directory currently has two helper modules:\n\n- `src/helpers/index.ts` — the existing library-specific display helpers used by\n  shipped components such as `ListPanel` and `Chronometer`\n- `src/helpers/reusable.ts` — a broader internal reusable helper set copied from\n  `ai_workflow.js` and adapted to TypeScript for richer TUI/dashboard use cases\n\nImport from sibling component files in `src/` when you need the existing\ncomponent-facing helpers:\n\n```ts\nimport { formatStepIcon, statusColor, formatDuration } from './helpers/index.js';\n```\n\nImport from the dedicated module path when you need the broader reusable helper\nset:\n\n```ts\nimport {\n  formatProgressLine,\n  formatTimestamp,\n  terminalIsSufficient,\n} from './helpers/reusable.js';\n```\n\n## Exports\n\n### `src/helpers/index.ts`\n\n| Function | Signature | Description |\n|----------|-----------|-------------|\n| `formatStepIcon` | `(status: string) => string` | Maps a status string to a terminal icon character (`✔`, `●`, `✘`, `○`, `·`) |\n| `statusColor` | `(status: string) => string` | Maps a status string to an Ink color name (`green`, `cyan`, `red`, `gray`, `white`) |\n| `formatDuration` | `(ms: number) => string` | Formats milliseconds as a human-readable string, e.g. `4500` → `\"4.5s\"`, `61500` → `\"1m 1s\"` |\n\n### `src/helpers/reusable.ts`\n\n| Function group | Examples |\n|----------------|----------|\n| Status formatting | `formatStepIcon`, `statusColor` |\n| Time and progress formatting | `formatDuration`, `formatTimestamp`, `formatEta`, `formatProgressBar`, `formatProgressLine` |\n| Log helpers | `truncateLogLine`, `filterLogLines`, `highlightSearchMatch`, `truncateStackTrace`, `keepLast` |\n| Layout helpers | `terminalIsSufficient`, `stepsPanelWidth` |\n| Detail formatting | `formatStepDetail` |\n\n`src/helpers/reusable.ts` intentionally remains a separate module because some\noverlapping helper names, especially `formatStepIcon`, `statusColor`, and\n`formatDuration`, follow `ai_workflow.js` display conventions rather than this\nlibrary's existing public helper behaviour.\n\n## Conventions\n\n- Helpers are pure functions with no side effects.\n- Components must **not** duplicate helper logic inline.\n- Use `src/helpers/index.ts` for the current component-library display semantics.\n- Use `src/helpers/reusable.ts` for broader internal dashboard/TUI utilities.\n"
+            }
+          ],
+          "warnings": []
+        },
+        "duration": 15581,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_06": {
+        "stepId": "step_06",
+        "stepName": "Test Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "testFiles": [
+            "test/helpers/panel.test.ts",
+            "test/helpers/reusable.test.ts",
+            "test/helpers/status.test.ts",
+            "test/helpers.reusable.test.ts",
+            "test/index.test.ts",
+            "test/types.test.ts",
+            "test/Chronometer.test.tsx",
+            "test/DirectoryPanel.test.tsx",
+            "test/DirectoryTextBrowser.test.tsx",
+            "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+            "test/ErrorDetailPanel.test.tsx",
+            "test/ListPanel.test.tsx",
+            "test/MermaidPanel.test.tsx",
+            "test/StatusBar.test.tsx",
+            "test/StreamViewer.test.tsx",
+            "test/TextListPanel.test.tsx",
+            "test/listpanel-cities2.test.tsx",
+            "test/status_badge.test.tsx",
+            "test/status_chronometer.test.tsx"
+          ],
+          "categories": {
+            "unit": [],
+            "integration": [],
+            "e2e": [],
+            "other": [
+              "test/helpers/panel.test.ts",
+              "test/helpers/reusable.test.ts",
+              "test/helpers/status.test.ts",
+              "test/helpers.reusable.test.ts",
+              "test/index.test.ts",
+              "test/types.test.ts",
+              "test/Chronometer.test.tsx",
+              "test/DirectoryPanel.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+              "test/ErrorDetailPanel.test.tsx",
+              "test/ListPanel.test.tsx",
+              "test/MermaidPanel.test.tsx",
+              "test/StatusBar.test.tsx",
+              "test/StreamViewer.test.tsx",
+              "test/TextListPanel.test.tsx",
+              "test/listpanel-cities2.test.tsx",
+              "test/status_badge.test.tsx",
+              "test/status_chronometer.test.tsx"
+            ]
+          },
+          "statistics": {
+            "totalTests": 19,
+            "unitTests": 0,
+            "integrationTests": 0,
+            "e2eTests": 0,
+            "otherTests": 19,
+            "totalLines": 2900,
+            "averageLinesPerTest": 153
+          },
+          "coverage": {
+            "found": false,
+            "path": null,
+            "percentage": null
+          },
+          "issues": [
+            {
+              "type": "no_coverage_report",
+              "message": "No coverage reports found - consider generating coverage data"
+            },
+            {
+              "type": "missing_tests",
+              "message": "No unit tests found - consider adding unit tests"
+            }
+          ],
+          "reviewCoverage": "AI review covered partition 1/5 (3 files)"
+        },
+        "duration": 20475,
+        "degraded": false
+      },
+      "step_07": {
+        "stepId": "step_07",
+        "stepName": "Test Generation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "totalSourceFiles": 18,
+          "totalTestFiles": 6,
+          "untestedFiles": [
+            "src/Chronometer.tsx",
+            "src/DirectoryPanel.tsx",
+            "src/DirectoryTextBrowser.tsx",
+            "src/DirectoryTextBrowserWithStatusBar.tsx",
+            "src/ErrorDetailPanel.tsx",
+            "src/ListPanel.tsx",
+            "src/MermaidPanel.tsx",
+            "src/StatusBar.tsx",
+            "src/StreamViewer.tsx",
+            "src/TextListPanel.tsx",
+            "src/status_badge.tsx",
+            "src/status_chronometer.tsx"
+          ],
+          "coveragePercentage": 33,
+          "categories": {
+            "src": [
+              "src/Chronometer.tsx",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/DirectoryTextBrowserWithStatusBar.tsx",
+              "src/ErrorDetailPanel.tsx",
+              "src/ListPanel.tsx",
+              "src/MermaidPanel.tsx",
+              "src/StatusBar.tsx",
+              "src/StreamViewer.tsx",
+              "src/TextListPanel.tsx",
+              "src/status_badge.tsx",
+              "src/status_chronometer.tsx"
+            ]
+          },
+          "generatedFiles": []
+        },
+        "duration": 15358,
+        "degraded": false
+      },
+      "step_08": {
+        "stepId": "step_08",
+        "stepName": "Test Execution",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "noTestsFound": false,
+          "language": "typescript",
+          "testResults": {
+            "total": 250,
+            "passed": 250,
+            "failed": 0,
+            "skipped": 0,
+            "suitesFailed": 0,
+            "suitesTotal": 19
+          },
+          "coverage": {},
+          "duration": 3183,
+          "exitCode": 0
+        },
+        "duration": 24773,
+        "degraded": false
+      },
+      "step_09": {
+        "stepId": "step_09",
+        "stepName": "Dependency Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "hasSecurityIssues": false,
+          "language": "typescript",
+          "dependencyCounts": {
+            "total": 12,
+            "production": 1,
+            "development": 9,
+            "peer": 2,
+            "dependencies": {
+              "beautiful-mermaid": "^1.1.3"
+            },
+            "devDependencies": {
+              "@types/jest": "^29.5.0",
+              "@types/react": "^19.0.0",
+              "@typescript-eslint/eslint-plugin": "^7.0.0",
+              "@typescript-eslint/parser": "^7.0.0",
+              "eslint": "^8.0.0",
+              "ink-testing-library": "^4.0.0",
+              "jest": "^29.5.0",
+              "ts-jest": "^29.1.0",
+              "typescript": "^5.0.0"
+            }
+          },
+          "vulnerabilities": {
+            "summary": {
+              "total": 0,
+              "critical": 0,
+              "high": 0,
+              "moderate": 0,
+              "low": 0,
+              "info": 0
+            },
+            "packages": []
+          },
+          "outdatedPackages": [],
+          "lockfileIssues": [],
+          "dryRunIssues": [
+            "npm error code ETARGET\nnpm error notarget No matching version found for jest-pnp-resolver@^1.3.0.\nnpm error notarget In most cases you or one of your dependencies are requesting a package version that doesn't exist.\nnpm error A complete log of this run can be found in: /home/mpb/.npm/_logs/2026-04-29T22_29_03_354Z-debug-0.log"
+          ],
+          "skipped": false
+        },
+        "duration": 19401,
+        "degraded": false
+      },
+      "step_10": {
+        "stepId": "step_10",
+        "stepName": "Code Quality",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "hasLintErrors": false,
+          "perLanguageResults": [
+            {
+              "language": "typescript",
+              "sourceFileCount": 30,
+              "linterCommand": "\"npm run lint\"",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "files": 1,
+                "fileIssues": {
+                  "/bin/sh: 1: npm run lint: not found": 0
+                }
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            }
+          ],
+          "aggregateTotals": {
+            "totalIssues": 0,
+            "errors": 0,
+            "warnings": 0,
+            "infos": 0,
+            "fileCount": 30
+          },
+          "language": "typescript",
+          "sourceFileCount": 30,
+          "alternatives": [],
+          "recommendedAlternative": null,
+          "erFindings": "**Error Resilience Review**\n\n---\n\n**Uncaught Exceptions & Unhandled Rejections**\n\n- **File**: src/DirectoryPanel.tsx:~40-80  \n  **Category**: Uncaught Rejection  \n  **Severity**: Medium  \n  **Finding**: The async function `loadDirectories` is called via `void loadDirectories();` inside a `useEffect`, but any unhandled rejection inside it will be silently dropped (React does not surface async errors in effects).  \n  **Fix**: Add a `.catch()` to `loadDirectories()` or wrap the call in a try/catch at the top level to log unexpected errors.\n\n---\n\n**Silent Failure Swallowing**\n\n- **File**: src/DirectoryPanel.tsx:~60-80  \n  **Category**: Silent Failure  \n  **Severity**: Medium  \n  **Finding**: The `catch` block in `loadDirectories` sets an error message for the UI, but does not log the error object or stack trace, which can hinder debugging of unexpected failures.  \n  **Fix**: Add a `console.error(error)` or similar logging inside the `catch` block to preserve error details for diagnostics.\n\n---\n\n_No issues found in: Missing Await, Error Masking in Control Flow, Resource Leak on Error (no resource acquisition in visible code)._\n\n---\n\n**Summary:**  \n2 findings (0 Critical, 2 Medium). Addressing these will improve error visibility and resilience.",
+          "reviewCoverage": "AI review covered partition 1/5 (5 files)"
+        },
+        "duration": 37429,
+        "degraded": false
+      },
+      "step_0b": {
+        "stepId": "step_0b",
+        "stepName": "Bootstrap Documentation",
+        "success": true,
+        "skipped": true,
+        "reason": "sufficient_docs",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "sufficient_docs"
+        },
+        "duration": 41,
+        "degraded": false
+      },
+      "step_01": {
+        "stepId": "step_01",
+        "stepName": "Documentation Updates",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "classification": {
+            "documentation": [
+              "CHANGELOG.md",
+              "CONTRIBUTING.md",
+              "README.md",
+              "docs/ARCHITECTURE.md",
+              "docs/DOCKER_TESTING.md",
+              "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "docs/usability-heuristics.md",
+              "src/helpers/README.md",
+              ".github/skills/sync-workflow-config/SKILL.md"
+            ],
+            "source": [
+              "demos/directory-text-browser-with-status-bar.tsx",
+              "demos/directory-text-browser.tsx",
+              "demos/directorypanel-github.tsx",
+              "demos/mermaid-demo.tsx",
+              "demos/statusbar-lifecycle.tsx",
+              "dist/src/Chronometer.js",
+              "dist/src/DirectoryPanel.d.ts",
+              "dist/src/DirectoryPanel.js",
+              "dist/src/DirectoryTextBrowser.d.ts",
+              "dist/src/DirectoryTextBrowser.js",
+              "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+              "dist/src/DirectoryTextBrowserWithStatusBar.js",
+              "dist/src/ListPanel.js",
+              "dist/src/MermaidPanel.d.ts",
+              "dist/src/MermaidPanel.js",
+              "dist/src/StatusBar.d.ts",
+              "dist/src/StatusBar.js",
+              "dist/src/TextListPanel.d.ts",
+              "dist/src/TextListPanel.js",
+              "dist/src/index.d.ts",
+              "dist/src/index.js",
+              "dist/src/status_badge.js",
+              "dist/src/status_chronometer.js",
+              "src/Chronometer.tsx",
+              "src/DirectoryPanel.tsx",
+              "src/DirectoryTextBrowser.tsx",
+              "src/DirectoryTextBrowserWithStatusBar.tsx",
+              "src/ListPanel.tsx",
+              "src/MermaidPanel.tsx",
+              "src/StatusBar.tsx",
+              "src/TextListPanel.tsx",
+              "src/index.ts",
+              "src/status_badge.tsx",
+              "src/status_chronometer.tsx",
+              "dist/src/ErrorDetailPanel.d.ts",
+              "dist/src/ErrorDetailPanel.js",
+              "dist/src/helpers/panel.d.ts",
+              "dist/src/helpers/panel.js",
+              "dist/src/helpers/reusable.d.ts",
+              "dist/src/helpers/reusable.js",
+              "dist/src/helpers/status.d.ts",
+              "dist/src/helpers/status.js",
+              "src/ErrorDetailPanel.tsx",
+              "src/helpers/panel.ts",
+              "src/helpers/reusable.ts",
+              "src/helpers/status.ts"
+            ],
+            "tests": [
+              "test/Chronometer.test.tsx",
+              "test/DirectoryTextBrowser.test.tsx",
+              "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+              "test/ListPanel.test.tsx",
+              "test/TextListPanel.test.tsx",
+              "test/index.test.ts",
+              "test/listpanel-cities2.test.tsx",
+              "test/status_chronometer.test.tsx",
+              "test/ErrorDetailPanel.test.tsx",
+              "test/helpers.reusable.test.ts",
+              "test/helpers/panel.test.ts",
+              "test/helpers/reusable.test.ts",
+              "test/helpers/status.test.ts"
+            ],
+            "config": [
+              ".workflow-config.yaml",
+              "jest.config.json",
+              "package-lock.json",
+              "package.json",
+              "tsconfig.json"
+            ],
+            "counts": {
+              "documentation": 9,
+              "source": 46,
+              "tests": 13,
+              "config": 5,
+              "total": 96
+            }
+          },
+          "validation": {
+            "fileCount": {
+              "success": true,
+              "issues": [],
+              "counts": {
+                "markdown": 7,
+                "readme": 1,
+                "docs": 3
+              }
+            },
+            "versionRefs": {
+              "success": true,
+              "issues": []
+            },
+            "sourceDoc": {
+              "success": true,
+              "issues": [],
+              "totalIssues": 0,
+              "fileResults": []
+            },
+            "totalIssues": 0,
+            "success": true
+          },
+          "analysis": {
+            "success": true,
+            "categories": {
+              "readme": {
+                "status": "completed",
+                "fileCount": 1,
+                "duration": 163,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "success": true,
+                    "content": "README.md\n\n**Verdict:**  \n**Specific edit required**\n\n**Whole-scope synthesis:**  \nThe codebase and demo changes (DirectoryPanel, DirectoryTextBrowser, Chronometer, new/updated demos, keyboard/focus conventions, helper module structure, version bump to 1.3.0, and coverage threshold) require the following targeted README.md updates:\n\n---\n\n**Edit Block 1: Version badge and summary**  \nUpdate all version references to 1.3.0.\n\n```md\n-before\n# pajussara_tui_comp\n\nAn Ink TUI Component Library in TypeScript.\n-after\n# pajussara_tui_comp\n\nAn Ink TUI Component Library in TypeScript.\n\n**Current version:** 1.3.0\n```\n\n---\n\n**Edit Block 2: Demos section**  \nExpand demo list and clarify keyboard controls.\n\n```md\n-before\n## Demos\n\n- `listpanel-cities.tsx` — ListPanel with city steps\n- `statusbar-demo.tsx` — StatusBar with async badge\n-after\n## Demos\n\nRun any demo with:\n\n    npx tsx demos/<demo-file>.tsx\n\n- `directory-text-browser-with-status-bar.tsx` — Browse project folders and notes with a status bar; Tab/←/→ to switch focus, ↑/↓/k/j to navigate, 1-5 to set status, c/r/q for controls.\n- `directory-text-browser.tsx` — Browse project folders and notes; Tab/←/→ to switch focus, ↑/↓/k/j to navigate, q to quit.\n- `directorypanel-github.tsx` — Browse `/home/mpb/Documents/GitHub` folders; ↑/↓/k/j to navigate, q to quit.\n- `mermaid-demo.tsx` — Render terminal diagrams with MermaidPanel; Tab to switch focus, ↑/↓/k/j to scroll, q to quit.\n- `statusbar-lifecycle.tsx` — StatusBar lifecycle demo; 1-5 to set status, c to toggle complete, a to autoplay, r to restart, q to quit.\n```\n\n---\n\n**Edit Block 3: API/Usage for DirectoryPanel and DirectoryTextBrowser**  \nUpdate prop tables and keyboard instructions.\n\n```md\n-before\n### DirectoryPanel\n\nProps:\n- directoryPath: string\n- width: number\n- height?: number\n- selectedDirectoryPath?: string | null\n- onSelectDirectory?: (directoryPath: string) => void\n- isFocused?: boolean\n- title?: string\n- loadingText?: string\n- emptyText?: string\n\nKeyboard:\n- ↑/↓ to move selection\n\n-after\n### DirectoryPanel\n\nProps:\n- `directoryPath: string` — Filesystem path whose direct child folders are listed.\n- `width: number` — Panel width in columns.\n- `height?: number` — Panel height in rows (default: 20).\n- `selectedDirectoryPath?: string | null` — Currently selected folder.\n- `onSelectDirectory?: (directoryPath: string) => void` — Callback on selection change.\n- `isFocused?: boolean` — Keyboard focus (default: false).\n- `title?: string` — Header label (default: 'FOLDERS').\n- `loadingText?: string` — Text while loading.\n- `emptyText?: string` — Text when no folders.\n\nKeyboard:\n- ↑/↓ or k/j to move selection (only when focused)\n- q to quit (in demo)\n\n---\n\n### DirectoryTextBrowser\n\nProps:\n- `directoryPath: string` — Root directory.\n- `getTextItems: (directoryPath: string | null) => TextListItem[]` — Returns text items for selected directory.\n- `width: number` — Total width.\n- `height?: number` — Height (default: 20).\n- `directoryPanelWidth?: number` — Left pane width.\n- `gap?: number` — Horizontal gap (default: 1).\n- `selectedDirectoryPath?: string | null`\n- `onSelectDirectory?: (directoryPath: string) => void`\n- `currentTextItemId?: string | null`\n- `selectedTextItemId?: string | null`\n- `onSelectTextItem?: (id: string) => void`\n- `focusedPane?: 'directories' | 'text'`\n- `initialFocusedPane?: 'directories' | 'text'`\n- `onFocusPaneChange?: (pane: 'directories' | 'text') => void`\n- `directoryTitle?: string`\n- `directoryLoadingText?: string`\n- `directoryEmptyText?: string`\n- `textTitle?: string`\n- `textEmptyText?: string`\n- `textPlaceholderText?: string`\n\nKeyboard:\n- Tab or ←/→ (h/l) to switch focus between panes\n- ↑/↓ (or k/j) to move within the focused pane\n- q to quit (in demo)\n```\n\n---\n\n**Edit Block 4: Keyboard navigation conventions**  \nClarify vi-style and focus requirements.\n\n```md\n-before\nKeyboard navigation: ↑/↓ to move, Tab to switch focus.\n-after\nKeyboard navigation:\n- ↑/↓ or k/j: move selection within a pane\n- Tab or ←/→ (h/l): switch focus between panes (where supported)\n- 1-5: set status (in status bar demos)\n- c: toggle complete mode\n- r: reset/restart\n- q: quit\n- Only the focused panel responds to keyboard input (`isFocused` prop).\n```\n\n---\n\n**Edit Block 5: Helpers section**  \nClarify helper module usage.\n\n```md\n-before\n### Helpers\n\nImport display helpers from `src/helpers/index.js`.\n-after\n### Helpers\n\n- Use `src/helpers/index.ts` for component-facing display helpers (`formatStepIcon`, `statusColor`, `formatDuration`).\n- Use `src/helpers/reusable.ts` for broader dashboard/TUI utilities (e.g., `formatProgressLine`, `formatTimestamp`).\n- Do not duplicate helper logic inline in components.\n```\n\n---\n\n**Edit Block 6: Coverage and requirements**  \nUpdate coverage and version requirements.\n\n```md\n-before\nTest coverage: 80%\nRequires Node.js >=16, Ink >=5, React >=18, TypeScript >=4.\n-after\nTest coverage: 80% line coverage required (see `jest.config.json` and workflow config).\nRequires Node.js >=18, Ink >=5, React >=19, TypeScript >=5.\n```\n\n---\n\n**Summary:**  \nREADME.md must be updated as above to reflect version 1.3.0, new/updated demos, API/usage for DirectoryPanel and DirectoryTextBrowser, helper module structure, keyboard/focus conventions, and coverage/version requirements. All changes are directly supported by the provided evidence.",
+                    "text": "README.md\n\n**Verdict:**  \n**Specific edit required**\n\n**Whole-scope synthesis:**  \nThe codebase and demo changes (DirectoryPanel, DirectoryTextBrowser, Chronometer, new/updated demos, keyboard/focus conventions, helper module structure, version bump to 1.3.0, and coverage threshold) require the following targeted README.md updates:\n\n---\n\n**Edit Block 1: Version badge and summary**  \nUpdate all version references to 1.3.0.\n\n```md\n-before\n# pajussara_tui_comp\n\nAn Ink TUI Component Library in TypeScript.\n-after\n# pajussara_tui_comp\n\nAn Ink TUI Component Library in TypeScript.\n\n**Current version:** 1.3.0\n```\n\n---\n\n**Edit Block 2: Demos section**  \nExpand demo list and clarify keyboard controls.\n\n```md\n-before\n## Demos\n\n- `listpanel-cities.tsx` — ListPanel with city steps\n- `statusbar-demo.tsx` — StatusBar with async badge\n-after\n## Demos\n\nRun any demo with:\n\n    npx tsx demos/<demo-file>.tsx\n\n- `directory-text-browser-with-status-bar.tsx` — Browse project folders and notes with a status bar; Tab/←/→ to switch focus, ↑/↓/k/j to navigate, 1-5 to set status, c/r/q for controls.\n- `directory-text-browser.tsx` — Browse project folders and notes; Tab/←/→ to switch focus, ↑/↓/k/j to navigate, q to quit.\n- `directorypanel-github.tsx` — Browse `/home/mpb/Documents/GitHub` folders; ↑/↓/k/j to navigate, q to quit.\n- `mermaid-demo.tsx` — Render terminal diagrams with MermaidPanel; Tab to switch focus, ↑/↓/k/j to scroll, q to quit.\n- `statusbar-lifecycle.tsx` — StatusBar lifecycle demo; 1-5 to set status, c to toggle complete, a to autoplay, r to restart, q to quit.\n```\n\n---\n\n**Edit Block 3: API/Usage for DirectoryPanel and DirectoryTextBrowser**  \nUpdate prop tables and keyboard instructions.\n\n```md\n-before\n### DirectoryPanel\n\nProps:\n- directoryPath: string\n- width: number\n- height?: number\n- selectedDirectoryPath?: string | null\n- onSelectDirectory?: (directoryPath: string) => void\n- isFocused?: boolean\n- title?: string\n- loadingText?: string\n- emptyText?: string\n\nKeyboard:\n- ↑/↓ to move selection\n\n-after\n### DirectoryPanel\n\nProps:\n- `directoryPath: string` — Filesystem path whose direct child folders are listed.\n- `width: number` — Panel width in columns.\n- `height?: number` — Panel height in rows (default: 20).\n- `selectedDirectoryPath?: string | null` — Currently selected folder.\n- `onSelectDirectory?: (directoryPath: string) => void` — Callback on selection change.\n- `isFocused?: boolean` — Keyboard focus (default: false).\n- `title?: string` — Header label (default: 'FOLDERS').\n- `loadingText?: string` — Text while loading.\n- `emptyText?: string` — Text when no folders.\n\nKeyboard:\n- ↑/↓ or k/j to move selection (only when focused)\n- q to quit (in demo)\n\n---\n\n### DirectoryTextBrowser\n\nProps:\n- `directoryPath: string` — Root directory.\n- `getTextItems: (directoryPath: string | null) => TextListItem[]` — Returns text items for selected directory.\n- `width: number` — Total width.\n- `height?: number` — Height (default: 20).\n- `directoryPanelWidth?: number` — Left pane width.\n- `gap?: number` — Horizontal gap (default: 1).\n- `selectedDirectoryPath?: string | null`\n- `onSelectDirectory?: (directoryPath: string) => void`\n- `currentTextItemId?: string | null`\n- `selectedTextItemId?: string | null`\n- `onSelectTextItem?: (id: string) => void`\n- `focusedPane?: 'directories' | 'text'`\n- `initialFocusedPane?: 'directories' | 'text'`\n- `onFocusPaneChange?: (pane: 'directories' | 'text') => void`\n- `directoryTitle?: string`\n- `directoryLoadingText?: string`\n- `directoryEmptyText?: string`\n- `textTitle?: string`\n- `textEmptyText?: string`\n- `textPlaceholderText?: string`\n\nKeyboard:\n- Tab or ←/→ (h/l) to switch focus between panes\n- ↑/↓ (or k/j) to move within the focused pane\n- q to quit (in demo)\n```\n\n---\n\n**Edit Block 4: Keyboard navigation conventions**  \nClarify vi-style and focus requirements.\n\n```md\n-before\nKeyboard navigation: ↑/↓ to move, Tab to switch focus.\n-after\nKeyboard navigation:\n- ↑/↓ or k/j: move selection within a pane\n- Tab or ←/→ (h/l): switch focus between panes (where supported)\n- 1-5: set status (in status bar demos)\n- c: toggle complete mode\n- r: reset/restart\n- q: quit\n- Only the focused panel responds to keyboard input (`isFocused` prop).\n```\n\n---\n\n**Edit Block 5: Helpers section**  \nClarify helper module usage.\n\n```md\n-before\n### Helpers\n\nImport display helpers from `src/helpers/index.js`.\n-after\n### Helpers\n\n- Use `src/helpers/index.ts` for component-facing display helpers (`formatStepIcon`, `statusColor`, `formatDuration`).\n- Use `src/helpers/reusable.ts` for broader dashboard/TUI utilities (e.g., `formatProgressLine`, `formatTimestamp`).\n- Do not duplicate helper logic inline in components.\n```\n\n---\n\n**Edit Block 6: Coverage and requirements**  \nUpdate coverage and version requirements.\n\n```md\n-before\nTest coverage: 80%\nRequires Node.js >=16, Ink >=5, React >=18, TypeScript >=4.\n-after\nTest coverage: 80% line coverage required (see `jest.config.json` and workflow config).\nRequires Node.js >=18, Ink >=5, React >=19, TypeScript >=5.\n```\n\n---\n\n**Summary:**  \nREADME.md must be updated as above to reflect version 1.3.0, new/updated demos, API/usage for DirectoryPanel and DirectoryTextBrowser, helper module structure, keyboard/focus conventions, and coverage/version requirements. All changes are directly supported by the provided evidence."
+                  }
+                },
+                "error": null
+              },
+              "changelog": {
+                "status": "completed",
+                "fileCount": 1,
+                "duration": 146,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "success": true,
+                    "content": "```markdown\n# CHANGELOG.md\n\nVerdict: No updates required\n\nReason: The visible contents of `CHANGELOG.md` already document all notable changes for version 1.3.0, including new props (`forceRunning`, `showLabel`, `showHints`, `syncWithStatus`), demo additions, and all relevant API/usage changes for Chronometer, StatusChronometer, and related components. No new features, fixes, or version bumps in the changed files require further changelog entries. All roadmap and requirements cross-references are marked as \"done\" and do not require further changelog edits. The changelog is current and accurate per the provided evidence.\n```",
+                    "text": "```markdown\n# CHANGELOG.md\n\nVerdict: No updates required\n\nReason: The visible contents of `CHANGELOG.md` already document all notable changes for version 1.3.0, including new props (`forceRunning`, `showLabel`, `showHints`, `syncWithStatus`), demo additions, and all relevant API/usage changes for Chronometer, StatusChronometer, and related components. No new features, fixes, or version bumps in the changed files require further changelog entries. All roadmap and requirements cross-references are marked as \"done\" and do not require further changelog edits. The changelog is current and accurate per the provided evidence.\n```"
+                  }
+                },
+                "error": null
+              },
+              "contributing": {
+                "status": "completed",
+                "fileCount": 1,
+                "duration": 227,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "success": true,
+                    "content": "No updates required — consolidated across 21 prompt partition(s) for CONTRIBUTING.md. The visible evidence did not identify documentation-impacting changes for the scoped documentation files.",
+                    "text": "No updates required — consolidated across 21 prompt partition(s) for CONTRIBUTING.md. The visible evidence did not identify documentation-impacting changes for the scoped documentation files."
+                  }
+                },
+                "error": null
+              },
+              "other": {
+                "status": "completed",
+                "fileCount": 4,
+                "duration": 287,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "success": true,
+                    "content": "Inconclusive — consolidated across 20 prompt partition(s) for docs/ARCHITECTURE.md, docs/DOCKER_TESTING.md, docs/FUNCTIONAL_REQUIREMENTS.md, .github/skills/sync-workflow-config/SKILL.md. At least one partition had incomplete, tangential, or support-only evidence, so Step 1 cannot safely collapse the full result to \"No updates required\".",
+                    "text": "Inconclusive — consolidated across 20 prompt partition(s) for docs/ARCHITECTURE.md, docs/DOCKER_TESTING.md, docs/FUNCTIONAL_REQUIREMENTS.md, .github/skills/sync-workflow-config/SKILL.md. At least one partition had incomplete, tangential, or support-only evidence, so Step 1 cannot safely collapse the full result to \"No updates required\"."
+                  }
+                },
+                "error": null
+              }
+            },
+            "errors": [],
+            "totalFiles": 7,
+            "validatedFiles": 7,
+            "skippedFiles": 0,
+            "stats": {
+              "processed": 7,
+              "totalTime": 823,
+              "speedup": 1
+            }
+          },
+          "filesProcessed": 7
+        },
+        "duration": 824916,
+        "degraded": false
+      },
+      "step_01_5": {
+        "stepId": "step_01_5",
+        "stepName": "Copilot Instructions Validation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "updated": true,
+          "file": ".github/copilot-instructions.md",
+          "facts": {
+            "packageManifestPresent": true,
+            "packageName": "pajussara_tui_comp",
+            "packageVersion": "1.3.0",
+            "packageDescription": "An Ink TUI Component Library in TypeScript",
+            "packageExports": [
+              "exports . -> types: ./dist/src/index.d.ts",
+              "main -> dist/src/index.js",
+              "types -> dist/src/index.d.ts"
+            ],
+            "validationCommands": {
+              "Lint": "npm run lint",
+              "Test": "npm test",
+              "Build": "npm run build"
+            },
+            "referenceDocSignals": [
+              "CHANGELOG.md: # Changelog All notable changes to `pajussara_tui_comp` will be documented here.",
+              "CONTRIBUTING.md: # Contributing to pajussara_tui_comp Thank you for your interest in contributing!",
+              "docs/ARCHITECTURE.md: # Architecture `pajussara_tui_comp` is an [Ink](https://github.com/vadimdemedes/ink) TUI component",
+              "README.md: ## README # pajussara_tui_comp"
+            ],
+            "referenceDocs": [
+              "CHANGELOG.md",
+              "CONTRIBUTING.md",
+              "docs/ARCHITECTURE.md",
+              "README.md"
+            ],
+            "sourceLayers": [
+              {
+                "path": "src/",
+                "purpose": "Primary source modules and public API"
+              },
+              {
+                "path": "src/helpers/",
+                "purpose": "Project source submodule"
+              }
+            ],
+            "supportingSurfaces": [
+              {
+                "path": ".workflow-config.yaml",
+                "purpose": "Project-local workflow configuration"
+              },
+              {
+                "path": ".ai_workflow/",
+                "purpose": "Runtime artifacts, cache, and checkpoints"
+              }
+            ]
+          },
+          "findings": "Structured findings could not be trusted.\n\nValidation issues:\n- ### Finding 1 - Project Description and Purpose uses unsupported action \"keep (with minor condensation)\".\n- ### Finding 2 - Architecture and Directory Structure uses unsupported action \"keep (condense to only stable, repo-fact-supported layers)\".\n- ### Finding 3 - Build, Lint, and Test Commands uses unsupported action \"keep (condense to only repo-fact-supported commands)\".\n- ### Finding 4 - Module System and Entry Points uses unsupported action \"keep (condense and clarify)\".\n- ### Finding 5 - Key Coding Conventions (React.createElement, JSDoc, Section Dividers, Props, Exports, Naming, Focus, Status) uses unsupported action \"keep (condense and clarify, but do not invent new conventions)\".\n- ### Finding 5 - Key Coding Conventions (React.createElement, JSDoc, Section Dividers, Props, Exports, Naming, Focus, Status): `supported guidance` findings must cite at least one surfaced repo-fact heading or quoted snippet.\n- ### Finding 6 - Custom Skills Section uses unsupported action \"keep (condense and clarify)\".\n- ### Finding 6 - Custom Skills Section: Repo-fact evidence cites unsupported snippet \".github/skills/ — Copilot CLI custom skills (e.g. `js-to-ts`)\".\n- ### Finding 7 - Duplicated or Overly Detailed Reference Material uses unsupported action \"remove or replace with pointers to authoritative docs\".\n- ### Finding 9 - Reference to Authoritative Documentation uses unsupported action \"add brief pointers to `README.md`, `docs/ARCHITECTURE.md`, `CONTRIBUTING.md`, and `CHANGELOG.md`\".\n\nSee the raw AI response below for the untrusted original output.\n",
+          "findingsValid": false,
+          "findingsValidationIssues": [
+            "### Finding 1 - Project Description and Purpose uses unsupported action \"keep (with minor condensation)\".",
+            "### Finding 2 - Architecture and Directory Structure uses unsupported action \"keep (condense to only stable, repo-fact-supported layers)\".",
+            "### Finding 3 - Build, Lint, and Test Commands uses unsupported action \"keep (condense to only repo-fact-supported commands)\".",
+            "### Finding 4 - Module System and Entry Points uses unsupported action \"keep (condense and clarify)\".",
+            "### Finding 5 - Key Coding Conventions (React.createElement, JSDoc, Section Dividers, Props, Exports, Naming, Focus, Status) uses unsupported action \"keep (condense and clarify, but do not invent new conventions)\".",
+            "### Finding 5 - Key Coding Conventions (React.createElement, JSDoc, Section Dividers, Props, Exports, Naming, Focus, Status): `supported guidance` findings must cite at least one surfaced repo-fact heading or quoted snippet.",
+            "### Finding 6 - Custom Skills Section uses unsupported action \"keep (condense and clarify)\".",
+            "### Finding 6 - Custom Skills Section: Repo-fact evidence cites unsupported snippet \".github/skills/ — Copilot CLI custom skills (e.g. `js-to-ts`)\".",
+            "### Finding 7 - Duplicated or Overly Detailed Reference Material uses unsupported action \"remove or replace with pointers to authoritative docs\".",
+            "### Finding 9 - Reference to Authoritative Documentation uses unsupported action \"add brief pointers to `README.md`, `docs/ARCHITECTURE.md`, `CONTRIBUTING.md`, and `CHANGELOG.md`\"."
+          ]
+        },
+        "duration": 27118,
+        "degraded": false
+      },
+      "step_02": {
+        "stepId": "step_02",
+        "stepName": "Consistency Check",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "filesChecked": 13,
+          "totalIssues": 14,
+          "brokenLinks": [
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/GETTING_STARTED.md",
+              "link": "./API.md",
+              "text": "API Reference",
+              "line": 81,
+              "type": "broken_link",
+              "repoRootMatch": null
+            }
+          ],
+          "brokenLinkCandidates": 1,
+          "confirmedBrokenLinks": 0,
+          "falsePositiveBrokenLinks": 0,
+          "unverifiedBrokenLinks": 1,
+          "versionIssues": [
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/.github/skills/sync-workflow-config/SKILL.md",
+              "found": "v4.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/.github/skills/sync-workflow-config/SKILL.md",
+              "found": "1.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/.github/skills/sync-workflow-config/SKILL.md",
+              "found": "2.2.17",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/CHANGELOG.md",
+              "found": "1.1.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/CHANGELOG.md",
+              "found": "v2.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/CHANGELOG.md",
+              "found": "1.1.9",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/README.md",
+              "found": "5.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/README.md",
+              "found": "19.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/DOCKER_TESTING.md",
+              "found": "v18.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/DOCKER_TESTING.md",
+              "found": "19.2.4",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/FUNCTIONAL_REQUIREMENTS.md",
+              "found": "6.8.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/FUNCTIONAL_REQUIREMENTS.md",
+              "found": "1.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/GETTING_STARTED.md",
+              "found": "5.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/pajussara_tui_comp/docs/GETTING_STARTED.md",
+              "found": "19.0.0",
+              "expected": "1.3.0",
+              "type": "invalid_version"
+            }
+          ],
+          "degradedAiPartitions": 0,
+          "warnings": []
+        },
+        "duration": 23835,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_13": {
+        "stepId": "step_13",
+        "stepName": "Markdown Linting",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "status": "pass",
+          "stats": {
+            "totalIssues": 0,
+            "filesWithIssues": 0,
+            "filesChecked": 13,
+            "cleanFiles": 13,
+            "uniqueRules": 0,
+            "issuesPerFile": 0
+          },
+          "issues": []
+        },
+        "duration": 3562,
+        "degraded": false
+      },
+      "step_19": {
+        "stepId": "step_19",
+        "stepName": "TypeScript Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "filesAnalyzed": [
+            "src/helpers/index.ts",
+            "src/helpers/panel.ts",
+            "src/helpers/reusable.ts",
+            "src/helpers/status.ts",
+            "src/index.ts",
+            "src/types.ts",
+            "demos/directory-text-browser-with-status-bar.tsx",
+            "demos/directory-text-browser.tsx",
+            "demos/directorypanel-github.tsx",
+            "demos/listpanel-cities.tsx",
+            "demos/listpanel-cities2.tsx",
+            "demos/mermaid-demo.tsx",
+            "demos/status-chronometer-cities.tsx",
+            "demos/status-chronometer-cities2.tsx",
+            "demos/status-chronometer-cities3.tsx",
+            "demos/status-chronometer-cities4.tsx",
+            "demos/status-chronometer-cities5.tsx",
+            "demos/statusbar-lifecycle.tsx",
+            "src/Chronometer.tsx",
+            "src/DirectoryPanel.tsx"
+          ],
+          "totalTsFiles": 30,
+          "issueScore": {
+            "anyCount": 0,
+            "tsIgnoreCount": 0,
+            "missingReturnTypeCount": 0,
+            "totalIssues": 0
+          },
+          "aiContent": "```\nNo updates needed - documentation is current\n\nSummary of review:\n\n- 🔎 **Type Safety**: No `any` usage, no implicit `any`, and all function parameters/returns are explicitly typed. All object shapes use interfaces or type aliases as appropriate.\n- 🔎 **Type Design**: Interfaces and types are well-structured, composable, and reusable. Generics are used where appropriate (e.g., `getVisibleWindow<T>`).\n- 🔎 **Strict Mode Compliance**: `tsconfig.json` has `\"strict\": true` and all strict flags are respected in code.\n- 🔎 **Advanced Types**: Utility types (`Extract`, `Record`, etc.) are used correctly. No manual redefinition of standard utility types.\n- 🔎 **Error Handling**: No unsafe error handling or `any` in catch blocks in the reviewed files.\n- 🔎 **API & Integration**: All external boundaries (props, helpers) are fully typed. No untyped integration points.\n- 🔎 **Linting & Tooling Alignment**: No evidence of TypeScript linting issues; code is idiomatic and matches project conventions.\n\n**No action required.** All reviewed files are fully type-safe, idiomatic, and performant per project and TypeScript best practices.\n```",
+          "report": "# Step 19: TypeScript Review — Strider\n\n## Files Analyzed\n- src/helpers/index.ts\n- src/helpers/panel.ts\n- src/helpers/reusable.ts\n- src/helpers/status.ts\n- src/index.ts\n- src/types.ts\n- demos/directory-text-browser-with-status-bar.tsx\n- demos/directory-text-browser.tsx\n- demos/directorypanel-github.tsx\n- demos/listpanel-cities.tsx\n- demos/listpanel-cities2.tsx\n- demos/mermaid-demo.tsx\n- demos/status-chronometer-cities.tsx\n- demos/status-chronometer-cities2.tsx\n- demos/status-chronometer-cities3.tsx\n- demos/status-chronometer-cities4.tsx\n- demos/status-chronometer-cities5.tsx\n- demos/statusbar-lifecycle.tsx\n- src/Chronometer.tsx\n- src/DirectoryPanel.tsx\n\n## Issue Score (Heuristic)\n\n| Metric | Count |\n|--------|-------|\n| Explicit `any` / `as any` | 0 |\n| `@ts-ignore` / `@ts-nocheck` | 0 |\n| Functions missing return type | 0 |\n| **Total** | **0** |\n\n## AI Analysis\n\n```\nNo updates needed - documentation is current\n\nSummary of review:\n\n- 🔎 **Type Safety**: No `any` usage, no implicit `any`, and all function parameters/returns are explicitly typed. All object shapes use interfaces or type aliases as appropriate.\n- 🔎 **Type Design**: Interfaces and types are well-structured, composable, and reusable. Generics are used where appropriate (e.g., `getVisibleWindow<T>`).\n- 🔎 **Strict Mode Compliance**: `tsconfig.json` has `\"strict\": true` and all strict flags are respected in code.\n- 🔎 **Advanced Types**: Utility types (`Extract`, `Record`, etc.) are used correctly. No manual redefinition of standard utility types.\n- 🔎 **Error Handling**: No unsafe error handling or `any` in catch blocks in the reviewed files.\n- 🔎 **API & Integration**: All external boundaries (props, helpers) are fully typed. No untyped integration points.\n- 🔎 **Linting & Tooling Alignment**: No evidence of TypeScript linting issues; code is idiomatic and matches project conventions.\n\n**No action required.** All reviewed files are fully type-safe, idiomatic, and performant per project and TypeScript best practices.\n```\n"
+        },
+        "duration": 11001,
+        "degraded": false
+      },
+      "step_15": {
+        "stepId": "step_15",
+        "stepName": "TUI UX Review",
+        "success": true,
+        "skipped": true,
+        "reason": "non-web project kind: typescript_library",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "non-web project kind: typescript_library"
+        },
+        "duration": 32,
+        "degraded": false
+      },
+      "step_03": {
+        "stepId": "step_03",
+        "stepName": "Script References",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "scriptsFound": 4,
+          "referencesChecked": 0,
+          "totalIssues": 2,
+          "missingReferences": [],
+          "nonExecutable": [],
+          "undocumented": [
+            "scripts/run-demos-docker.sh",
+            "scripts/run-tests-docker.sh"
+          ],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 29837,
+        "degraded": false
+      },
+      "step_20": {
+        "stepId": "step_20",
+        "stepName": "Async/Event Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "skipped": false,
+          "fileCount": 16,
+          "skippedCount": 14,
+          "scores": {
+            "promiseConstructorCount": 0,
+            "unhandledRejectionCount": 0,
+            "missingCleanupCount": 0,
+            "totalIssues": 0
+          },
+          "report": "## Async Performance Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Explicit Promise constructors | 0 |\n| Potential unhandled rejections (.then without .catch) | 0 |\n| Missing event listener cleanup | 0 |\n| **Total heuristic signals** | **0** |\n\n### AI Analysis\n\n#### Partition 1 of 9\n\n**Async Performance Review — src/DirectoryPanel.tsx (parts 1 & 2)**\n\n---\n\n### 1. Overfetching\n✅ No issues found  \n- Only direct child directories are read via `readdir(directoryPath, { withFileTypes: true })`. No evidence of overfetching or missing pagination in the visible code.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found  \n- Only one async function (`loadDirectories`) is present, and it uses a single `await` for `readdir`. No sequential awaits or unnecessary async wrappers.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found  \n- The only synchronous work is a small array filter/map/sort on directory entries, which is unlikely to block the event loop at this scale.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found  \n- No event listeners, timers, or streams are created. All state is managed via React hooks, and the `isStale` flag prevents state updates on unmounted components.\n\n---\n\n### 5. API Call Batching\n✅ No issues found  \n- Only a single directory read per mount/update. No N+1 or burst fetch patterns.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found  \n- Keyboard input is handled via `useInput` with no evidence of rapid-fire async calls or handlers needing debouncing.\n\n---\n\n### 7. Error Handling\n✅ No issues found  \n- All async operations are wrapped in try/catch, and errors are surfaced to the UI via `setErrorMessage`.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found  \n- No explicit `new Promise` usage, no mixed `.then()`/`await`, and no redundant `return await`.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found  \n- The `isStale` flag in the effect cleanup prevents state updates after unmount. No streams, listeners, or abortable fetches are present.\n\n---\n\n## Prioritized Recommendations\n\nNo async performance or reliability issues found in the analyzed code. No changes required.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|-------------|----------|------------------------------|\n| Overfetching           | 0           | —        | No overfetching              |\n| Promise Overhead       | 0           | —        | Async usage is minimal       |\n| Event Loop Congestion  | 0           | —        | No heavy sync work           |\n| Memory Leaks           | 0           | —        | No leaks detected            |\n| API Call Batching      | 0           | —        | No batching needed           |\n| Debounce/Throttle      | 0           | —        | No rapid-fire handlers       |\n| Error Handling         | 0           | —        | All errors handled           |\n| Promise Anti-Patterns  | 0           | —        | No anti-patterns             |\n| Resource Cleanup       | 0           | —        | Cleanup is sufficient        |\n\n---\n\n**Conclusion:**  \nThe `DirectoryPanel` component demonstrates robust async patterns, proper error handling, and no evidence of performance or reliability risks in the provided code. No action needed.\n\n#### Partition 2 of 9\n\n**Async Performance Review — src/StatusBar.tsx, src/status_badge.tsx, src/helpers/status.ts**\n\n---\n\n### 1. Overfetching\n✅ No issues found  \n- No data fetching or network calls in these files.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found  \n- The only interval is a 100ms spinner animation (`setInterval` in `StatusBadge`), which is lightweight and not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found  \n- All timers (`setInterval` in `StatusBadge`) are properly cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found  \n- No input handlers or polling loops requiring debouncing or throttling.\n\n---\n\n### 7. Error Handling\n✅ No issues found  \n- No async operations or floating promises. Error display is handled via props.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found  \n- `setInterval` in `StatusBadge` is always cleared on unmount/status change. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\nNo async performance or reliability issues found in the analyzed files. No changes required.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|-------------|----------|------------------------------|\n| Overfetching           | 0           | —        | No fetches present           |\n| Promise Overhead       | 0           | —        | No async/promise usage       |\n| Event Loop Congestion  | 0           | —        | Spinner is lightweight       |\n| Memory Leaks           | 0           | —        | Timers cleaned up properly   |\n| API Call Batching      | 0           | —        | No API calls                 |\n| Debounce/Throttle      | 0           | —        | No rapid-fire handlers       |\n| Error Handling         | 0           | —        | No async errors to handle    |\n| Promise Anti-Patterns  | 0           | —        | No anti-patterns             |\n| Resource Cleanup       | 0           | —        | Cleanup is sufficient        |\n\n---\n\n**Conclusion:**  \nAll three files are free of async performance and reliability issues. No action needed.\n\n#### Partition 3 of 9\n\n**Async Performance Review — src/Chronometer.tsx (parts 1 & 2), src/DirectoryTextBrowserWithStatusBar.tsx, src/types.ts**\n\n---\n\n### 1. Overfetching\n✅ No issues found  \n- No data fetching or network calls in any of these files.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found  \n- The only interval is a 100ms timer for the chronometer, which is lightweight and not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found  \n- All timers (`setInterval` in `Chronometer`) are properly cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found  \n- No input handlers or polling loops requiring debouncing or throttling.\n\n---\n\n### 7. Error Handling\n✅ No issues found  \n- No async operations or floating promises. All callbacks are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found  \n- `setInterval` in `Chronometer` is always cleared on unmount/status change. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\nNo async performance or reliability issues found in the analyzed files. No changes required.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|-------------|----------|------------------------------|\n| Overfetching           | 0           | —        | No fetches present           |\n| Promise Overhead       | 0           | —        | No async/promise usage       |\n| Event Loop Congestion  | 0           | —        | Timer is lightweight         |\n| Memory Leaks           | 0           | —        | Timers cleaned up properly   |\n| API Call Batching      | 0           | —        | No API calls                 |\n| Debounce/Throttle      | 0           | —        | No rapid-fire handlers       |\n| Error Handling         | 0           | —        | No async errors to handle    |\n| Promise Anti-Patterns  | 0           | —        | No anti-patterns             |\n| Resource Cleanup       | 0           | —        | Cleanup is sufficient        |\n\n---\n\n**Conclusion:**  \nAll files in this partition are free of async performance and reliability issues. No action needed.\n\n#### Partition 4 of 9\n\n**Async Performance Review — demos/statusbar-lifecycle.tsx (parts 1 & 2)**\n\n---\n\n### 1. Overfetching\n✅ No issues found  \n- No data fetching or network calls in this demo file.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found  \n- The only timer is a 2.2s `setTimeout` for demo state cycling, which is not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found  \n- All timers (`setTimeout`) are properly cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found  \n- Input handlers are user-driven and not rapid-fire; no debounce/throttle needed.\n\n---\n\n### 7. Error Handling\n✅ No issues found  \n- No async operations or floating promises. All state changes are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found  \n- `setTimeout` is always cleared on effect cleanup. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\nNo async performance or reliability issues found in the analyzed demo file. No changes required.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|-------------|----------|------------------------------|\n| Overfetching           | 0           | —        | No fetches present           |\n| Promise Overhead       | 0           | —        | No async/promise usage       |\n| Event Loop Congestion  | 0           | —        | Timer is lightweight         |\n| Memory Leaks           | 0           | —        | Timers cleaned up properly   |\n| API Call Batching      | 0           | —        | No API calls                 |\n| Debounce/Throttle      | 0           | —        | No rapid-fire handlers       |\n| Error Handling         | 0           | —        | No async errors to handle    |\n| Promise Anti-Patterns  | 0           | —        | No anti-patterns             |\n| Resource Cleanup       | 0           | —        | Cleanup is sufficient        |\n\n---\n\n**Conclusion:**  \nThe demo is free of async performance and reliability issues. No action needed.\n\n#### Partition 5 of 9\n\n**Async Performance Review — `demos/status-chronometer-cities5.tsx` (parts 1 & 2), `demos/status-chronometer-cities4.tsx` (part 1/2)**\n\n---\n\n### 1. Overfetching\n✅ No issues found.  \n- No network or file I/O; all state is local.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found.  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found.  \n- The only timer is a 1800ms `setTimeout` for demo state cycling, which is lightweight and not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found.  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found.  \n- No rapid-fire input or event sources that would require debouncing or throttling.\n\n---\n\n### 7. Error Handling\n✅ No issues found.  \n- No async operations or floating promises. All state changes are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found.  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\n1. **No changes required** — All async and resource management patterns in these demo files are correct and safe.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|--------------|----------|------------------------------|\n| Overfetching           | No           | —        | No fetches present           |\n| Promise Overhead       | No           | —        | No async/promise usage       |\n| Event Loop Congestion  | No           | —        | Demo timer is light          |\n| Memory Leaks           | No           | —        | Timeout cleaned up           |\n| API Call Batching      | No           | —        | No API calls                 |\n| Debounce/Throttle      | No           | —        | No handlers to debounce      |\n| Error Handling         | No           | —        | No async errors              |\n| Promise Anti-Patterns  | No           | —        | No anti-patterns present     |\n| Resource Cleanup       | No           | —        | Cleanup handled correctly    |\n\n---\n\n**Conclusion:**  \nThe analyzed demo files are free of async performance, error handling, or resource management issues. No changes are recommended.\n\n#### Partition 6 of 9\n\n**Async Performance Review — `demos/status-chronometer-cities4.tsx` (part 2/2), `demos/status-chronometer-cities.tsx` (parts 1 & 2)**\n\n---\n\n### 1. Overfetching\n✅ No issues found.  \n- No network or file I/O; all state is local.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found.  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found.  \n- The only timer is a 1800ms `setTimeout` for demo state cycling, which is lightweight and not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found.  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found.  \n- No rapid-fire input or event sources that would require debouncing or throttling.\n\n---\n\n### 7. Error Handling\n✅ No issues found.  \n- No async operations or floating promises. All state changes are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found.  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\n1. **No changes required** — All async and resource management patterns in these demo files are correct and safe.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|--------------|----------|------------------------------|\n| Overfetching           | No           | —        | No fetches present           |\n| Promise Overhead       | No           | —        | No async/promise usage       |\n| Event Loop Congestion  | No           | —        | Demo timer is light          |\n| Memory Leaks           | No           | —        | Timeout cleaned up           |\n| API Call Batching      | No           | —        | No API calls                 |\n| Debounce/Throttle      | No           | —        | No handlers to debounce      |\n| Error Handling         | No           | —        | No async errors              |\n| Promise Anti-Patterns  | No           | —        | No anti-patterns present     |\n| Resource Cleanup       | No           | —        | Cleanup handled correctly    |\n\n---\n\n**Conclusion:**  \nThe analyzed demo files are free of async performance, error handling, or resource management issues. No changes are recommended.\n\n#### Partition 7 of 9\n\n**Async Performance Review — `demos/status-chronometer-cities3.tsx` (parts 1 & 2), `demos/status-chronometer-cities2.tsx` (part 1/2)**\n\n---\n\n### 1. Overfetching\n✅ No issues found.  \n- No network or file I/O; all state is local.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found.  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found.  \n- The only timer is a 1800ms `setTimeout` for demo state cycling, which is lightweight and not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found.  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found.  \n- No rapid-fire input or event sources that would require debouncing or throttling.\n\n---\n\n### 7. Error Handling\n✅ No issues found.  \n- No async operations or floating promises. All state changes are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found.  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\n1. **No changes required** — All async and resource management patterns in these demo files are correct and safe.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|--------------|----------|------------------------------|\n| Overfetching           | No           | —        | No fetches present           |\n| Promise Overhead       | No           | —        | No async/promise usage       |\n| Event Loop Congestion  | No           | —        | Demo timer is light          |\n| Memory Leaks           | No           | —        | Timeout cleaned up           |\n| API Call Batching      | No           | —        | No API calls                 |\n| Debounce/Throttle      | No           | —        | No handlers to debounce      |\n| Error Handling         | No           | —        | No async errors              |\n| Promise Anti-Patterns  | No           | —        | No anti-patterns present     |\n| Resource Cleanup       | No           | —        | Cleanup handled correctly    |\n\n---\n\n**Conclusion:**  \nThe analyzed demo files are free of async performance, error handling, or resource management issues. No changes are recommended.\n\n#### Partition 8 of 9\n\n**Async Performance Review — `demos/status-chronometer-cities2.tsx` (part 2/2), `demos/listpanel-cities2.tsx` (parts 1 & 2), `demos/listpanel-cities.tsx`**\n\n---\n\n### 1. Overfetching\n✅ No issues found.  \n- No network or file I/O; all state is local.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found.  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found.  \n- The only timer is a 1800ms `setTimeout` for demo state cycling, which is lightweight and not CPU-bound.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No event listeners or streams.\n\n---\n\n### 5. API Call Batching\n✅ No issues found.  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found.  \n- No rapid-fire input or event sources that would require debouncing or throttling.\n\n---\n\n### 7. Error Handling\n✅ No issues found.  \n- No async operations or floating promises. All state changes are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found.  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found.  \n- `setTimeout` is always cleared in the `useEffect` cleanup. No other resources to clean up.\n\n---\n\n## Prioritized Recommendations\n\n1. **No changes required** — All async and resource management patterns in these demo files are correct and safe.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|--------------|----------|------------------------------|\n| Overfetching           | No           | —        | No fetches present           |\n| Promise Overhead       | No           | —        | No async/promise usage       |\n| Event Loop Congestion  | No           | —        | Demo timer is light          |\n| Memory Leaks           | No           | —        | Timeout cleaned up           |\n| API Call Batching      | No           | —        | No API calls                 |\n| Debounce/Throttle      | No           | —        | No handlers to debounce      |\n| Error Handling         | No           | —        | No async errors              |\n| Promise Anti-Patterns  | No           | —        | No anti-patterns present     |\n| Resource Cleanup       | No           | —        | Cleanup handled correctly    |\n\n---\n\n**Conclusion:**  \nThe analyzed demo files are free of async performance, error handling, or resource management issues. No changes are recommended.\n\n#### Partition 9 of 9\n\n**Async Performance Review — demos/mermaid-demo.tsx**\n\n---\n\n### 1. Overfetching\n✅ No issues found  \n- No data fetching or network calls in this demo file.\n\n---\n\n### 2. Promise Overhead\n✅ No issues found  \n- No async functions, promises, or sequential awaits present.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found  \n- No CPU-heavy synchronous work or blocking operations.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found  \n- No timers, event listeners, or streams requiring cleanup. All hooks are React-managed.\n\n---\n\n### 5. API Call Batching\n✅ No issues found  \n- No API calls or batchable operations.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found  \n- Input handlers are user-driven and not rapid-fire; no debounce/throttle needed.\n\n---\n\n### 7. Error Handling\n✅ No issues found  \n- No async operations or floating promises. All state changes are synchronous.\n\n---\n\n### 8. Promise Anti-Patterns\n✅ No issues found  \n- No explicit Promise constructors, `.then()` chains, or redundant `async`/`await` usage.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found  \n- No resources requiring manual cleanup.\n\n---\n\n## Prioritized Recommendations\n\nNo async performance or reliability issues found in the analyzed demo file. No changes required.\n\n---\n\n## Summary Table\n\n| Dimension              | Issues Found | Severity | Notes                        |\n|------------------------|-------------|----------|------------------------------|\n| Overfetching           | 0           | —        | No fetches present           |\n| Promise Overhead       | 0           | —        | No async/promise usage       |\n| Event Loop Congestion  | 0           | —        | No blocking work             |\n| Memory Leaks           | 0           | —        | No leaks possible            |\n| API Call Batching      | 0           | —        | No API calls                 |\n| Debounce/Throttle      | 0           | —        | No rapid-fire handlers       |\n| Error Handling         | 0           | —        | No async errors to handle    |\n| Promise Anti-Patterns  | 0           | —        | No anti-patterns             |\n| Resource Cleanup       | 0           | —        | No cleanup needed            |\n\n---\n\n**Conclusion:**  \nThe demo is free of async performance and reliability issues. No action needed.",
+          "warnings": []
+        },
+        "duration": 42121,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_11": {
+        "stepId": "step_11",
+        "stepName": "Context Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "completionRate": 88,
+          "completionStatus": "good",
+          "completedSteps": 15,
+          "totalSteps": 17,
+          "gitStatus": {
+            "isGitRepo": true,
+            "branch": "unknown",
+            "modifiedFiles": 0,
+            "untrackedFiles": 2,
+            "stagedFiles": 0,
+            "commitsAhead": 0
+          },
+          "changeImpact": "low",
+          "impactScore": 0,
+          "issues": {
+            "total": 0,
+            "critical": 0,
+            "warnings": 0,
+            "passed": 17
+          },
+          "duration": 1141
+        },
+        "duration": 357,
+        "degraded": false
+      },
+      "step_16": {
+        "stepId": "step_16",
+        "stepName": "Version Update",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "oldVersion": "1.3.0",
+          "newVersion": "1.4.0",
+          "bumpType": "minor",
+          "stats": {
+            "updated": 39,
+            "skipped": 80,
+            "failed": 0
+          },
+          "updates": [
+            {
+              "file": "package.json",
+              "success": true
+            },
+            {
+              "file": "pyproject.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "setup.py",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "Cargo.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": ".workflow-config.yaml",
+              "success": true
+            },
+            {
+              "file": ".ai_workflow/.step_cache/step_06_partition.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/metrics/current_run.json",
+              "skipped": true
+            },
+            {
+              "file": ".github/copilot-instructions.md",
+              "skipped": true
+            },
+            {
+              "file": "CHANGELOG.md",
+              "success": true
+            },
+            {
+              "file": "CONTRIBUTING.md",
+              "skipped": true
+            },
+            {
+              "file": "README.md",
+              "skipped": true
+            },
+            {
+              "file": "demos/directory-text-browser-with-status-bar.tsx",
+              "success": true
+            },
+            {
+              "file": "demos/directory-text-browser.tsx",
+              "success": true
+            },
+            {
+              "file": "demos/directorypanel-github.tsx",
+              "success": true
+            },
+            {
+              "file": "demos/mermaid-demo.tsx",
+              "success": true
+            },
+            {
+              "file": "demos/statusbar-lifecycle.tsx",
+              "success": true
+            },
+            {
+              "file": "dist/src/Chronometer.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/Chronometer.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryPanel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowser.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowser.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/DirectoryTextBrowserWithStatusBar.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/ListPanel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/ListPanel.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/ListPanel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/MermaidPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/MermaidPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/StatusBar.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/StatusBar.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/StatusBar.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/StatusBar.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/TextListPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/TextListPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/helpers/index.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/index.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.d.ts",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/index.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/status_badge.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/status_badge.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/status_badge.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/status_chronometer.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/status_chronometer.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/status_chronometer.js.map",
+              "skipped": true
+            },
+            {
+              "file": "docs/ARCHITECTURE.md",
+              "skipped": true
+            },
+            {
+              "file": "docs/DOCKER_TESTING.md",
+              "skipped": true
+            },
+            {
+              "file": "docs/FUNCTIONAL_REQUIREMENTS.md",
+              "skipped": true
+            },
+            {
+              "file": "docs/usability-heuristics.md",
+              "skipped": true
+            },
+            {
+              "file": "jest.config.json",
+              "skipped": true
+            },
+            {
+              "file": "package-lock.json",
+              "success": true
+            },
+            {
+              "file": "src/Chronometer.tsx",
+              "skipped": true
+            },
+            {
+              "file": "src/DirectoryPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "src/DirectoryTextBrowser.tsx",
+              "success": true
+            },
+            {
+              "file": "src/DirectoryTextBrowserWithStatusBar.tsx",
+              "success": true
+            },
+            {
+              "file": "src/ListPanel.tsx",
+              "skipped": true
+            },
+            {
+              "file": "src/MermaidPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "src/StatusBar.tsx",
+              "success": true
+            },
+            {
+              "file": "src/TextListPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "src/helpers/README.md",
+              "skipped": true
+            },
+            {
+              "file": "src/index.ts",
+              "skipped": true
+            },
+            {
+              "file": "src/status_badge.tsx",
+              "skipped": true
+            },
+            {
+              "file": "src/status_chronometer.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/Chronometer.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/DirectoryTextBrowser.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/ListPanel.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/TextListPanel.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/index.test.ts",
+              "skipped": true
+            },
+            {
+              "file": "test/listpanel-cities2.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/status_chronometer.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "tsconfig.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/.ml_model.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/analysis/workflow_20260429_182314/part_preamble_2026-04-29T21-24-18-481Z.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_00.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_04.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_05.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_06.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_07.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_08.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_0b.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_15.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_16.md",
+              "success": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_19.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/backlog/workflow_20260429_172234/step_20.md",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/cache/step_20_async_history.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/checkpoints/workflow_1777494160084-1777495816687.json",
+              "success": true
+            },
+            {
+              "file": ".ai_workflow/preflight_baseline.json",
+              "skipped": true
+            },
+            {
+              "file": ".github/skills/sync-workflow-config/SKILL.md",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/ErrorDetailPanel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/ErrorDetailPanel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/ErrorDetailPanel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/ErrorDetailPanel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/panel.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/helpers/panel.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/panel.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/helpers/panel.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/reusable.d.ts",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/reusable.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/reusable.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/reusable.js.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/status.d.ts",
+              "success": true
+            },
+            {
+              "file": "dist/src/helpers/status.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/src/helpers/status.js",
+              "success": true
+            },
+            {
+              "file": "dist/src/helpers/status.js.map",
+              "skipped": true
+            },
+            {
+              "file": "src/ErrorDetailPanel.tsx",
+              "success": true
+            },
+            {
+              "file": "src/helpers/panel.ts",
+              "success": true
+            },
+            {
+              "file": "src/helpers/reusable.ts",
+              "skipped": true
+            },
+            {
+              "file": "src/helpers/status.ts",
+              "success": true
+            },
+            {
+              "file": "test/ErrorDetailPanel.test.tsx",
+              "skipped": true
+            },
+            {
+              "file": "test/helpers.reusable.test.ts",
+              "skipped": true
+            },
+            {
+              "file": "test/helpers/panel.test.ts",
+              "success": true
+            },
+            {
+              "file": "test/helpers/reusable.test.ts",
+              "skipped": true
+            },
+            {
+              "file": "test/helpers/status.test.ts",
+              "skipped": true
+            },
+            {
+              "file": "package.json",
+              "skipped": true,
+              "reason": "not a version config file"
+            }
+          ],
+          "consistencyCheck": {
+            "ran": false
+          },
+          "duration": 8639
+        },
+        "duration": 8665,
+        "degraded": false
+      },
+      "step_17": {
+        "stepId": "step_17",
+        "stepName": "Workflow Summary",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "summary": {
+            "metrics": {
+              "totalSteps": 0,
+              "successfulSteps": 0,
+              "failedSteps": 0,
+              "skippedSteps": 0,
+              "totalDuration": 0,
+              "avgDuration": 0,
+              "successRate": 0,
+              "startTime": "2026-04-29T22:26:02.663Z",
+              "endTime": "2026-04-29T22:46:10.622Z",
+              "workflowRunId": "workflow_20260429_192653",
+              "version": "1.0.0",
+              "mode": "interactive"
+            },
+            "timeline": {
+              "steps": [],
+              "phases": {
+                "initialization": [],
+                "documentation": [],
+                "validation": [],
+                "testing": [],
+                "quality": [],
+                "finalization": []
+              }
+            },
+            "cacheEfficiency": {
+              "cacheHits": 0,
+              "cacheMisses": 0,
+              "totalRequests": 0,
+              "hitRate": 0,
+              "quality": "unknown"
+            },
+            "recommendations": [],
+            "report": "# Workflow Summary Report\n\n**Workflow Run ID:** workflow_20260429_192653\n**Version:** 1.0.0\n**Mode:** interactive\n**Start Time:** 2026-04-29T22:26:02.663Z\n**End Time:** 2026-04-29T22:46:10.622Z\n**Total Duration:** 0s\n\n---\n\n## Executive Summary\n\n**Overall Status:** ⚠️ Completed\n**Success Rate:** 0.0%\n**Total Steps:** 0\n**Successful:** 0 ✅\n**Average Step Duration:** 0s\n\n---\n\n## Execution Timeline\n\n\n\n---\n\n## Phase Breakdown\n\n\n\n---\n\n## Performance Metrics\n\n| Metric | Value |\n|--------|-------|\n| Total Duration | 0s |\n| Average Step Duration | 0s |\n| Total Steps | 0 |\n| Success Rate | 0.0% |\n\n---\n\n*Generated by AI Workflow Automation v1.0.0*\n\n*Report generated at: 2026-04-29T22:46:10.623Z*\n"
+          },
+          "message": "Workflow summary generated successfully"
+        },
+        "duration": 32,
+        "degraded": false
+      },
+      "step_02_5": {
+        "stepId": "step_02_5",
+        "stepName": "Documentation Optimization",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "summary": {
+            "totalFiles": 6,
+            "exactDuplicates": [],
+            "redundantPairs": [],
+            "outdatedFiles": [],
+            "edgeCases": [],
+            "filesOptimized": 0,
+            "errors": []
+          },
+          "optimizationResults": null,
+          "reportResult": null,
+          "executionTime": 0,
+          "errors": []
+        },
+        "duration": 231,
+        "degraded": false
+      },
+      "step_0f": {
+        "stepId": "step_0f",
+        "stepName": "Commit Artifacts",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "committed": true,
+          "files": [
+            ".ai_workflow/.step_cache/step_06_partition.json",
+            ".ai_workflow/.step_cache/step_10_partition.json",
+            ".ai_workflow/.step_cache/step_10_quality.json",
+            ".ai_workflow/checkpoints/workflow_1775416576797-1775416711850.json",
+            ".ai_workflow/checkpoints/workflow_1775445641901-1775445780869.json",
+            ".ai_workflow/checkpoints/workflow_1776003641129-1776004050380.json",
+            ".ai_workflow/checkpoints/workflow_1776009621470-1776009975213.json",
+            ".ai_workflow/metrics/current_run.json",
+            "docs/ARCHITECTURE.md",
+            "docs/DOCKER_TESTING.md",
+            "docs/FUNCTIONAL_REQUIREMENTS.md",
+            "docs/usability-heuristics.md"
+          ],
+          "summary": "Committed 12 artifact file(s)"
+        },
+        "duration": 107,
+        "degraded": false
+      },
+      "step_21": {
+        "stepId": "step_21",
+        "stepName": "Documentation Consolidation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "clustersFound": 0,
+          "totalDocs": 13
+        },
+        "duration": 448,
+        "degraded": false
+      },
+      "step_12": {
+        "stepId": "step_12",
+        "stepName": "Git Finalization",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "branch": "main",
+          "commitMessage": "feat(implementation+tests): update components, docs, and tests\n\n- Add and update TUI components and helpers for enhanced functionality\n- Expand and revise test coverage for new and existing modules\n- Improve and clarify project documentation and usage examples\n- Update configuration and workflow files for consistency\n- Integrate workflow automation changes [v1.4.0]\n\n[workflow-automation v1.4.0]\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+          "pushed": true,
+          "report": "### Git Finalization Summary\n\n**Branch:** main\n**Commits Ahead:** 3\n**Commits Behind:** 0\n**Commit Type:** feat(implementation+tests)\n**Modified Files:** 68\n**Total Changes:** 99\n\n### Change Breakdown\n\n- Documentation: 5 files\n- Tests: 2 files\n- Scripts: 0 files\n- Code: 30 files\n- Config: 6 files\n\n### Commit Message\n\n```\nfeat(implementation+tests): update components, docs, and tests\n\n- Add and update TUI components and helpers for enhanced functionality\n- Expand and revise test coverage for new and existing modules\n- Improve and clarify project documentation and usage examples\n- Update configuration and workflow files for consistency\n- Integrate workflow automation changes [v1.4.0]\n\n[workflow-automation v1.4.0]\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\n```\n\n**Push Status:** ✅ Pushed successfully"
+        },
+        "duration": 11224,
+        "degraded": false
+      }
+    },
+    "context": {
+      "workflowDir": "/home/mpb/Documents/GitHub/pajussara_tui_comp/.ai_workflow",
+      "projectRoot": "/home/mpb/Documents/GitHub/pajussara_tui_comp",
+      "auto": false,
+      "workflowRunId": "workflow_20260429_192653",
+      "modifiedFiles": [
+        ".workflow-config.yaml",
+        "CHANGELOG.md",
+        "demos/directory-text-browser-with-status-bar.tsx",
+        "demos/directory-text-browser.tsx",
+        "demos/directorypanel-github.tsx",
+        "demos/mermaid-demo.tsx",
+        "demos/statusbar-lifecycle.tsx",
+        "dist/src/DirectoryPanel.d.ts",
+        "dist/src/DirectoryPanel.js",
+        "dist/src/DirectoryTextBrowser.d.ts",
+        "dist/src/DirectoryTextBrowser.js",
+        "dist/src/DirectoryTextBrowserWithStatusBar.d.ts",
+        "dist/src/DirectoryTextBrowserWithStatusBar.js",
+        "dist/src/MermaidPanel.d.ts",
+        "dist/src/MermaidPanel.js",
+        "dist/src/StatusBar.d.ts",
+        "dist/src/StatusBar.js",
+        "dist/src/TextListPanel.d.ts",
+        "dist/src/TextListPanel.js",
+        "dist/src/helpers/index.d.ts",
+        "dist/src/helpers/index.d.ts.map",
+        "dist/src/helpers/index.js",
+        "dist/src/helpers/index.js.map",
+        "package-lock.json",
+        "package.json",
+        "src/DirectoryPanel.tsx",
+        "src/DirectoryTextBrowser.tsx",
+        "src/DirectoryTextBrowserWithStatusBar.tsx",
+        "src/MermaidPanel.tsx",
+        "src/StatusBar.tsx",
+        "src/TextListPanel.tsx",
+        "src/helpers/README.md",
+        "src/helpers/index.ts",
+        "src/index.ts",
+        "test/DirectoryTextBrowserWithStatusBar.test.tsx",
+        "test/StatusBar.test.tsx",
+        "test/index.test.ts",
+        ".ai_workflow/.step_cache/step_06_partition.json",
+        ".ai_workflow/metrics/current_run.json",
+        ".github/copilot-instructions.md",
+        "CONTRIBUTING.md",
+        "README.md",
+        "dist/src/Chronometer.js",
+        "dist/src/Chronometer.js.map",
+        "dist/src/DirectoryPanel.d.ts.map",
+        "dist/src/DirectoryPanel.js.map",
+        "dist/src/ListPanel.d.ts.map",
+        "dist/src/ListPanel.js",
+        "dist/src/ListPanel.js.map",
+        "dist/src/StatusBar.d.ts.map",
+        "dist/src/StatusBar.js.map",
+        "dist/src/index.d.ts",
+        "dist/src/index.d.ts.map",
+        "dist/src/index.js",
+        "dist/src/index.js.map",
+        "dist/src/status_badge.d.ts.map",
+        "dist/src/status_badge.js",
+        "dist/src/status_badge.js.map",
+        "dist/src/status_chronometer.d.ts.map",
+        "dist/src/status_chronometer.js",
+        "dist/src/status_chronometer.js.map",
+        "docs/ARCHITECTURE.md",
+        "docs/DOCKER_TESTING.md",
+        "docs/FUNCTIONAL_REQUIREMENTS.md",
+        "docs/usability-heuristics.md",
+        "jest.config.json",
+        "src/Chronometer.tsx",
+        "src/ListPanel.tsx",
+        "src/status_badge.tsx",
+        "src/status_chronometer.tsx",
+        "test/Chronometer.test.tsx",
+        "test/DirectoryTextBrowser.test.tsx",
+        "test/ListPanel.test.tsx",
+        "test/TextListPanel.test.tsx",
+        "test/listpanel-cities2.test.tsx",
+        "test/status_chronometer.test.tsx",
+        "tsconfig.json",
+        ".ai_workflow/.ml_model.json",
+        ".ai_workflow/analysis/workflow_20260429_182314/part_preamble_2026-04-29T21-24-18-481Z.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_00.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_04.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_05.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_06.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_07.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_08.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_0b.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_15.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_16.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_19.md",
+        ".ai_workflow/backlog/workflow_20260429_172234/step_20.md",
+        ".ai_workflow/cache/step_20_async_history.json",
+        ".ai_workflow/checkpoints/workflow_1777494160084-1777495816687.json",
+        ".ai_workflow/preflight_baseline.json",
+        ".github/skills/sync-workflow-config/SKILL.md",
+        "dist/src/ErrorDetailPanel.d.ts",
+        "dist/src/ErrorDetailPanel.d.ts.map",
+        "dist/src/ErrorDetailPanel.js",
+        "dist/src/ErrorDetailPanel.js.map",
+        "dist/src/helpers/panel.d.ts",
+        "dist/src/helpers/panel.d.ts.map",
+        "dist/src/helpers/panel.js",
+        "dist/src/helpers/panel.js.map",
+        "dist/src/helpers/reusable.d.ts",
+        "dist/src/helpers/reusable.d.ts.map",
+        "dist/src/helpers/reusable.js",
+        "dist/src/helpers/reusable.js.map",
+        "dist/src/helpers/status.d.ts",
+        "dist/src/helpers/status.d.ts.map",
+        "dist/src/helpers/status.js",
+        "dist/src/helpers/status.js.map",
+        "src/ErrorDetailPanel.tsx",
+        "src/helpers/panel.ts",
+        "src/helpers/reusable.ts",
+        "src/helpers/status.ts",
+        "test/ErrorDetailPanel.test.tsx",
+        "test/helpers.reusable.test.ts",
+        "test/helpers/panel.test.ts",
+        "test/helpers/reusable.test.ts",
+        "test/helpers/status.test.ts"
+      ],
+      "projectType": "typescript-library",
+      "scope": "full_validation",
+      "projectDescription": "Ink TUI Component Library in TypeScript — React.createElement (no JSX); strict conventions: JSDoc @fileoverview headers, section dividers, interface-over-type, named+default exports",
+      "alternatives": false,
+      "preflightCheck": {
+        "passed": true,
+        "advisory": false,
+        "hasForceExitWarning": false,
+        "skipped": false,
+        "packageManager": "npm",
+        "commands": [
+          {
+            "name": "lint",
+            "command": "npm run lint",
+            "passed": true
+          },
+          {
+            "name": "test",
+            "command": "npm test",
+            "passed": true
+          },
+          {
+            "name": "build",
+            "command": "npm run build",
+            "passed": true
+          }
+        ],
+        "message": "Ran 3 pre-flight quality suite(s)"
+      },
+      "resumeCommandHint": "ai-workflow resume --latest",
+      "changeStats": {
+        "changed": 119,
+        "added": 0,
+        "modified": 119,
+        "deleted": 0,
+        "codeFiles": 99,
+        "docsFiles": 20,
+        "testFiles": 0,
+        "changePercentage": 100
+      }
+    }
+  },
+  "metadata": {
+    "totalSteps": 24,
+    "progress": 0
+  }
+}
