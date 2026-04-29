@@ -14,12 +14,14 @@ pajussara_tui_comp/
 │   ├── ListPanel.tsx           # Scrollable, keyboard-navigable list panel
 │   ├── DirectoryPanel.tsx      # Filesystem folder browser panel
 │   ├── StreamViewer.tsx        # Live AI token stream panel with history navigation
+│   ├── ErrorDetailPanel.tsx    # Failed-step error details with stack trace display
 │   ├── Chronometer.tsx         # Elapsed-time display with start/stop/reset controls
 │   ├── status_badge.tsx        # Animated spinner / completion / error indicator
 │   ├── status_chronometer.tsx  # StatusBadge + Chronometer side-by-side composite
 │   └── MermaidPanel.tsx        # Terminal Mermaid diagram renderer (Unicode ASCII art)
-├── helpers/                    # Shared display utilities imported by components
-│   └── index.ts                # formatStepIcon · statusColor · formatDuration
+│   ├── helpers/                # Shared display and reusable TUI utilities
+│   │   ├── index.ts            # Existing component-facing display helpers
+│   │   └── reusable.ts         # Generic formatting, layout, progress, and log helpers
 ├── test/                       # Jest test suite
 ├── dist/                       # Compiled output (tracked for jsDelivr CDN delivery)
 │   └── src/                    # Mirrors src/ structure after tsc compilation
@@ -33,7 +35,7 @@ pajussara_tui_comp/
 
 ```
 src/ListPanel.tsx
-      └── import ← helpers/index.ts   (formatStepIcon, statusColor, formatDuration)
+      └── import ← src/helpers/index.ts   (formatStepIcon, statusColor, formatDuration)
       └── import ← ink                (Box, Text, useInput)
       └── import ← react              (React, useState, useEffect)
 
@@ -47,10 +49,19 @@ src/StreamViewer.tsx
       └── import ← ink                (Box, Text, useInput)
       └── import ← react              (React, useState, useEffect, useRef)
 
+src/ErrorDetailPanel.tsx
+      └── import ← src/helpers/reusable.ts   (truncateStackTrace)
+      └── import ← ink                       (Box, Text, useInput)
+      └── import ← react                     (React)
+
 src/Chronometer.tsx
-      └── import ← helpers/index.ts   (formatDuration)
+      └── import ← src/helpers/index.ts   (formatDuration)
       └── import ← ink                (Box, Text, useInput)
       └── import ← react              (React, useState, useEffect)
+
+src/helpers/reusable.ts
+      └── pure exports → status formatting, progress formatting, log utilities
+      └── pure exports → terminal/layout sizing and step-detail formatting
 
 src/status_badge.tsx
       └── import ← src/types.ts       (PanelStatus)
@@ -72,6 +83,7 @@ src/index.ts
       └── re-exports ← src/ListPanel.tsx
       └── re-exports ← src/DirectoryPanel.tsx
       └── re-exports ← src/StreamViewer.tsx
+      └── re-exports ← src/ErrorDetailPanel.tsx
       └── re-exports ← src/Chronometer.tsx
       └── re-exports ← src/status_badge.tsx
       └── re-exports ← src/status_chronometer.tsx
@@ -88,7 +100,7 @@ only.
 
 ## Build
 
-TypeScript compiles `src/**/*` and `helpers/**/*` to `dist/` via `tsc`:
+TypeScript compiles `src/**/*` to `dist/` via `tsc`:
 
 ```bash
 npm run build      # tsc → dist/
@@ -99,11 +111,16 @@ npm run typecheck  # tsc --noEmit (no output)
 
 | Setting | Value | Reason |
 |---------|-------|--------|
-| `rootDir` | `.` | Preserves `src/` and `helpers/` hierarchy under `dist/` |
+| `rootDir` | `.` | Preserves the `src/` hierarchy under `dist/` |
 | `outDir` | `dist` | Output root |
 | `module` | `ESNext` | ESM output |
 | `moduleResolution` | `Bundler` | Compatible with Ink/React consumer bundlers |
 | `declaration` | `true` | Emits `.d.ts` for library consumers |
+
+`src/helpers/reusable.ts` is compiled alongside the existing `src/helpers/index.ts`
+module. It stays separate because it preserves copied `ai_workflow.js`
+semantics for overlapping helper names instead of changing the established
+behaviour of `pajussara_tui_comp`'s current helper barrel.
 
 ## CDN delivery
 

@@ -528,7 +528,7 @@ import { foo } from './foo';            // ✗ in ESM
 
 ```ts
 // 1. Register mock BEFORE importing the module that depends on it
-jest.unstable_mockModule('./helpers/index.js', () => ({
+jest.unstable_mockModule('./src/helpers/index.js', () => ({
   helperFn: () => 'mocked value',
 }));
 

@@ -145,6 +145,31 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-04-12T16:04:48.908Z"
+    },
+    "src/Chronometer.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-29T22:29:59.094Z"
+    },
+    "src/DirectoryPanel.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-29T22:29:59.094Z"
+    },
+    "src/DirectoryTextBrowser.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-29T22:29:59.094Z"
+    },
+    "src/DirectoryTextBrowserWithStatusBar.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-29T22:29:59.094Z"
+    },
+    "src/ErrorDetailPanel.tsx": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-29T22:29:59.094Z"
     }
   }
 }

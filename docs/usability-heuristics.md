@@ -114,10 +114,10 @@ updates.
 > *Users should not have to wonder whether different words, situations, or actions mean the same
 > thing.*
 
-**Library support:** Status icons and colours are defined once in the shared `helpers` module and
-reused by every component. Adding a new component to the library means importing from
-`'../helpers'` rather than re-implementing icon or colour logic inline, ensuring all panels present
-the same visual language.
+**Library support:** Status icons and colours are defined once in the shared `src/helpers`
+module and reused by every component. Adding a new component to the library means importing from
+`'./helpers/index.js'` rather than re-implementing icon or colour logic inline, ensuring all
+panels present the same visual language.
 
 Keyboard navigation follows established TUI conventions: arrow keys (`↑`/`↓`) for users
 unfamiliar with terminal shortcuts, and vi-style keys (`k`/`j`) for keyboard-centric workflows.

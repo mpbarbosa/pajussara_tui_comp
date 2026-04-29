@@ -1,13 +1,14 @@
 {
   "version": 1,
   "partitionIndex": 1,
-  "totalPartitions": 4,
-  "filesHash": "62fa9642",
+  "totalPartitions": 5,
+  "filesHash": "9b1ce2bd",
   "partitionLabels": [
-    "demos",
     "src",
     "src (2)",
-    "scripts"
+    "src (3)",
+    "src/helpers",
+    "demos"
   ],
-  "updatedAt": "2026-04-12T16:04:48.909Z"
+  "updatedAt": "2026-04-29T22:29:59.096Z"
 }

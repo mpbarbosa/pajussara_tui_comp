@@ -152,6 +152,45 @@ A live AI token stream panel for Ink TUI applications.
 
 ---
 
+### ErrorDetailPanel
+
+A bordered error/details overlay for Ink TUI applications.
+
+**Exported as:** `ErrorDetailPanel` (primary)
+
+#### Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `error` | `ErrorDetailPanelError \| null` | ✓ | — | Failed-step error payload to render; `null` shows the empty-state panel |
+| `onClose` | `() => void` | ✓ | — | Callback fired when the user dismisses the panel |
+
+#### Acceptance criteria
+
+- **AC-01** Renders a red bordered panel with the failed step name and error
+  message when `error` is provided.
+- **AC-02** Falls back to `"(unknown)"` for the step name and `"Unknown error"`
+  for the message when those fields are blank.
+- **AC-03** Uses `truncateStackTrace(error.stack, 20)` so at most 20 stack lines
+  are rendered.
+- **AC-04** Omits the stack-trace block entirely when `error.stack` is `null` or
+  empty.
+- **AC-05** When `error` is `null`, renders the empty-state message
+  `"No error recorded."`.
+- **AC-06** Pressing `e`, `E`, or `Escape` fires `onClose`.
+- **AC-07** Always renders the close hint `"Press [e] or [Esc] to close"`.
+
+### ErrorDetailPanelError (data shape)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `stepId` | `string` | ✓ | Step identifier associated with the failure |
+| `stepName` | `string` | ✓ | Human-readable step label |
+| `message` | `string` | ✓ | Error message shown in the panel body |
+| `stack` | `string \| null` | ✓ | Raw stack trace string used for the optional stack block |
+
+---
+
 ### MermaidPanel
 
 A terminal Mermaid diagram renderer for Ink TUI applications.
@@ -202,6 +241,13 @@ Single-line shorthand (`graph TD; A-->B`) is **not** supported.
 
 ## Helpers
 
+The helper surface is split deliberately:
+
+- `src/helpers/index.ts` keeps the existing library-facing display helper contract
+  used by current components.
+- `src/helpers/reusable.ts` provides a broader internal reusable set copied from
+  `ai_workflow.js` and adapted to TypeScript.
+
 ### formatStepIcon
 
 Maps a status string to a terminal icon. Pure function.
@@ -214,6 +260,12 @@ Maps a status string to an Ink color name. Pure function.
 
 Formats milliseconds as a human-readable string. Pure function.
 
+### reusable helper module
+
+`src/helpers/reusable.ts` additionally provides timestamp formatting, progress-bar
+formatting, terminal sizing, log searching/truncation, stack-trace truncation,
+and step-detail formatting helpers for more complex TUI compositions.
+
 ---
 
 ## Roadmap — Minor Issues
@@ -224,7 +276,7 @@ Formats milliseconds as a human-readable string. Pure function.
 | ID | Source step | Description | File / Path | Priority | Status |
 |----|-------------|-------------|-------------|----------|--------|
 | RI-001 | step_05 | docs/ directory has no README | docs/README.md | Medium | done |
-| RI-002 | step_05 | helpers/ directory has no README | helpers/README.md | Low | done |
+| RI-002 | step_05 | helpers/ directory has no README | src/helpers/README.md | Low | done |
 | RI-003 | step_09 | package.json missing engines field | package.json | Low | done |
 | RI-004 | step_09 | package.json missing exports field | package.json | Low | done |
 | RI-005 | step_0b | CONTRIBUTING.md missing | CONTRIBUTING.md | Medium | done |
